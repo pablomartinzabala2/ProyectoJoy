@@ -80,10 +80,12 @@
     <Compile Include="Clases\cDetalleCompra.cs" />
     <Compile Include="Clases\cFunciones.cs" />
     <Compile Include="Clases\cImpresora.cs" />
+    <Compile Include="Clases\cJoya.cs" />
     <Compile Include="Clases\cJuguete.cs" />
     <Compile Include="Clases\cMarca.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\cRuta.cs" />
+    <Compile Include="Clases\cTipo.cs" />
     <Compile Include="Clases\cTipoOperacion.cs" />
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="DataSet1.Designer.cs">

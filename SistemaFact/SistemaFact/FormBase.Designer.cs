@@ -35,7 +35,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.Name = "FormBase";
             this.Load += new System.EventHandler(this.FormBase_Load);
             this.ResumeLayout(false);
