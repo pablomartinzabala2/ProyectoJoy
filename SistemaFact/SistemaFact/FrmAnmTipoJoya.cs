@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using SistemaFact.Clases;
 namespace SistemaFact
 {
-    public partial class FrmAbmMarca : FormBase 
+    public partial class FrmAnmTipoJoya : FormBase 
     {
         cFunciones fun;
-        public FrmAbmMarca()
+        public FrmAnmTipoJoya()
         {
             InitializeComponent();
         }
+
         private void Botonera(int Jugada)
         {
             switch (Jugada)
@@ -49,11 +50,18 @@ namespace SistemaFact
 
         }
 
-        private void FrmAbmMarca_Load(object sender, EventArgs e)
+        private void FrmAnmTipoJoya_Load(object sender, EventArgs e)
         {
             Botonera(1);
             Grupo.Enabled = false;
             fun = new cFunciones();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Botonera(2);
+            Grupo.Enabled = true;
+            fun.LimpiarGenerico(this);
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -64,12 +72,12 @@ namespace SistemaFact
                 return;
             }
             if (txtCodigo.Text == "")
-                fun.GuardarNuevoGenerico(this, "Marca");
+                fun.GuardarNuevoGenerico(this, "Tipo");
             else
             {
                 // if (txt_Ruta.Text != "")
                 //   txt_Ruta.Text = txt_Ruta.Text.Replace("\\", "\\\\");
-                fun.ModificarGenerico(this, "Marca", "CodMarca", txtCodigo.Text);
+                fun.ModificarGenerico(this, "Tipo", "CodTipo", txtCodigo.Text);
 
             }
             MessageBox.Show("Datos grabados correctamente");
@@ -77,21 +85,11 @@ namespace SistemaFact
             Botonera(1);
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            txtCodigo.Text = "";
-            txt_Nombre.Text = "";
-            Botonera(1);
-            Grupo.Enabled = false;
-            fun.LimpiarGenerico(this);
-            Botonera(1);
-        }
-
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             Principal.OpcionesdeBusqueda = "Nombre";
-            Principal.TablaPrincipal = "Marca";
-            Principal.OpcionesColumnasGrilla = "CodMarca;Nombre";
+            Principal.TablaPrincipal = "Tipo";
+            Principal.OpcionesColumnasGrilla = "CodTipo;Nombre";
             Principal.ColumnasVisibles = "0;1";
             Principal.ColumnasAncho = "0;580";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
@@ -105,51 +103,34 @@ namespace SistemaFact
             {
                 Botonera(3);
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
-               
-                fun.CargarControles(this, "Marca", "CodMarca", txtCodigo.Text);
-               
+
+                fun.CargarControles(this, "Tipo", "CodTipo", txtCodigo.Text);
+
             }
             Grupo.Enabled = false;
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            string msj = "Confirma eliminar la marca ";
-            var result = MessageBox.Show(msj, "Información",
-                                 MessageBoxButtons.YesNo,
-                                 MessageBoxIcon.Question);
 
-            // If the no button was pressed ...
-            if (result == DialogResult.No)
-            {
-                return;
-            }
-            try
-            {
-                fun.EliminarGenerico("Marca", "CodMarca", txtCodigo.Text);
-                fun.LimpiarGenerico(this);
-                Botonera(1);
-                MessageBox.Show("Datos borrados correctamente");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se puede eliminar la marca, debe tener asociado artículos");
-                return;
-            }
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            Botonera(2);
-            Grupo.Enabled = true;
+            txtCodigo.Text = "";
+            txt_Nombre.Text = "";
+            Botonera(1);
+            Grupo.Enabled = false;
             fun.LimpiarGenerico(this);
+            Botonera(1);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
             Botonera(2);
             Grupo.Enabled = true;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

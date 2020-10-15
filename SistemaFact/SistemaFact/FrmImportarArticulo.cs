@@ -91,10 +91,15 @@ namespace SistemaFact
             range = xlWorkSheet.UsedRange;
             rw = range.Rows.Count;
             cl = range.Columns.Count;
-            Int32? Codigo = null;
-            string Codigobarra = null;
-            Double? Precio = null;
+            string  Codigo = "";
+            Int32? Id = 0;
+            int Stock = 0;
+            Double PrecioVenta = 0;
             string Nombre = "";
+            string Tipo = "";
+            Int32 CodTipo = 0;
+            cTipo objTipo = new cTipo();
+            cJoya joya = new Clases.cJoya();
             Double? Costo = null;
             cArticulo Articulo = new Clases.cArticulo();
             for (rCnt = 2; rCnt <= rw; rCnt++)
@@ -106,32 +111,46 @@ namespace SistemaFact
                     {
                         case 1:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
-                                Codigo = (Int32)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                            else
-                                Codigo = null;
+                                Id = (Int32)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             break;
                         case 2:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
-                                Codigobarra = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                                Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             else
-                                Codigobarra = null;
+                                Nombre = null;
                             break;
                         case 3:
-                           Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            Tipo = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             break;
-                        case 10:
+                        case 5:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
-                                Costo  = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                            else
-                                Costo = null;
+                                Codigo = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             break;
-                                   
-                    }
-                   
-                    // str = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
-                    // MessageBox.Show(str);
+                        case 6:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Stock = (Int32)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Stock = 0;
+                            break;
+                        case 9:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                PrecioVenta = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                PrecioVenta = 0;
+                            break;   
+                    }                   
                 }
-                Articulo.InsertarArticulo(Codigo.ToString(), Codigobarra, Nombre, Costo);
+                Nombre = Nombre.Replace("'", "");
+                CodTipo = objTipo.GetCodxNombre(Nombre);
+                if (CodTipo ==-1)
+                {
+                    CodTipo = objTipo.Insertar(Nombre);
+                }
+                if (joya.Existexid (Convert.ToInt32 (Id))==false)
+                {
+                    joya.Insertar(Nombre, CodTipo, Convert.ToInt32(Id), Stock, PrecioVenta,Codigo);
+                }
+                
             }
             string msj = "Filas recorridos " + rCnt.ToString();
             MessageBox.Show(msj);

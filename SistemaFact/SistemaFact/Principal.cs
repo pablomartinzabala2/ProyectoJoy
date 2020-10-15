@@ -215,5 +215,11 @@ namespace SistemaFact
             FrmAbmMarca form = new SistemaFact.FrmAbmMarca();
             form.Show();
         }
+
+        private void categoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnmTipoJoya frm = new FrmAnmTipoJoya();
+            frm.Show();
+        }
     }
 }

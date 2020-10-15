@@ -1,6 +1,6 @@
 ﻿namespace SistemaFact
 {
-    partial class FrmAbmArticulocs
+    partial class FrmAnmTipoJoya
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmArticulocs));
-            this.Grupo = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_PrecioVenta = new System.Windows.Forms.TextBox();
-            this.txt_Codigo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txt_Stock = new System.Windows.Forms.TextBox();
-            this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnmTipoJoya));
             this.BarraBotones = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -48,103 +38,13 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.Grupo.SuspendLayout();
+            this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.BarraBotones.SuspendLayout();
+            this.Grupo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Grupo
-            // 
-            this.Grupo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.Grupo.Controls.Add(this.label2);
-            this.Grupo.Controls.Add(this.txt_PrecioVenta);
-            this.Grupo.Controls.Add(this.txt_Codigo);
-            this.Grupo.Controls.Add(this.label1);
-            this.Grupo.Controls.Add(this.txtCodigo);
-            this.Grupo.Controls.Add(this.txt_Stock);
-            this.Grupo.Controls.Add(this.txt_Nombre);
-            this.Grupo.Controls.Add(this.label6);
-            this.Grupo.Controls.Add(this.label4);
-            this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(5, 42);
-            this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(619, 323);
-            this.Grupo.TabIndex = 18;
-            this.Grupo.TabStop = false;
-            this.Grupo.Text = "Información del artículo";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 17);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Precio Venta";
-            // 
-            // txt_PrecioVenta
-            // 
-            this.txt_PrecioVenta.Location = new System.Drawing.Point(120, 118);
-            this.txt_PrecioVenta.Name = "txt_PrecioVenta";
-            this.txt_PrecioVenta.Size = new System.Drawing.Size(132, 23);
-            this.txt_PrecioVenta.TabIndex = 26;
-            // 
-            // txt_Codigo
-            // 
-            this.txt_Codigo.Location = new System.Drawing.Point(120, 89);
-            this.txt_Codigo.Name = "txt_Codigo";
-            this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
-            this.txt_Codigo.TabIndex = 25;
-            this.txt_Codigo.TextChanged += new System.EventHandler(this.txt_Codigo_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Código";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(448, 78);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(41, 23);
-            this.txtCodigo.TabIndex = 23;
-            this.txtCodigo.Visible = false;
-            // 
-            // txt_Stock
-            // 
-            this.txt_Stock.Location = new System.Drawing.Point(120, 60);
-            this.txt_Stock.Name = "txt_Stock";
-            this.txt_Stock.Size = new System.Drawing.Size(132, 23);
-            this.txt_Stock.TabIndex = 11;
-            this.txt_Stock.TextChanged += new System.EventHandler(this.txt_Stock_TextChanged);
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.Location = new System.Drawing.Point(120, 31);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(482, 23);
-            this.txt_Nombre.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 63);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 17);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Stock Inicial";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 17);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Descripción";
             // 
             // BarraBotones
             // 
@@ -160,10 +60,9 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(636, 39);
-            this.BarraBotones.TabIndex = 17;
+            this.BarraBotones.Size = new System.Drawing.Size(437, 39);
+            this.BarraBotones.TabIndex = 19;
             this.BarraBotones.Text = "toolStrip1";
-            this.BarraBotones.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.BarraBotones_ItemClicked);
             // 
             // btnNuevo
             // 
@@ -196,7 +95,6 @@
             this.btnEliminar.Size = new System.Drawing.Size(36, 36);
             this.btnEliminar.Text = "toolStripButton3";
             this.btnEliminar.ToolTipText = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAceptar
             // 
@@ -237,7 +135,6 @@
             this.btnIGregarColor.Size = new System.Drawing.Size(36, 36);
             this.btnIGregarColor.Text = "toolStripButton1";
             this.btnIGregarColor.ToolTipText = "Imprimir";
-            this.btnIGregarColor.Click += new System.EventHandler(this.btnIGregarColor_Click);
             // 
             // btnSalir
             // 
@@ -249,20 +146,58 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // FrmAbmArticulocs
+            // Grupo
+            // 
+            this.Grupo.Controls.Add(this.txt_Nombre);
+            this.Grupo.Controls.Add(this.label1);
+            this.Grupo.Controls.Add(this.txtCodigo);
+            this.Grupo.Location = new System.Drawing.Point(12, 57);
+            this.Grupo.Name = "Grupo";
+            this.Grupo.Size = new System.Drawing.Size(379, 131);
+            this.Grupo.TabIndex = 22;
+            this.Grupo.TabStop = false;
+            this.Grupo.Text = "Marca";
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(89, 38);
+            this.txt_Nombre.Multiline = true;
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(252, 20);
+            this.txt_Nombre.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(6, 82);
+            this.txtCodigo.Multiline = true;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.Visible = false;
+            // 
+            // FrmAnmTipoJoya
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 376);
+            this.ClientSize = new System.Drawing.Size(437, 246);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
-            this.Name = "FrmAbmArticulocs";
-            this.Text = "Formulario de Joyas";
-            this.Load += new System.EventHandler(this.FrmAbmArticulocs_Load);
-            this.Grupo.ResumeLayout(false);
-            this.Grupo.PerformLayout();
+            this.Name = "FrmAnmTipoJoya";
+            this.Text = "FrmAnmTipoJoya";
+            this.Load += new System.EventHandler(this.FrmAnmTipoJoya_Load);
             this.BarraBotones.ResumeLayout(false);
             this.BarraBotones.PerformLayout();
+            this.Grupo.ResumeLayout(false);
+            this.Grupo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,15 +214,9 @@
         private System.Windows.Forms.ToolStripButton btnAbrir;
         private System.Windows.Forms.ToolStripButton btnIGregarColor;
         private System.Windows.Forms.ToolStripButton btnSalir;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_Nombre;
-        private System.Windows.Forms.TextBox txt_Stock;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.GroupBox Grupo;
-        private System.Windows.Forms.TextBox txt_Codigo;
+        private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_PrecioVenta;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

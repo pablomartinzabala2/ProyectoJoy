@@ -74,13 +74,15 @@ namespace SistemaFact.Clases
 
         public static Int32 EjecutarEscalar(string Sql)
         {
+            Int32 Id = 0;
             Sql = Sql + "select SCOPE_IDENTITY()";
             SqlConnection con = new SqlConnection(cConexion.GetConexion());
             SqlCommand comand = new SqlCommand();
             comand.Connection = con;
             comand.CommandText = Sql;
-            return Convert.ToInt32(comand.ExecuteScalar());
-            
+            con.Open();
+            Id = Convert.ToInt32(comand.ExecuteScalar());
+            return Id;
         }
     }
         

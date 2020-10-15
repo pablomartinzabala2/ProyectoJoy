@@ -25,12 +25,12 @@ namespace SistemaFact.Clases
 
         }
 
-        public void Insertar (string Nombre)
+        public Int32  Insertar (string Nombre)
         {
             string sql = "insert into Tipo(Nombre)";
             sql = sql + " Values(" + "'" + Nombre + "'";
             sql = sql + ")";
-            cDb.Grabar(sql);
+           return cDb.EjecutarEscalar(sql);
         }
     }
 }

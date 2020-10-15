@@ -66,8 +66,7 @@ namespace SistemaFact
             Grupo.Enabled = true;
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LimpiarGenerico(this);
-            txtPorEfectivo.Text = "70";
-            txtPorTarjeta.Text = "100";
+          
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -106,33 +105,21 @@ namespace SistemaFact
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (txt_Costo.Text != "")
-                txt_Costo.Text = txt_Costo.Text.Replace(",", ".");
-            
-            if (txt_PrecioEfectivo.Text != "")
-                txt_PrecioEfectivo.Text = txt_PrecioEfectivo.Text.Replace(",", ".");
-             
-            if (txt_PrecioTarjeta.Text != "")
-                txt_PrecioTarjeta.Text = txt_PrecioTarjeta.Text.Replace(",", ".");
-
+          
             if (txt_Nombre.Text =="")
             {
                 Mensaje("Debe ingresar una descripción para continuar");
                 return;
             }
+
             if (txtCodigo.Text == "")
-                fun.GuardarNuevoGenerico(this, "Articulo");
+                fun.GuardarNuevoGenerico(this, "Joya");
             else
             {
-               // if (txt_Ruta.Text != "")
-                 //   txt_Ruta.Text = txt_Ruta.Text.Replace("\\", "\\\\");
-                fun.ModificarGenerico(this, "Articulo", "CodArticulo", txtCodigo.Text);
-                
+                fun.ModificarGenerico(this, "Joya", "CodJoya", txtCodigo.Text);
             }
                 
             Mensaje("Datos grabados correctamente");
-            txtPorEfectivo.Text = "";
-            txtPorTarjeta.Text = "";
             Botonera(1);
             fun.LimpiarGenerico(this);
             
@@ -153,11 +140,11 @@ namespace SistemaFact
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            Principal.OpcionesdeBusqueda = "Codigo;Nombre;CodigoBarra";
-            Principal.TablaPrincipal = "Articulo";
-            Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;Costo";
-            Principal.ColumnasVisibles = "0;1;1";
-            Principal.ColumnasAncho = "0;390;190";
+            Principal.OpcionesdeBusqueda = "Codigo;Nombre";
+            Principal.TablaPrincipal = "Joya";
+            Principal.OpcionesColumnasGrilla = "CodJoya;Nombre;Codigo;Stock";
+            Principal.ColumnasVisibles = "0;1;1;1";
+            Principal.ColumnasAncho = "0;380;100;100";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
@@ -199,23 +186,11 @@ namespace SistemaFact
                 Botonera(3);
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
                 cFunciones fun = new Clases.cFunciones();
-                fun.CargarControles(this, "Articulo","CodArticulo", txtCodigo.Text);
-                if (txt_PrecioEfectivo.Text !="")
+                fun.CargarControles(this, "Joya","CodJoya", txtCodigo.Text);
+                if (txt_PrecioVenta.Text !="")
                 {
-                    Double Efectivo = Convert.ToDouble(txt_PrecioEfectivo.Text.Replace(".", ","));
-                    txt_PrecioEfectivo.Text  = Math.Round(Efectivo, 0).ToString();
-                }
-
-                if (txt_Costo.Text != "")
-                {
-                    Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
-                    txt_Costo.Text = Math.Round(Costo, 0).ToString();
-                }
-
-                if (txt_PrecioTarjeta.Text != "")
-                {
-                    Double Efectivo = Convert.ToDouble(txt_PrecioTarjeta.Text.Replace(".", ","));
-                    txt_PrecioTarjeta.Text  = Math.Round(Efectivo, 0).ToString();
+                    Double PrecioVenta = Convert.ToDouble(txt_PrecioVenta.Text.Replace(".", ","));
+                    txt_PrecioVenta.Text  = Math.Round(PrecioVenta, 0).ToString();
                 }
 
             }
@@ -248,7 +223,7 @@ namespace SistemaFact
                     codigo = codigo + nro.ToString();
                 c++;
             }
-            txt_CodigoBarra.Text = codigo;
+        
             BarcodeLib.Barcode CodBar = new BarcodeLib.Barcode();
             //panel1.BackgroundImage = codigo.Encode(BarcodeLib.TYPE.CODE128, "12345678988877744521", Color.Black, Color.White, 300, 300);
             //ImagenCodigo.Image = CodBar.Encode(BarcodeLib.TYPE.CODE128, codigo, Color.Black, Color.White, 300, 300);
@@ -280,97 +255,11 @@ namespace SistemaFact
 
         }
 
-        private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
-        {
-            if (txt_CodigoBarra.Text.Length  >5)
-            {
-                string CodigoBarra = txt_CodigoBarra.Text;
-                cArticulo art = new cArticulo();
-                DataTable trdo = art.GetArticulo("", CodigoBarra,"");
-                if (trdo.Rows.Count >0)
-                {
-                    if (trdo.Rows[0]["CodArticulo"].ToString() != "")
-                    {
-                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
-                        txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
-                        txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
-                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
-                        txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
-                        txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-                        txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
-                    }
-                }
-                else
-                {/*
-                    txtCodigo.Text = "";
-                    txt_Nombre.Text = "";
-                    txt_Stock.Text = "";
-                    txt_Costo.Text = "";
-                    txt_PrecioEfectivo.Text = "";
-                    txt_PrecioTarjeta.Text = "";
-                    txt_Codigo.Text = "";*/
-                }
-                    
-            }
-            if (txt_PrecioEfectivo.Text != "")
-            {
-                Double Efectivo = Convert.ToDouble(txt_PrecioEfectivo.Text.Replace(".", ","));
-                txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
-            }
-
-            if (txt_PrecioTarjeta.Text != "")
-            {
-                Double Efectivo = Convert.ToDouble(txt_PrecioTarjeta.Text.Replace(".", ","));
-                txt_PrecioTarjeta.Text = Math.Round(Efectivo, 0).ToString();
-            }
-        }
+     
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
-            if(txt_Codigo.Text.Length <4)
-            {
-                return;
-            }
-            string Codigo = txt_Codigo.Text;
-            cArticulo art = new cArticulo();
-            DataTable trdo = art.GetArticulo("", "", Codigo);
-            if (trdo.Rows.Count > 0)
-            {
-                if (trdo.Rows[0]["CodArticulo"].ToString() != "")
-                {
-                    txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
-                    txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                    txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
-                    txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
-                    txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
-                    txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
-                    txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-                    txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
-                }
-            }
-            else
-            {/*
-                txt_Nombre.Text = "";
-                txt_CodigoBarra.Text = "";
-                txt_Stock.Text = "";
-                txtCodigo.Text = "";
-                txt_Costo.Text = "";
-                txt_PrecioEfectivo.Text = "";
-                txt_PrecioTarjeta.Text = "";*/
-            }
-            if (txt_PrecioEfectivo.Text != "")
-            {
-                Double Efectivo = Convert.ToDouble(txt_PrecioEfectivo.Text.Replace(".", ","));
-                txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
-            }
-
-            if (txt_PrecioTarjeta.Text != "")
-            {
-                Double Efectivo = Convert.ToDouble(txt_PrecioTarjeta.Text.Replace(".", ","));
-                txt_PrecioTarjeta.Text = Math.Round(Efectivo, 0).ToString();
-            }
-
+           
         }
 
         private void txt_Stock_TextChanged(object sender, EventArgs e)
@@ -390,66 +279,30 @@ namespace SistemaFact
 
         private void btnAplicarEfectivo_Click(object sender, EventArgs e)
         {
-            CalcularEfectivo();
+            //CalcularEfectivo();
            // txt_PrecioEfectivo.Text = (Math.Round(Efectivo, 0)).ToString();
         }
 
-        private void CalcularEfectivo()
-        {
-            if (txt_Costo.Text == "")
-            {
-                Mensaje("Debe ingresar un Costo");
-                return;
-            }
-            if (txtPorEfectivo.Text == "")
-            {
-                Mensaje("Debe ingresar un porcentaje");
-                return;
-            }
-            Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
-            Double Por = Convert.ToDouble(txtPorEfectivo.Text.Replace(".", ","));
-            Double Efectivo = Costo + Costo * (Por / 100);
-            Efectivo = Math.Round(Efectivo, 0);
-            txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
-        }
+     
         private void btnAplicarTarjeta_Click(object sender, EventArgs e)
         {
-            calculartarjeta();
+            
 
         }
 
-        private void calculartarjeta()
-        {
-            if (txt_Costo.Text == "")
-            {
-                Mensaje("Debe ingresar un Costo");
-                return;
-            }
-            if (txtPorTarjeta.Text == "")
-            {
-                Mensaje("Debe ingresar un porcentaje");
-                return;
-            }
-
-            Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
-            Double Por = Convert.ToDouble(txtPorTarjeta.Text.Replace(".", ","));
-            Double Tarjeta = Costo + Costo * (Por / 100);
-            Tarjeta = Math.Round(Tarjeta, 0);
-            txt_PrecioTarjeta.Text = Math.Round(Tarjeta, 0).ToString();
-        }
+    
 
         private void txtPorEfectivo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
-                CalcularEfectivo();
+               
             }
         }
 
         private void txtPorTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-                calculartarjeta();
+          
         }
     }
 }

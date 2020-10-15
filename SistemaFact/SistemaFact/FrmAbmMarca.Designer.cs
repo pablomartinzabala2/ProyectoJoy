@@ -122,6 +122,7 @@
             this.btnEditar.Size = new System.Drawing.Size(36, 36);
             this.btnEditar.Text = "toolStripButton2";
             this.btnEditar.ToolTipText = "Modificar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnEliminar
             // 

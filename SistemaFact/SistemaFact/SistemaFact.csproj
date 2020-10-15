@@ -171,6 +171,12 @@
     <Compile Include="FrmAltaBasica.Designer.cs">
       <DependentUpon>FrmAltaBasica.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAnmTipoJoya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAnmTipoJoya.Designer.cs">
+      <DependentUpon>FrmAnmTipoJoya.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaBasica.resx">
       <DependentUpon>FrmAltaBasica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAnmTipoJoya.resx">
+      <DependentUpon>FrmAnmTipoJoya.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBackUp.resx">
       <DependentUpon>FrmBackUp.cs</DependentUpon>
