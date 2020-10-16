@@ -33,5 +33,12 @@ namespace SistemaFact.Clases
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
         }
+
+        public DataTable GetCiudadxProvincia(Int32 CodProvincia)
+        {
+            string sql = "select * from Ciudad ";
+            sql = sql + " where CodProvincia=" + CodProvincia.ToString();
+            return cDb.GetDatatable(sql);
+        }
     }
 }

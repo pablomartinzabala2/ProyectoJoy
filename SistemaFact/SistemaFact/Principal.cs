@@ -221,5 +221,11 @@ namespace SistemaFact
             FrmAnmTipoJoya frm = new FrmAnmTipoJoya();
             frm.Show();
         }
+
+        private void crearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPresupuesto frm = new SistemaFact.FrmPresupuesto();
+            frm.Show();
+        }
     }
 }

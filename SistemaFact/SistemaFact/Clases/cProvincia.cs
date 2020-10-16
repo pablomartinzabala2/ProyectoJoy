@@ -32,5 +32,12 @@ namespace SistemaFact.Clases
             sql = sql + ")";
             return cDb.EjecutarEscalar(sql);
         }
+
+        public DataTable GetProvincias()
+        {
+            string sql = "select * from Provincia order by nombre";
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
     }
 }

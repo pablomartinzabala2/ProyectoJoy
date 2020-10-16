@@ -48,5 +48,15 @@ namespace SistemaFact.Clases
             return op;
 
         }
+
+        public DataTable GetVendedorxDni(string NroDocumento)
+        {
+            string sql = "select * ";
+            sql = sql + ",(select c.CodProvincia from Ciudad c where c.CodCiudad=v.CodCiudad) as CodProvincia";
+            sql = sql + " from vendedor v";
+            sql = sql + " where NroDocumento=" + Texto(NroDocumento);
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
     }
 }
