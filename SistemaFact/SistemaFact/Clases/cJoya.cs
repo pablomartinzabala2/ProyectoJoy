@@ -60,5 +60,14 @@ namespace SistemaFact.Clases
             sql = sql + " order by j.Nombre";
             return cDb.GetDatatable(sql);
         }
+
+        public DataTable GetJoyaxCodigo(string Codigo)
+        {
+            string sql = "select j.*";
+            sql = sql + ",(select t.Nombre from Tipo t where t.CodTipo = j.CodTipo) as Tipo ";
+            sql = sql + " from Joya j";
+            sql = sql + " where Codigo=" + "'" + Codigo + "'";
+            return cDb.GetDatatable(sql);
+        }
     }
 }

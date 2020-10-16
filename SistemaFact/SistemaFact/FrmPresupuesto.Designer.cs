@@ -47,8 +47,10 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtCodJoya = new System.Windows.Forms.TextBox();
             this.btnLimpiarArticulo = new System.Windows.Forms.Button();
-            this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
             this.txtPordescuento = new System.Windows.Forms.TextBox();
@@ -71,12 +73,12 @@
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txt_Stock = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtNombreJoya = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -251,8 +253,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNombreJoya);
+            this.groupBox1.Controls.Add(this.cmbTipo);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.txtCodJoya);
             this.groupBox1.Controls.Add(this.btnLimpiarArticulo);
-            this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtTotalConDescuento);
             this.groupBox1.Controls.Add(this.txtPordescuento);
@@ -275,10 +280,9 @@
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.txt_Codigo);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Controls.Add(this.txt_Stock);
+            this.groupBox1.Controls.Add(this.txtStock);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -289,6 +293,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
             // 
+            // cmbTipo
+            // 
+            this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Location = new System.Drawing.Point(305, 33);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(184, 24);
+            this.cmbTipo.TabIndex = 100;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(234, 36);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 17);
+            this.label15.TabIndex = 99;
+            this.label15.Text = "Categoría";
+            // 
+            // txtCodJoya
+            // 
+            this.txtCodJoya.Location = new System.Drawing.Point(613, 30);
+            this.txtCodJoya.Name = "txtCodJoya";
+            this.txtCodJoya.Size = new System.Drawing.Size(44, 23);
+            this.txtCodJoya.TabIndex = 98;
+            this.txtCodJoya.Visible = false;
+            // 
             // btnLimpiarArticulo
             // 
             this.btnLimpiarArticulo.Image = global::SistemaFact.Properties.Resources.cancel;
@@ -297,14 +327,6 @@
             this.btnLimpiarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnLimpiarArticulo.TabIndex = 97;
             this.btnLimpiarArticulo.UseVisualStyleBackColor = true;
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.FormattingEnabled = true;
-            this.txt_Nombre.Location = new System.Drawing.Point(93, 62);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(502, 24);
-            this.txt_Nombre.TabIndex = 96;
             // 
             // label14
             // 
@@ -499,17 +521,10 @@
             this.button2.TabIndex = 51;
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // txt_Codigo
-            // 
-            this.txt_Codigo.Location = new System.Drawing.Point(93, 33);
-            this.txt_Codigo.Name = "txt_Codigo";
-            this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
-            this.txt_Codigo.TabIndex = 25;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 33);
+            this.label6.Location = new System.Drawing.Point(6, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 17);
             this.label6.TabIndex = 24;
@@ -517,18 +532,18 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(669, 30);
+            this.txtCodigo.Location = new System.Drawing.Point(92, 36);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(41, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(136, 23);
             this.txtCodigo.TabIndex = 23;
-            this.txtCodigo.Visible = false;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
-            // txt_Stock
+            // txtStock
             // 
-            this.txt_Stock.Location = new System.Drawing.Point(93, 91);
-            this.txt_Stock.Name = "txt_Stock";
-            this.txt_Stock.Size = new System.Drawing.Size(74, 23);
-            this.txt_Stock.TabIndex = 11;
+            this.txtStock.Location = new System.Drawing.Point(93, 91);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(74, 23);
+            this.txtStock.TabIndex = 11;
             // 
             // label9
             // 
@@ -547,6 +562,13 @@
             this.label10.Size = new System.Drawing.Size(82, 17);
             this.label10.TabIndex = 3;
             this.label10.Text = "Descripción";
+            // 
+            // txtNombreJoya
+            // 
+            this.txtNombreJoya.Location = new System.Drawing.Point(92, 65);
+            this.txtNombreJoya.Name = "txtNombreJoya";
+            this.txtNombreJoya.Size = new System.Drawing.Size(405, 23);
+            this.txtNombreJoya.TabIndex = 101;
             // 
             // FrmPresupuesto
             // 
@@ -588,7 +610,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLimpiarArticulo;
-        private System.Windows.Forms.ComboBox txt_Nombre;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtTotalConDescuento;
         private System.Windows.Forms.TextBox txtPordescuento;
@@ -611,11 +632,14 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.TextBox txt_Stock;
+        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtCodJoya;
+        private System.Windows.Forms.ComboBox cmbTipo;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtNombreJoya;
     }
 }

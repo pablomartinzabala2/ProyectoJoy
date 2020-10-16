@@ -32,5 +32,11 @@ namespace SistemaFact.Clases
             sql = sql + ")";
            return cDb.EjecutarEscalar(sql);
         }
+
+        public DataTable GetTipos()
+        {
+            string sql = "select * from Tipo";
+            return cDb.GetDatatable(sql);
+        }
     }
 }

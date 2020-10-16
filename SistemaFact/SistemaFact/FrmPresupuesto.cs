@@ -27,6 +27,7 @@ namespace SistemaFact
         {
             fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbProvincia, "Provincia","Nombre","CodProvincia");
+            fun.LlenarCombo(cmbTipo ,"Tipo","Nombre","CodTipo");
         }
 
         private void cmbProvincia_RightToLeftChanged(object sender, EventArgs e)
@@ -98,6 +99,46 @@ namespace SistemaFact
                     cmbCiudad.SelectedIndex = 0;
                 txtTelefono.Text = "";
                 txtDireccion.Text = "";
+            }
+        }
+
+        private void txt_Codigo_TabStopChanged(object sender, EventArgs e)
+        {   
+          
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            string Codigo = txtCodigo.Text;
+            int b = 0;
+            if (Codigo.Length > 3)
+            {
+                cJoya joya = new cJoya();
+                DataTable trdo = joya.GetJoyaxCodigo(Codigo);
+                if (trdo.Rows.Count > 0)
+                {
+                    if (trdo.Rows[0]["CodJoya"].ToString() != "")
+                    {
+                        b = 1;  
+                        txtCodJoya.Text = trdo.Rows[0]["CodJoya"].ToString();
+                        txtNombreJoya.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txtStock.Text = trdo.Rows[0]["Stock"].ToString();
+
+                        if (trdo.Rows[0]["CodTipo"].ToString() != "")
+                        {
+                            cmbTipo.SelectedValue = trdo.Rows[0]["CodTipo"].ToString();
+                        }
+
+                    }
+                }
+            }
+            if (b == 0)
+            {
+                txtCodJoya.Text = "";
+                txtNombreJoya.Text = "";
+                txtStock.Text = "";
+                if (cmbTipo.Items.Count >0)
+                    cmbTipo.SelectedIndex = 0;
             }
         }
     }
