@@ -55,7 +55,10 @@ namespace SistemaFact
                 txt_Ruta.Text = ruta;
                 button1.Enabled = false;
                 button1.Text = "Procesando";
-                Leer();
+                if (RadioJoyas.Checked == true)
+                    Leer();
+                if (radioVendedoras.Checked == true)
+                    LeerVendedores();
                 button1.Enabled = true;
                 button1.Text = "Procesado";
             }
@@ -120,11 +123,18 @@ namespace SistemaFact
                                 Nombre = null;
                             break;
                         case 3:
-                            Tipo = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            Tipo= (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                           // string[] vec = tip.Split();
+                           // Tipo = vec[0];  
                             break;
                         case 5:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
-                                Codigo = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            { //Codigo
+                                 Codigo = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                               // string[] vec = Cod.Split(); ;
+                                //Codigo = vec[0]; 
+                            }
+                                
                             break;
                         case 6:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
@@ -141,10 +151,11 @@ namespace SistemaFact
                     }                   
                 }
                 Nombre = Nombre.Replace("'", "");
-                CodTipo = objTipo.GetCodxNombre(Nombre);
+                CodTipo = objTipo.GetCodxNombre(Tipo);
                 if (CodTipo ==-1)
                 {
-                    CodTipo = objTipo.Insertar(Nombre);
+                    if (Tipo !="")
+                        CodTipo = objTipo.Insertar(Tipo);
                 }
                 if (joya.Existexid (Convert.ToInt32 (Id))==false)
                 {
@@ -228,6 +239,146 @@ namespace SistemaFact
 
         private void txt_Ruta_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void LeerVendedores()
+        {
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            Excel.Range range;
+
+            string str = "";
+            int rCnt = 0;
+            int cCnt = 0;
+            int rw = 0;
+            int cl = 0;
+
+            string Ruta = txt_Ruta.Text;
+            // string Ruta = "C:\\SISTEMA\\LISTA.xlsx";
+            //  string Ruta = "D:\\AG\\LISTA.xlsx";
+            xlApp = new Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Open(Ruta, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            range = xlWorkSheet.UsedRange;
+            rw = range.Rows.Count;
+            cl = range.Columns.Count;
+            string NroDocumento = "";
+            string Nombre = "";
+            string Apellido = "";
+            Double Telefono = 0;
+            string Direccion = "";
+            string Ciudad = "";
+            string Provincia = "";
+            Int32 CodProvincia = 0;
+            Int32 CodCiudad = 0;
+            cProvincia objProvincia = new cProvincia();
+            cCiudad objCiudad = new cCiudad();
+            cVendedor vend = new cVendedor();
+
+            string Codigo = "";
+            Int32? Id = 0;
+          
+         
+            cArticulo Articulo = new Clases.cArticulo();
+            for (rCnt = 2; rCnt <= rw; rCnt++)
+            {
+                for (cCnt = 1; cCnt <= cl; cCnt++)
+                {
+                    txtProceso.Text = rCnt.ToString();
+                    switch (cCnt)
+                    {
+                        case 1:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Id = (Int32)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            break;
+                        case 2:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null )
+                            {
+                                 NroDocumento = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                                // NroDocumento = NroDocumento.Replace (".","");
+                            }
+
+                            else
+                                NroDocumento = "";
+                            break;
+                        case 3:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Nombre = "";
+                            // string[] vec = tip.Split();
+                            // Tipo = vec[0];  
+                            break;
+                        case 4:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                            { //Codigo
+                                Apellido = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                                // string[] vec = Cod.Split(); ;
+                                //Codigo = vec[0]; 
+                            }
+                            else
+                                Apellido = "";
+
+                            break;
+                      
+                        case 8:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Direccion = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Direccion = "";
+                            break;
+                        case 9:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Ciudad = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Ciudad = "";
+                            break;
+                        case 10:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Provincia  = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Provincia  = "";
+                            break;
+                        case 22:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Telefono = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Telefono = 0;
+                            break;
+
+                    }
+                }
+                Nombre = Nombre.Replace("'", "");
+                CodProvincia = objProvincia.GetCodxNombre(Provincia);
+                if (CodProvincia == -1)
+                {
+                    if (Provincia != "")
+                        CodProvincia = objProvincia.Insertar(Provincia);
+                }
+                CodCiudad = objCiudad.GetCodxNombre(Ciudad);
+                if (CodCiudad == -1)
+                {
+                    if (Ciudad.Trim () != "")
+                        CodCiudad = objCiudad.Insertar(Ciudad, CodProvincia);
+                }
+                cVendedor ven = new cVendedor();
+                if (ven.Existe (NroDocumento) == false)
+                {
+                    ven.Insertar(NroDocumento, Apellido, Nombre, Telefono.ToString (), CodCiudad, Direccion);
+                }
+                
+            }
+            string msj = "Filas recorridos " + rCnt.ToString();
+            MessageBox.Show(msj);
+            xlWorkBook.Close(true, null, null);
+            xlApp.Quit();
+
+            // Marshal.ReleaseComObject(xlWorkSheet);
+            // Marshal.ReleaseComObject(xlWorkBook);
+            //  Marshal.ReleaseComObject(xlApp);
 
         }
     }

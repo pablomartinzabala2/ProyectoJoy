@@ -95,7 +95,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1071, 25);
             this.label3.TabIndex = 59;
-            this.label3.Text = "Listado de Artículos";
+            this.label3.Text = "Listado de Joyas";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtDescripcion
@@ -139,7 +139,7 @@
             this.ClientSize = new System.Drawing.Size(1107, 538);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmListadoArticulo";
-            this.Text = "Listado de artículos";
+            this.Text = "Listado de Joyas";
             this.Load += new System.EventHandler(this.FrmListadoArticulo_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmListadoArticulo_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmListadoArticulo_KeyPress);

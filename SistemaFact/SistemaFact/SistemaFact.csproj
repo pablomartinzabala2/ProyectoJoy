@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\cArticulo.cs" />
+    <Compile Include="Clases\cCiudad.cs" />
     <Compile Include="Clases\cCliente.cs" />
     <Compile Include="Clases\cCodigoBarra.cs" />
     <Compile Include="Clases\cCompra.cs" />
@@ -84,9 +85,11 @@
     <Compile Include="Clases\cJuguete.cs" />
     <Compile Include="Clases\cMarca.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
+    <Compile Include="Clases\cProvincia.cs" />
     <Compile Include="Clases\cRuta.cs" />
     <Compile Include="Clases\cTipo.cs" />
     <Compile Include="Clases\cTipoOperacion.cs" />
+    <Compile Include="Clases\cVendedor.cs" />
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
