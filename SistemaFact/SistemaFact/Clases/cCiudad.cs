@@ -38,6 +38,7 @@ namespace SistemaFact.Clases
         {
             string sql = "select * from Ciudad ";
             sql = sql + " where CodProvincia=" + CodProvincia.ToString();
+            sql = sql + " order by Nombre";
             return cDb.GetDatatable(sql);
         }
     }

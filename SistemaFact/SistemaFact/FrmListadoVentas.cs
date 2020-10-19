@@ -58,9 +58,11 @@ namespace SistemaFact
                 Mensaje("Debe seleccionar un registro");
                 return;
             }
+            /*
             Principal.CodigoPrincipalAbm = Grilla.CurrentRow.Cells[0].Value.ToString();
             FrmVenta frm = new FrmVenta();
             frm.ShowDialog();
+            */
         }
     }
 }

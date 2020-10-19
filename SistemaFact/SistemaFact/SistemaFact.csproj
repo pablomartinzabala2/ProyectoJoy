@@ -264,12 +264,6 @@
     <Compile Include="FrmReporteCristal.Designer.cs">
       <DependentUpon>FrmReporteCristal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmVenta.Designer.cs">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmVentaJuguetes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,9 +352,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCristal.resx">
       <DependentUpon>FrmReporteCristal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmVenta.resx">
-      <DependentUpon>FrmVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVentaJuguetes.resx">
       <DependentUpon>FrmVentaJuguetes.cs</DependentUpon>

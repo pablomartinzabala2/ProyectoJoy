@@ -158,11 +158,12 @@ namespace SistemaFact
         }
 
         private void registrarToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
+        { /*
             Principal.CodigoPrincipalAbm = null;
             FrmVenta frm = new SistemaFact.FrmVenta();
             frm.MdiParent = this;
             frm.Show();
+            */
         }
 
         private void consultarToolStripMenuItem_Click(object sender, EventArgs e)

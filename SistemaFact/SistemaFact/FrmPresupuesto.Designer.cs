@@ -30,26 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresupuesto));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.txtNombreJoya = new System.Windows.Forms.TextBox();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCodJoya = new System.Windows.Forms.TextBox();
             this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
-            this.txtPordescuento = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtTotalDescuento = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.chkDescuento = new System.Windows.Forms.CheckBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.txtCupon = new System.Windows.Forms.TextBox();
-            this.lblCupon = new System.Windows.Forms.Label();
-            this.lblTarjeta = new System.Windows.Forms.Label();
-            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
             this.btnBuscarArticulo = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -79,6 +71,7 @@
             this.txtCodVendedor = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
@@ -86,26 +79,18 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.txtNombreJoya);
             this.groupBox1.Controls.Add(this.cmbTipo);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.txtCodJoya);
             this.groupBox1.Controls.Add(this.btnLimpiarArticulo);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtTotalConDescuento);
-            this.groupBox1.Controls.Add(this.txtPordescuento);
-            this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtTotalDescuento);
+            this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.chkDescuento);
             this.groupBox1.Controls.Add(this.txtDescuento);
-            this.groupBox1.Controls.Add(this.txtCupon);
-            this.groupBox1.Controls.Add(this.lblCupon);
-            this.groupBox1.Controls.Add(this.lblTarjeta);
-            this.groupBox1.Controls.Add(this.CmbTarjeta);
             this.groupBox1.Controls.Add(this.btnBuscarArticulo);
-            this.groupBox1.Controls.Add(this.txtTotal);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.txtPrecio);
@@ -121,10 +106,28 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 182);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(751, 383);
+            this.groupBox1.Size = new System.Drawing.Size(751, 353);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(513, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 103;
+            this.label1.Text = "Fecha";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(565, 65);
+            this.txtFecha.Mask = "00/00/0000";
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(73, 23);
+            this.txtFecha.TabIndex = 102;
+            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // txtNombreJoya
             // 
@@ -171,50 +174,18 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(610, 350);
+            this.label14.Location = new System.Drawing.Point(617, 323);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 17);
             this.label14.TabIndex = 95;
             this.label14.Text = "Total";
             // 
-            // txtTotalConDescuento
+            // txtTotal
             // 
-            this.txtTotalConDescuento.Location = new System.Drawing.Point(669, 347);
-            this.txtTotalConDescuento.Name = "txtTotalConDescuento";
-            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 23);
-            this.txtTotalConDescuento.TabIndex = 94;
-            // 
-            // txtPordescuento
-            // 
-            this.txtPordescuento.Location = new System.Drawing.Point(529, 320);
-            this.txtPordescuento.Name = "txtPordescuento";
-            this.txtPordescuento.Size = new System.Drawing.Size(69, 23);
-            this.txtPordescuento.TabIndex = 93;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(443, 350);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(76, 17);
-            this.label13.TabIndex = 92;
-            this.label13.Text = "Descuento";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(431, 320);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(92, 17);
-            this.label11.TabIndex = 91;
-            this.label11.Text = "% Descuento";
-            // 
-            // txtTotalDescuento
-            // 
-            this.txtTotalDescuento.Location = new System.Drawing.Point(529, 350);
-            this.txtTotalDescuento.Name = "txtTotalDescuento";
-            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 23);
-            this.txtTotalDescuento.TabIndex = 90;
+            this.txtTotal.Location = new System.Drawing.Point(669, 317);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(69, 23);
+            this.txtTotal.TabIndex = 94;
             // 
             // chkDescuento
             // 
@@ -233,45 +204,6 @@
             this.txtDescuento.Size = new System.Drawing.Size(79, 23);
             this.txtDescuento.TabIndex = 88;
             // 
-            // txtCupon
-            // 
-            this.txtCupon.Location = new System.Drawing.Point(305, 317);
-            this.txtCupon.Name = "txtCupon";
-            this.txtCupon.Size = new System.Drawing.Size(120, 23);
-            this.txtCupon.TabIndex = 86;
-            this.txtCupon.Visible = false;
-            // 
-            // lblCupon
-            // 
-            this.lblCupon.AutoSize = true;
-            this.lblCupon.Location = new System.Drawing.Point(243, 323);
-            this.lblCupon.Name = "lblCupon";
-            this.lblCupon.Size = new System.Drawing.Size(49, 17);
-            this.lblCupon.TabIndex = 85;
-            this.lblCupon.Text = "Cupon";
-            this.lblCupon.Visible = false;
-            // 
-            // lblTarjeta
-            // 
-            this.lblTarjeta.AutoSize = true;
-            this.lblTarjeta.Location = new System.Drawing.Point(3, 320);
-            this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblTarjeta.Size = new System.Drawing.Size(53, 17);
-            this.lblTarjeta.TabIndex = 84;
-            this.lblTarjeta.Text = "Tarjeta";
-            this.lblTarjeta.Visible = false;
-            // 
-            // CmbTarjeta
-            // 
-            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTarjeta.FormattingEnabled = true;
-            this.CmbTarjeta.Location = new System.Drawing.Point(59, 317);
-            this.CmbTarjeta.Name = "CmbTarjeta";
-            this.CmbTarjeta.Size = new System.Drawing.Size(178, 24);
-            this.CmbTarjeta.TabIndex = 83;
-            this.CmbTarjeta.Visible = false;
-            // 
             // btnBuscarArticulo
             // 
             this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
@@ -281,22 +213,6 @@
             this.btnBuscarArticulo.TabIndex = 63;
             this.btnBuscarArticulo.UseVisualStyleBackColor = true;
             // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(669, 318);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(69, 23);
-            this.txtTotal.TabIndex = 56;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(604, 323);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Subtotal";
-            // 
             // btnEliminar
             // 
             this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
@@ -305,6 +221,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Grilla
             // 
@@ -360,6 +277,7 @@
             this.button2.Size = new System.Drawing.Size(40, 28);
             this.button2.TabIndex = 51;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -570,11 +488,22 @@
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
             // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(673, 554);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 37);
+            this.btnGrabar.TabIndex = 20;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
             // FrmPresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 534);
+            this.ClientSize = new System.Drawing.Size(771, 603);
+            this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmPresupuesto";
@@ -611,20 +540,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLimpiarArticulo;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtTotalConDescuento;
-        private System.Windows.Forms.TextBox txtPordescuento;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtTotalDescuento;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.CheckBox chkDescuento;
         private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.TextBox txtCupon;
-        private System.Windows.Forms.Label lblCupon;
-        private System.Windows.Forms.Label lblTarjeta;
-        private System.Windows.Forms.ComboBox CmbTarjeta;
         private System.Windows.Forms.Button btnBuscarArticulo;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.TextBox txtPrecio;
@@ -641,5 +560,8 @@
         private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtNombreJoya;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox txtFecha;
     }
 }

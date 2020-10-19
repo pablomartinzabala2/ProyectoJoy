@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 namespace SistemaFact.Clases
 {
     public  class cFunciones
@@ -658,6 +660,13 @@ namespace SistemaFact.Clases
                 i++;
 
             }
+        }
+
+        public void EstiloBotones(Button btn)
+        {
+            btn.BackColor = System.Drawing.Color.Gray;
+            btn.ForeColor = System.Drawing.Color.White;
+            btn.Font = new Font(btn.Font, FontStyle.Bold);
         }
     }
 }

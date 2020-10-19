@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 namespace SistemaFact.Clases
 {
     public class cVendedor
@@ -57,6 +58,20 @@ namespace SistemaFact.Clases
             sql = sql + " where NroDocumento=" + Texto(NroDocumento);
             DataTable trdo = cDb.GetDatatable(sql);
             return trdo;
+        }
+
+        public Int32 InsertarVendedorTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, string Telefono, string NroDocumento, string Direccion)
+        {
+            string sql = "Insert into Vendedor";
+            sql = sql + "(Nombre,Apellido,Telefono,NroDocumento,Direccion)";
+            sql = sql + " values (";
+            sql = sql + "'" + Nombre + "'";
+            sql = sql + "," + "'" + Apellido + "'";
+            sql = sql + "," + "'" + Telefono + "'";
+            sql = sql + "," + "'" + NroDocumento + "'";
+            sql = sql + "," + "'" + Direccion + "'";
+            sql = sql + ")";
+            return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
     }
 }
