@@ -71,8 +71,8 @@ namespace SistemaFact
                     {
                         b = 1;
                         txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
-                        txtNombre.Text = trdo.Rows[0]["CodVendedor"].ToString();
-                        txtApellido.Text = trdo.Rows[0]["CodVendedor"].ToString();
+                        txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                         txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
                         txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
 
@@ -181,6 +181,7 @@ namespace SistemaFact
             txtTotal.Text = Total.ToString();
             txtCodigo.Text = "";
             txtCodJoya.Text = "";
+            txtPrecio.Text = "";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -209,9 +210,33 @@ namespace SistemaFact
             string Nombre = "", Apellido = "";
             string NroDocumento = "", Telefono = "";
             string Direccion = "";
+            Int32? CodCiudad = null;
             cVendedor vendedor = new cVendedor();
 
-          
+            Nombre = txtNombre.Text;
+            Apellido = txtApellido.Text;
+            Telefono = txtTelefono.Text;
+            NroDocumento = txtNroDocumento.Text;
+            Direccion = txtDireccion.Text;
+            string Ciudad = "", Provincia = "";
+            string DomicilioCompleto = "";
+            if (cmbCiudad.SelectedIndex > 0)
+            {
+                CodCiudad = Convert.ToInt32(cmbCiudad.SelectedValue);
+                Ciudad = cmbCiudad.Text;
+            }
+            if (cmbProvincia.SelectedIndex >0)
+            {
+                Provincia = cmbProvincia.Text; 
+            }
+
+            if (Direccion  != "")
+                DomicilioCompleto = Direccion;
+            if (Ciudad != "")
+                DomicilioCompleto = DomicilioCompleto + " " + Ciudad;
+            if (Provincia != "")
+                DomicilioCompleto = DomicilioCompleto + " " + Provincia;
+
             Int32 CodPresupuesto = 0;
             Int32 CodJoya = 0;
             Double Precio = 0;
@@ -227,7 +252,12 @@ namespace SistemaFact
             {
                if (txtCodVendedor.Text =="")
                 {
-                    CodVendedor = (Int32) vendedor.InsertarVendedorTran(con, Transaccion, Apellido, Nombre, Telefono, NroDocumento, Direccion);
+                    CodVendedor = (Int32)vendedor.InsertarVendedorTran(con, Transaccion, Apellido, Nombre, Telefono, NroDocumento, Direccion, CodCiudad, DomicilioCompleto);
+                }
+               else
+                {
+                    CodVendedor = Convert.ToInt32(txtCodVendedor.Text);
+                    vendedor.ActualizarVendedor(con, Transaccion, Convert.ToInt32(CodVendedor), Apellido, Nombre, Telefono, NroDocumento, Direccion, CodCiudad, DomicilioCompleto);
                 }
                 
               
@@ -236,8 +266,8 @@ namespace SistemaFact
                     , CodVendedor);
 
                 Principal.CodigoSenia = CodPresupuesto.ToString();
-              //  string NroPresupuesto = "0001-" + GetNroPresupueto(CodPresupuesto.ToString());
-               // pre.ActualizarNroPresupuesto(con, Transaccion, CodPresupuesto, NroPresupuesto);
+                string NroPresupuesto =  GetNroPresupueto(CodPresupuesto.ToString());
+                pre.ActualizarNroPresupuesto(con, Transaccion, CodPresupuesto, NroPresupuesto);
                 for (int i = 0; i < tbDetalle.Rows.Count; i++)
                 {
                     CodJoya = Convert.ToInt32(tbDetalle.Rows[i]["CodJoya"].ToString());
@@ -264,6 +294,37 @@ namespace SistemaFact
                 Mensaje(exa.Message);
 
             }
+        }
+
+        public string GetNroPresupueto(string CodPresupuesto)
+        {
+            string Numero = "";
+            int Can = CodPresupuesto.Length;
+            switch (Can)
+            {
+                case 1:
+                    Numero = "0000000" + CodPresupuesto.ToString();
+                    break;
+                case 2:
+                    Numero = "000000" + CodPresupuesto.ToString();
+                    break;
+                case 3:
+                    Numero = "00000" + CodPresupuesto.ToString();
+                    break;
+                case 4:
+                    Numero = "0000" + CodPresupuesto.ToString();
+                    break;
+                case 5:
+                    Numero = "000" + CodPresupuesto.ToString();
+                    break;
+                case 6:
+                    Numero = "00" + CodPresupuesto.ToString();
+                    break;
+                case 7:
+                    Numero = "0" + CodPresupuesto.ToString();
+                    break;
+            }
+            return Numero;
         }
 
         private void Limpiar ()
@@ -302,6 +363,15 @@ namespace SistemaFact
                 return;
             }
             GrabarPresupuesto();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+           // cVendedor ven = new cVendedor();
+          //  ven.ActDomicilio();
+            Principal.CodigoPrincipalAbm = "6";
+            FrmVerReportePresupuesto frm = new FrmVerReportePresupuesto();
+            frm.Show();
         }
     }
 }

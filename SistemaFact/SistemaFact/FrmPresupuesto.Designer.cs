@@ -428,6 +428,7 @@
             this.btnBuscar.TabIndex = 45;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label5
             // 

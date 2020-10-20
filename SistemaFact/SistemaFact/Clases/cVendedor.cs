@@ -60,18 +60,76 @@ namespace SistemaFact.Clases
             return trdo;
         }
 
-        public Int32 InsertarVendedorTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, string Telefono, string NroDocumento, string Direccion)
+        public Int32 InsertarVendedorTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, 
+            string Telefono, string NroDocumento, string Direccion, Int32? CodCiudad , string DomicilioCompleto)
         {
+            
             string sql = "Insert into Vendedor";
-            sql = sql + "(Nombre,Apellido,Telefono,NroDocumento,Direccion)";
+            sql = sql + "(Nombre,Apellido,Telefono,NroDocumento,Direccion,CodCiudad,DomicilioCompleto)";
             sql = sql + " values (";
             sql = sql + "'" + Nombre + "'";
             sql = sql + "," + "'" + Apellido + "'";
             sql = sql + "," + "'" + Telefono + "'";
             sql = sql + "," + "'" + NroDocumento + "'";
             sql = sql + "," + "'" + Direccion + "'";
+            if (CodCiudad != null)
+                sql = sql + "," + CodCiudad.ToString();
+            else
+                sql = sql + ",null";
+            sql = sql + "," + Texto(DomicilioCompleto);
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
+
+        public void ActualizarVendedor(SqlConnection con, SqlTransaction Transaccion,Int32 CodVendedor, string Apellido, string Nombre,
+            string Telefono, string NroDocumento, string Direccion, Int32? CodCiudad,string  DomicilioCompleto)
+        {
+            string sql = "Update Vendedor ";
+            sql = sql + " set Apellido=" + Texto(Apellido);
+            sql = sql + ",Nombre=" + Texto(Nombre);
+            sql = sql + ",NroDocumento=" + Texto(NroDocumento);
+            sql = sql + ",Direccion=" + Texto(Direccion);
+            sql = sql + ",Telefono=" + Texto(Telefono);
+            if (CodCiudad != null)
+                sql = sql + ",CodCiudad=" + CodCiudad.ToString();
+            else
+                sql = sql + ",CodCiudad=null";
+            sql = sql + ",DomicilioCompleto=" + Texto(DomicilioCompleto);
+            sql = sql + " where CodVendedor=" + CodVendedor.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+
+        public void ActDomicilio()
+        {
+            string sql = "select v.*,c.nombre as Ciudad,p.Nombre as Provincia ";
+            sql = sql + " from vendedor v,ciudad c,provincia p";
+            sql = sql +" where c.CodProvincia=p.CodProvincia";
+            DataTable trdo = cDb.GetDatatable(sql);
+            string Calle = "";
+            string Provincia = "";
+            string Ciudad = "";
+            Int32 CodVendedor = 0;
+            string sql2 = "";
+            string DomicilioCompleto = "";
+            for (int i=0;i<trdo.Rows.Count;i++)
+            {
+                Calle = trdo.Rows[i]["Direccion"].ToString();
+                Provincia = trdo.Rows[i]["Provincia"].ToString();
+                Ciudad = trdo.Rows[i]["Ciudad"].ToString();
+                CodVendedor = Convert.ToInt32(trdo.Rows[i]["CodVendedor"]);
+                if (Calle != "")
+                    DomicilioCompleto = Calle;
+                if (Ciudad != "")
+                    DomicilioCompleto = DomicilioCompleto +" " + Ciudad;
+                if (Provincia != "")
+                    DomicilioCompleto = DomicilioCompleto + " " + Provincia;
+                sql2 = "Update Vendedor set DomicilioCompleto=" + Texto(DomicilioCompleto);
+                sql2 = sql2 + " where CodVendedor=" + CodVendedor.ToString();
+                cDb.Grabar(sql2);   
+             }
+        }
+
+       
     }
 }

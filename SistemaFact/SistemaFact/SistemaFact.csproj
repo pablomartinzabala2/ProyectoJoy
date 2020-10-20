@@ -104,10 +104,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSet3.cs">
+      <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DsJoyasPresupuesto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsJoyasPresupuesto.xsd</DependentUpon>
     </Compile>
     <Compile Include="DsReporte.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -270,6 +278,12 @@
     <Compile Include="FrmVentaJuguetes.Designer.cs">
       <DependentUpon>FrmVentaJuguetes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVerReportePresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVerReportePresupuesto.Designer.cs">
+      <DependentUpon>FrmVerReportePresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +370,9 @@
     <EmbeddedResource Include="FrmVentaJuguetes.resx">
       <DependentUpon>FrmVentaJuguetes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmVerReportePresupuesto.resx">
+      <DependentUpon>FrmVerReportePresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
@@ -373,6 +390,7 @@
     <EmbeddedResource Include="ReportBarra.rdlc" />
     <EmbeddedResource Include="Reporte.rdlc" />
     <EmbeddedResource Include="ReportePresupuesto.rdlc" />
+    <EmbeddedResource Include="ReportePresupuestoJoyas.rdlc" />
     <EmbeddedResource Include="ReportPrueba.rdlc" />
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
@@ -406,6 +424,17 @@
     </None>
     <None Include="DataSet3.xss">
       <DependentUpon>DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DsJoyasPresupuesto.xsc">
+      <DependentUpon>DsJoyasPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="DsJoyasPresupuesto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsJoyasPresupuesto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DsJoyasPresupuesto.xss">
+      <DependentUpon>DsJoyasPresupuesto.xsd</DependentUpon>
     </None>
     <None Include="DsReporte.xsc">
       <DependentUpon>DsReporte.xsd</DependentUpon>
@@ -467,6 +496,7 @@
     <None Include="Iconos\filenew.ico" />
     <Content Include="Iconos\Logo.jpg" />
     <Content Include="Iconos\Logo2.jpg" />
+    <Content Include="Iconos\XXX.png" />
     <Content Include="Iconos\zoom.ico" />
     <None Include="Iconos\CodigoBarra.jpg" />
     <Content Include="Iconos\Folder.ico" />
