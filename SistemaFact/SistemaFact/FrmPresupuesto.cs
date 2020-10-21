@@ -90,8 +90,6 @@ namespace SistemaFact
 
                         }
 
-
-
                     }
                 }
             }
@@ -155,12 +153,17 @@ namespace SistemaFact
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txtCodJoya.Text =="")
+            Agregar();
+        }
+
+        private void Agregar()
+        {
+            if (txtCodJoya.Text == "")
             {
                 Mensaje("Debe ingresar una joya para continuar");
                 return;
             }
-            if (txtPrecio.Text =="")
+            if (txtPrecio.Text == "")
             {
                 Mensaje("Debe ingresar un precio para continuar");
                 return;
@@ -279,6 +282,9 @@ namespace SistemaFact
                 Transaccion.Commit();
                 con.Close();
                 Mensaje("Datos grabados correctamente");
+                Principal.CodigoPrincipalAbm = CodPresupuesto.ToString();
+                FrmVerReportePresupuesto frm = new FrmVerReportePresupuesto();
+                frm.Show();
                 Limpiar();
                // FrmReporte frm = new SistemaFact.FrmReporte();
                // frm.Show();
@@ -367,8 +373,66 @@ namespace SistemaFact
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-           // cVendedor ven = new cVendedor();
-          //  ven.ActDomicilio();
+            Principal.OpcionesdeBusqueda = "NroDocumento;Apellido";
+            Principal.TablaPrincipal = "Vendedor";
+            Principal.OpcionesColumnasGrilla = "CodVendedor;NroDocumento;Nombre;Apellido";
+            Principal.ColumnasVisibles = "0;1;1;1";
+            Principal.ColumnasAncho = "0;80;250;250";
+            FrmBuscadorGenerico form = new FrmBuscadorGenerico();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
+        }
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cVendedor ven = new cVendedor();
+            if (Principal.CodigoPrincipalAbm != null)
+            {
+                Int32 CodVendedor = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                DataTable trdo = ven.GetVendedorxCodVendedor(CodVendedor);
+                if (trdo.Rows.Count >0)
+                {
+                    if (trdo.Rows.Count > 0)
+                    {
+                        if (trdo.Rows[0]["CodVendedor"].ToString() != "")
+                        {
+                            txtNroDocumento.Text  = trdo.Rows[0]["NroDocumento"].ToString();
+                            txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
+                            txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                            txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                            txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
+                            txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
+
+                            if (trdo.Rows[0]["CodProvincia"].ToString() != "")
+                            {
+                                Int32 CodProv = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
+                                CargarCiudadxProv(CodProv);
+                                cmbProvincia.SelectedValue = CodProv.ToString();
+                            }
+
+                            if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                            {
+                                Int32 CodCiudad = Convert.ToInt32(trdo.Rows[0]["CodCiudad"].ToString());
+                                cmbCiudad.SelectedValue = CodCiudad.ToString();
+
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Agregar();
+            }
+        }
+
+        private void btnBuscarArticulo_Click(object sender, EventArgs e)
+        {
             Principal.CodigoPrincipalAbm = "6";
             FrmVerReportePresupuesto frm = new FrmVerReportePresupuesto();
             frm.Show();

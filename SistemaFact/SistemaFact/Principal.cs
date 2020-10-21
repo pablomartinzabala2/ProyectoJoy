@@ -228,5 +228,11 @@ namespace SistemaFact
             FrmPresupuesto frm = new SistemaFact.FrmPresupuesto();
             frm.Show();
         }
+
+        private void vendedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmVendedores frm = new FrmAbmVendedores();
+            frm.Show();
+        }
     }
 }

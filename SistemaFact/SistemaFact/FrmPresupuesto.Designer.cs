@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresupuesto));
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
@@ -71,11 +72,20 @@
             this.txtCodVendedor = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
-            this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(673, 554);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 37);
+            this.btnGrabar.TabIndex = 20;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // groupBox1
             // 
@@ -212,6 +222,7 @@
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
             this.btnBuscarArticulo.UseVisualStyleBackColor = true;
+            this.btnBuscarArticulo.Click += new System.EventHandler(this.btnBuscarArticulo_Click);
             // 
             // btnEliminar
             // 
@@ -295,6 +306,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(136, 23);
             this.txtCodigo.TabIndex = 23;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtStock
             // 
@@ -422,7 +434,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(615, 21);
+            this.btnBuscar.Location = new System.Drawing.Point(273, 21);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 25);
             this.btnBuscar.TabIndex = 45;
@@ -488,16 +500,6 @@
             this.Nombre.Size = new System.Drawing.Size(53, 17);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Location = new System.Drawing.Point(673, 554);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 37);
-            this.btnGrabar.TabIndex = 20;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // FrmPresupuesto
             // 

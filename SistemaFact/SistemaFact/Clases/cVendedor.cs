@@ -130,6 +130,14 @@ namespace SistemaFact.Clases
              }
         }
 
-       
+        public DataTable GetVendedorxCodVendedor(Int32 CodVendedor)
+        {
+            string sql = "select * ";
+            sql = sql + ",(select c.CodProvincia from Ciudad c where c.CodCiudad=v.CodCiudad) as CodProvincia";
+            sql = sql + " from vendedor v";
+            sql = sql + " where CodVendedor=" + CodVendedor.ToString();
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
     }
 }
