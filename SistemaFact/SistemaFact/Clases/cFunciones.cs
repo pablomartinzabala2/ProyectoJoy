@@ -668,5 +668,10 @@ namespace SistemaFact.Clases
             btn.ForeColor = System.Drawing.Color.White;
             btn.Font = new Font(btn.Font, FontStyle.Bold);
         }
+
+        public string FormatoFechaDMA(DateTime Fecha)
+        {
+            return Fecha.ToShortDateString();
+        }
     }
 }

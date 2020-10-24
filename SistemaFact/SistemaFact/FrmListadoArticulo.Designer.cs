@@ -43,13 +43,13 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.Grilla);
             this.Grupo.Controls.Add(this.btnBuscar);
             this.Grupo.Controls.Add(this.txtCodigo);
             this.Grupo.Controls.Add(this.label4);
             this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.txtDescripcion);
             this.Grupo.Controls.Add(this.label1);
-            this.Grupo.Controls.Add(this.Grilla);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
@@ -121,16 +121,12 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(0, 70);
+            this.Grilla.Location = new System.Drawing.Point(0, 69);
             this.Grilla.Name = "Grilla";
-            this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.Grilla.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.Grilla.ReadOnly = true;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1077, 438);
-            this.Grilla.TabIndex = 0;
-            this.Grilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grilla_CellContentClick);
+            this.Grilla.Size = new System.Drawing.Size(1071, 439);
+            this.Grilla.TabIndex = 106;
             // 
             // FrmListadoArticulo
             // 
@@ -153,12 +149,12 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Grupo;
-        private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView Grilla;
     }
 }

@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresupuesto));
             this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFechaRendicion = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.btnBuscarJoya = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.txtNombreJoya = new System.Windows.Forms.TextBox();
@@ -40,11 +44,8 @@
             this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.chkDescuento = new System.Windows.Forms.CheckBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
             this.btnBuscarArticulo = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
@@ -89,6 +90,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFechaRendicion);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.Grilla);
+            this.groupBox1.Controls.Add(this.btnBuscarJoya);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtFecha);
             this.groupBox1.Controls.Add(this.txtNombreJoya);
@@ -98,11 +103,8 @@
             this.groupBox1.Controls.Add(this.btnLimpiarArticulo);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtTotal);
-            this.groupBox1.Controls.Add(this.chkDescuento);
-            this.groupBox1.Controls.Add(this.txtDescuento);
             this.groupBox1.Controls.Add(this.btnBuscarArticulo);
             this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.txtPrecio);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtCantidad);
@@ -121,10 +123,49 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
             // 
+            // txtFechaRendicion
+            // 
+            this.txtFechaRendicion.Location = new System.Drawing.Point(638, 97);
+            this.txtFechaRendicion.Mask = "00/00/0000";
+            this.txtFechaRendicion.Name = "txtFechaRendicion";
+            this.txtFechaRendicion.Size = new System.Drawing.Size(73, 23);
+            this.txtFechaRendicion.TabIndex = 107;
+            this.txtFechaRendicion.ValidatingType = typeof(System.DateTime);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(561, 97);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 17);
+            this.label11.TabIndex = 106;
+            this.label11.Text = "Rendición";
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(9, 133);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.ReadOnly = true;
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(727, 174);
+            this.Grilla.TabIndex = 105;
+            // 
+            // btnBuscarJoya
+            // 
+            this.btnBuscarJoya.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarJoya.Image")));
+            this.btnBuscarJoya.Location = new System.Drawing.Point(495, 30);
+            this.btnBuscarJoya.Name = "btnBuscarJoya";
+            this.btnBuscarJoya.Size = new System.Drawing.Size(40, 25);
+            this.btnBuscarJoya.TabIndex = 104;
+            this.btnBuscarJoya.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnBuscarJoya.UseVisualStyleBackColor = true;
+            this.btnBuscarJoya.Click += new System.EventHandler(this.btnBuscarJoya_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(513, 68);
+            this.label1.Location = new System.Drawing.Point(561, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 17);
             this.label1.TabIndex = 103;
@@ -132,7 +173,7 @@
             // 
             // txtFecha
             // 
-            this.txtFecha.Location = new System.Drawing.Point(565, 65);
+            this.txtFecha.Location = new System.Drawing.Point(637, 65);
             this.txtFecha.Mask = "00/00/0000";
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(73, 23);
@@ -175,7 +216,7 @@
             // btnLimpiarArticulo
             // 
             this.btnLimpiarArticulo.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnLimpiarArticulo.Location = new System.Drawing.Point(541, 25);
+            this.btnLimpiarArticulo.Location = new System.Drawing.Point(541, 27);
             this.btnLimpiarArticulo.Name = "btnLimpiarArticulo";
             this.btnLimpiarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnLimpiarArticulo.TabIndex = 97;
@@ -197,27 +238,10 @@
             this.txtTotal.Size = new System.Drawing.Size(69, 23);
             this.txtTotal.TabIndex = 94;
             // 
-            // chkDescuento
-            // 
-            this.chkDescuento.AutoSize = true;
-            this.chkDescuento.Location = new System.Drawing.Point(463, 94);
-            this.chkDescuento.Name = "chkDescuento";
-            this.chkDescuento.Size = new System.Drawing.Size(59, 21);
-            this.chkDescuento.TabIndex = 89;
-            this.chkDescuento.Text = "Desc";
-            this.chkDescuento.UseVisualStyleBackColor = true;
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(519, 94);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(79, 23);
-            this.txtDescuento.TabIndex = 88;
-            // 
             // btnBuscarArticulo
             // 
             this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(495, 27);
+            this.btnBuscarArticulo.Location = new System.Drawing.Point(654, 27);
             this.btnBuscarArticulo.Name = "btnBuscarArticulo";
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
@@ -227,26 +251,12 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(661, 94);
+            this.btnEliminar.Location = new System.Drawing.Point(511, 91);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(6, 125);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.ReadOnly = true;
-            this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-            this.Grilla.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-            this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(732, 186);
-            this.Grilla.TabIndex = 56;
             // 
             // txtPrecio
             // 
@@ -254,6 +264,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(79, 23);
             this.txtPrecio.TabIndex = 55;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label2
             // 
@@ -283,7 +294,7 @@
             // button2
             // 
             this.button2.Image = global::SistemaFact.Properties.Resources.add;
-            this.button2.Location = new System.Drawing.Point(613, 94);
+            this.button2.Location = new System.Drawing.Point(463, 91);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 28);
             this.button2.TabIndex = 51;
@@ -422,6 +433,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(259, 23);
             this.txtDireccion.TabIndex = 88;
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // txtNroDocumento
             // 
@@ -430,6 +442,7 @@
             this.txtNroDocumento.Size = new System.Drawing.Size(175, 23);
             this.txtNroDocumento.TabIndex = 83;
             this.txtNroDocumento.TextChanged += new System.EventHandler(this.txtNroDocumento_TextChanged);
+            this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
             // 
             // btnBuscar
             // 
@@ -475,6 +488,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(276, 23);
             this.txtApellido.TabIndex = 2;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtCodVendedor
             // 
@@ -491,6 +505,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(259, 23);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // Nombre
             // 
@@ -544,11 +559,8 @@
         private System.Windows.Forms.Button btnLimpiarArticulo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.CheckBox chkDescuento;
-        private System.Windows.Forms.TextBox txtDescuento;
         private System.Windows.Forms.Button btnBuscarArticulo;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCantidad;
@@ -566,5 +578,9 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox txtFecha;
+        private System.Windows.Forms.Button btnBuscarJoya;
+        private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.MaskedTextBox txtFechaRendicion;
+        private System.Windows.Forms.Label label11;
     }
 }

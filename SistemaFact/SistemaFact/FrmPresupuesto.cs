@@ -244,11 +244,15 @@ namespace SistemaFact
             Int32 CodJoya = 0;
             Double Precio = 0;
             Int32 Cantidad = 0;
+            DateTime? FechaRendicion = null;
            
             Double Total = 0;
             if (txtTotal.Text != "")
                 Total = Convert.ToDouble(txtTotal.Text);
-            
+            if (txtFechaRendicion.Text != "  /  /")
+            {
+                FechaRendicion = Convert.ToDateTime(txtFechaRendicion.Text);
+            }
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             cPresupuesto pre = new cPresupuesto();
             try
@@ -262,11 +266,11 @@ namespace SistemaFact
                     CodVendedor = Convert.ToInt32(txtCodVendedor.Text);
                     vendedor.ActualizarVendedor(con, Transaccion, Convert.ToInt32(CodVendedor), Apellido, Nombre, Telefono, NroDocumento, Direccion, CodCiudad, DomicilioCompleto);
                 }
-                
-              
+
+
                 CodPresupuesto = pre.InsertarPresupuesto(con, Transaccion, Total,
                     Fecha
-                    , CodVendedor);
+                    , CodVendedor, FechaRendicion);
 
                 Principal.CodigoSenia = CodPresupuesto.ToString();
                 string NroPresupuesto =  GetNroPresupueto(CodPresupuesto.ToString());
@@ -368,6 +372,14 @@ namespace SistemaFact
                 Mensaje("Debe ingresar productos para continuar");
                 return;
             }
+            if (txtFechaRendicion.Text !="  /  /")
+            {
+                if (fun.ValidarFecha (txtFechaRendicion.Text)==false)
+                {
+                    Mensaje("La fecha de recepción es incorrecta");
+                    return;
+                }
+            }
             GrabarPresupuesto();
         }
 
@@ -385,40 +397,73 @@ namespace SistemaFact
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             cVendedor ven = new cVendedor();
+            string Tabla = Principal.TablaPrincipal;
             if (Principal.CodigoPrincipalAbm != null)
             {
-                Int32 CodVendedor = Convert.ToInt32(Principal.CodigoPrincipalAbm);
-                DataTable trdo = ven.GetVendedorxCodVendedor(CodVendedor);
-                if (trdo.Rows.Count >0)
+                switch (Tabla)
                 {
-                    if (trdo.Rows.Count > 0)
-                    {
-                        if (trdo.Rows[0]["CodVendedor"].ToString() != "")
+                    case "Vendedor":
+                        Int32 CodVendedor = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                        DataTable trdo = ven.GetVendedorxCodVendedor(CodVendedor);
+                        if (trdo.Rows.Count > 0)
                         {
-                            txtNroDocumento.Text  = trdo.Rows[0]["NroDocumento"].ToString();
-                            txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
-                            txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                            txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
-                            txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
-                            txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-
-                            if (trdo.Rows[0]["CodProvincia"].ToString() != "")
+                            if (trdo.Rows.Count > 0)
                             {
-                                Int32 CodProv = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
-                                CargarCiudadxProv(CodProv);
-                                cmbProvincia.SelectedValue = CodProv.ToString();
+                                if (trdo.Rows[0]["CodVendedor"].ToString() != "")
+                                {
+                                    txtNroDocumento.Text = trdo.Rows[0]["NroDocumento"].ToString();
+                                    txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
+                                    txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                                    txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                                    txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
+                                    txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
+
+                                    if (trdo.Rows[0]["CodProvincia"].ToString() != "")
+                                    {
+                                        Int32 CodProv = Convert.ToInt32(trdo.Rows[0]["CodProvincia"].ToString());
+                                        CargarCiudadxProv(CodProv);
+                                        cmbProvincia.SelectedValue = CodProv.ToString();
+                                    }
+
+                                    if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                                    {
+                                        Int32 CodCiudad = Convert.ToInt32(trdo.Rows[0]["CodCiudad"].ToString());
+                                        cmbCiudad.SelectedValue = CodCiudad.ToString();
+
+                                    }
+
+                                }
                             }
-
-                            if (trdo.Rows[0]["CodCiudad"].ToString() != "")
-                            {
-                                Int32 CodCiudad = Convert.ToInt32(trdo.Rows[0]["CodCiudad"].ToString());
-                                cmbCiudad.SelectedValue = CodCiudad.ToString();
-
-                            }
-
                         }
-                    }
+                        break;
+                        case "Joya":
+                        cJoya joya = new cJoya();
+                        Int32 CodJoya = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                        DataTable trJoya = joya.GetJoyaxCodJoya(CodJoya);
+                        if (trJoya.Rows.Count >0)
+                        {
+                            if (trJoya.Rows[0]["CodJoya"].ToString() != "")
+                            {
+                                txtCodigo.Text = trJoya.Rows[0]["Codigo"].ToString();
+                                txtCodJoya.Text = trJoya.Rows[0]["CodJoya"].ToString();
+                                txtNombreJoya.Text = trJoya.Rows[0]["Nombre"].ToString();
+                                txtStock.Text = trJoya.Rows[0]["Stock"].ToString();
+                                txtPrecio.Text = trJoya.Rows[0]["PrecioVenta"].ToString();
+                                if (trJoya.Rows[0]["CodTipo"].ToString() != "")
+                                {
+                                    cmbTipo.SelectedValue = trJoya.Rows[0]["CodTipo"].ToString();
+                                }
+                                if (txtPrecio.Text != "")
+                                {
+                                    txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
+                                    txtPrecio.Text = fun.FormatoEnteroMiles(txtPrecio.Text);
+                                }
+                                txtCodigo.Focus();
+                            }
+                        }
+                        break;
                 }
+                
             }
 
         }
@@ -428,14 +473,66 @@ namespace SistemaFact
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 Agregar();
+                txtCodigo.Focus();
             }
         }
 
         private void btnBuscarArticulo_Click(object sender, EventArgs e)
         {
-            Principal.CodigoPrincipalAbm = "6";
-            FrmVerReportePresupuesto frm = new FrmVerReportePresupuesto();
-            frm.Show();
+            string xxxx = txtFechaRendicion.Text;
+        }
+
+        private void btnBuscarJoya_Click(object sender, EventArgs e)
+        {
+            Principal.OpcionesdeBusqueda = "Codigo;Nombre";
+            Principal.TablaPrincipal = "Joya";
+            Principal.OpcionesColumnasGrilla = "CodJoya;Codigo;Nombre";
+            Principal.ColumnasVisibles = "0;1;1";
+            Principal.ColumnasAncho = "0;100;480";
+            FrmBuscadorGenerico form = new FrmBuscadorGenerico();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Agregar();
+                txtCodigo.Focus();
+            }
+        }
+
+        private void txtNroDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtNombre.Focus();
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtApellido.Focus();
+            }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                cmbProvincia.Focus();
+            }
+        }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtDireccion.Focus();
+            }
         }
     }
 }

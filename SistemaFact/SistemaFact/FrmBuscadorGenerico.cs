@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SistemaFact.Clases;
 namespace SistemaFact
 {
     public partial class FrmBuscadorGenerico : FormBase
@@ -48,7 +48,9 @@ namespace SistemaFact
             Combo.DataSource = trdo;
             Combo.ValueMember = "Indice";
             Combo.DisplayMember = "Texto";
-            Combo.SelectedIndex = 0;
+            Combo.SelectedIndex = 0;  
+            cFunciones fun = new Clases.cFunciones();
+            fun.EstiloBotones(btnAceptar);
         }
 
         private string GetCampoaBuscar()

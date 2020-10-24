@@ -69,5 +69,14 @@ namespace SistemaFact.Clases
             sql = sql + " where Codigo=" + "'" + Codigo + "'";
             return cDb.GetDatatable(sql);
         }
+
+        public DataTable GetJoyaxCodJoya(Int32 CodJoya)
+        {
+            string sql = "select j.*";
+            sql = sql + ",(select t.Nombre from Tipo t where t.CodTipo = j.CodTipo) as Tipo ";
+            sql = sql + " from Joya j";
+            sql = sql + " where CodJoya=" + CodJoya.ToString();
+            return cDb.GetDatatable(sql);
+        }
     }
 }
