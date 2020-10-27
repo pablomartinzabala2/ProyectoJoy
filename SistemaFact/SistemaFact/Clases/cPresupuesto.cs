@@ -56,5 +56,19 @@ namespace SistemaFact.Clases
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public DataTable GetPresupuestoxFecha(DateTime FechaDesde,DateTime FechaHasta,string Apellido)
+        {
+            cFunciones fun = new cFunciones();
+            string sql = "select p.CodPresupuesto,p.Fecha,v.Apellido,v.Nombre,p.Total";
+            sql = sql + " from Presupuesto p, Vendedor v";
+            sql = sql + " where p.CodVendedor=v.CodVendedor";
+            sql = sql + " and p.Fecha>=" + "'" + fun.FormatoFechaDMA(FechaDesde) + "'";
+            sql = sql + " and p.Fecha<=" + "'" + fun.FormatoFechaDMA(FechaHasta) + "'";
+            if (Apellido != "")
+                sql = sql + " and v.Apellido like " + "'%" + Apellido  +"%'";
+            sql = sql + " order by p.CodPresupuesto desc";
+            return cDb.GetDatatable(sql);
+        }
     }
 }

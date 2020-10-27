@@ -139,5 +139,14 @@ namespace SistemaFact.Clases
             DataTable trdo = cDb.GetDatatable(sql);
             return trdo;
         }
+
+        public DataTable GetVendedorxCodPresupuesto(Int32 CodPresupuesto)
+        {
+            string sql = " select v.*";
+            sql = sql + " from Vendedor v,Presupuesto p";
+            sql = sql + " where v.CodVendedor=p.CodVendedor";
+            sql = sql + " and p.CodPresupuesto=" + CodPresupuesto.ToString();
+            return cDb.GetDatatable(sql);
+        }
     }
 }

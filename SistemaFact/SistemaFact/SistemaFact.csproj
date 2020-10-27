@@ -79,6 +79,7 @@
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cDb.cs" />
     <Compile Include="Clases\cDetalleCompra.cs" />
+    <Compile Include="Clases\cDetallePresupuesto.cs" />
     <Compile Include="Clases\cFunciones.cs" />
     <Compile Include="Clases\cImpresora.cs" />
     <Compile Include="Clases\cJoya.cs" />
@@ -206,6 +207,12 @@
     <Compile Include="FrmBuscadorGenerico.Designer.cs">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscadorPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscadorPresupuesto.Designer.cs">
+      <DependentUpon>FrmBuscadorPresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCantidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +285,12 @@
     <Compile Include="FrmReporteCristal.Designer.cs">
       <DependentUpon>FrmReporteCristal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVentaJoya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVentaJoya.Designer.cs">
+      <DependentUpon>FrmVentaJoya.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVentaJuguetes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +353,9 @@
     <EmbeddedResource Include="FrmBuscadorGenerico.resx">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscadorPresupuesto.resx">
+      <DependentUpon>FrmBuscadorPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCantidad.resx">
       <DependentUpon>FrmCantidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCristal.resx">
       <DependentUpon>FrmReporteCristal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentaJoya.resx">
+      <DependentUpon>FrmVentaJoya.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVentaJuguetes.resx">
       <DependentUpon>FrmVentaJuguetes.cs</DependentUpon>
