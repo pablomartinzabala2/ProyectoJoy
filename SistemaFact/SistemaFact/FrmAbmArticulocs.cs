@@ -24,7 +24,7 @@ namespace SistemaFact
             Botonera(1);
             Grupo.Enabled = false;
             cFunciones fun = new cFunciones();
-            
+            fun.LlenarCombo(cmb_CodTipo, "Tipo", "Nombre", "CodTipo");
             //txtM_Fecha.Text = DateTime.Now.ToShortDateString();
         }
 
@@ -177,8 +177,11 @@ namespace SistemaFact
             {  
                 Clases.cFunciones fun = new Clases.cFunciones();
                 switch (Principal.NombreTablaSecundario)
-                { 
-                    
+                {
+                    case "Tipo":  
+                        fun.LlenarCombo(cmb_CodTipo, "Tipo", "Nombre", "CodTipo");
+                        cmb_CodTipo.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
                 }
             }
             if (Principal.CodigoPrincipalAbm !=null)
@@ -303,6 +306,16 @@ namespace SistemaFact
         private void txtPorTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodTipo";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Tipo";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 }

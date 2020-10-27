@@ -40,6 +40,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BarraBotones = new System.Windows.Forms.ToolStrip();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.btnEliminar = new System.Windows.Forms.ToolStripButton();
@@ -48,6 +49,8 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.cmb_CodTipo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +58,9 @@
             // Grupo
             // 
             this.Grupo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.Grupo.Controls.Add(this.label3);
+            this.Grupo.Controls.Add(this.cmb_CodTipo);
+            this.Grupo.Controls.Add(this.button1);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.txt_PrecioVenta);
             this.Grupo.Controls.Add(this.txt_Codigo);
@@ -165,6 +171,16 @@
             this.BarraBotones.Text = "toolStrip1";
             this.BarraBotones.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.BarraBotones_ItemClicked);
             // 
+            // button1
+            // 
+            this.button1.Image = global::SistemaFact.Properties.Resources.page_add1;
+            this.button1.Location = new System.Drawing.Point(368, 150);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 28;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // btnNuevo
             // 
             this.btnNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -249,6 +265,23 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // cmb_CodTipo
+            // 
+            this.cmb_CodTipo.FormattingEnabled = true;
+            this.cmb_CodTipo.Location = new System.Drawing.Point(120, 150);
+            this.cmb_CodTipo.Name = "cmb_CodTipo";
+            this.cmb_CodTipo.Size = new System.Drawing.Size(230, 24);
+            this.cmb_CodTipo.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Categoria";
+            // 
             // FrmAbmArticulocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,5 +322,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_PrecioVenta;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmb_CodTipo;
     }
 }

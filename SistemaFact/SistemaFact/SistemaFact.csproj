@@ -92,6 +92,7 @@
     <Compile Include="Clases\cTipoOperacion.cs" />
     <Compile Include="Clases\cVendedor.cs" />
     <Compile Include="Clases\cVenta.cs" />
+    <Compile Include="Clases\cVentaJoya.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

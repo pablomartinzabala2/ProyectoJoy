@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFact.Clases;
+using System.Data.SqlClient;
 namespace SistemaFact
 {
     public partial class FrmVentaJoya : FormBase 
@@ -49,6 +50,8 @@ namespace SistemaFact
             tbVenta = fun.CrearTabla(Col);
             DateTime Fecha = DateTime.Now;
             txtFecha.Text = Fecha.ToShortDateString();
+            fun.EstiloBotones(btnGrabar);  
+            fun.EstiloBotones(btnCancelar);
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -71,7 +74,7 @@ namespace SistemaFact
             }
             Double Precio =Convert.ToDouble (GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString());
             Val = CodRegistro + ";" + CodJoya + ";" + Codigo;
-            Val = Val + ";" + Nombre + ";" + Cantidad + ";" + Precio.ToString();
+            Val = Val + ";" + Nombre + ";" + Precio.ToString() + ";" + Cantidad.ToString();
             tbVenta = fun.AgregarFilas(tbVenta, Val);
             GrillaVentas.DataSource = tbVenta;
             string Col = "0;0;15;55;15;15";
@@ -99,6 +102,56 @@ namespace SistemaFact
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
             }
+        }
+
+        private void GrabarVenta()
+        {
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            Int32? CodVendedor = null;
+            Int32 CodVenta = 0;
+            cVentaJoya venta = new cVentaJoya();
+            int Cantidad = 0;
+            Int32 CodJoya = 0;
+            Double Precio = 0;
+            if (txtCodVendedor.Text !="")
+            {
+                CodVendedor = Convert.ToInt32(txtCodVendedor.Text);
+            }
+            SqlTransaction Transaccion;
+            SqlConnection con = new SqlConnection(cConexion.GetConexion());
+            Transaccion = con.BeginTransaction();
+            con.Open();
+            try
+            {
+                CodVenta = venta.InsertarVenta (con, Transaccion, CodVendedor, Fecha);
+                for (int i = 0; i < tbVenta.Rows.Count ; i++)
+                {
+                    CodJoya = Convert.ToInt32(tbVenta.Rows[i]["CodJoya"]);
+                    Cantidad = Convert.ToInt32(tbVenta.Rows[i]["Cantidad"]);
+                    Precio = fun.ToDouble(tbVenta.Rows[i]["Cantidad"].ToString ());
+                    venta.InsertarDetalleVenta(con, Transaccion, CodVenta, CodJoya, Cantidad, Precio);
+                }
+                Transaccion.Commit();
+                con.Close();
+            }
+            catch (Exception exa)
+            {
+                MessageBox.Show(exa.Message.ToString());
+                Transaccion.Rollback();
+                con.Close();
+                Mensaje("Hubo un error en el proceso de grabacion");
+                Mensaje(exa.Message);
+            }
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            if (GrillaPresupuesto.Rows.Count <1)
+            {
+                Mensaje("Debe ingresar registros para continuar");
+                return;
+            }
+            GrabarVenta();
         }
     }
 }

@@ -234,5 +234,11 @@ namespace SistemaFact
             FrmAbmVendedores frm = new FrmAbmVendedores();
             frm.Show();
         }
+
+        private void registrarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmVentaJoya frm = new SistemaFact.FrmVentaJoya();
+            frm.Show();
+        }
     }
 }
