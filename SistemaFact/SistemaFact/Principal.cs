@@ -248,5 +248,11 @@ namespace SistemaFact
             FrmListadoVentaJoya frm = new FrmListadoVentaJoya();
             frm.Show();
         }
+
+        private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmConsultaVentaJoyas frm = new FrmConsultaVentaJoyas();
+            frm.Show();
+        }
     }
 }

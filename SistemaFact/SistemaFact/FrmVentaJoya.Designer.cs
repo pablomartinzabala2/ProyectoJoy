@@ -41,6 +41,8 @@
             this.btnBuscarPresupuesto = new System.Windows.Forms.Button();
             this.GrillaPresupuesto = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtPorcentajeAplicado = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.GrillaVentas = new System.Windows.Forms.DataGridView();
@@ -48,8 +50,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPorcentajeAplicado = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPresupuesto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -160,6 +162,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Venta";
             // 
+            // txtPorcentajeAplicado
+            // 
+            this.txtPorcentajeAplicado.Location = new System.Drawing.Point(281, 35);
+            this.txtPorcentajeAplicado.Name = "txtPorcentajeAplicado";
+            this.txtPorcentajeAplicado.Size = new System.Drawing.Size(58, 23);
+            this.txtPorcentajeAplicado.TabIndex = 111;
+            this.txtPorcentajeAplicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentajeAplicado_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(145, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "Porcentaje Aplicado";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -210,7 +229,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(896, 514);
+            this.btnGrabar.Location = new System.Drawing.Point(495, 513);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 36);
             this.btnGrabar.TabIndex = 110;
@@ -220,7 +239,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(815, 515);
+            this.btnCancelar.Location = new System.Drawing.Point(414, 514);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 36);
             this.btnCancelar.TabIndex = 111;
@@ -228,28 +247,31 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(145, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
-            this.label1.TabIndex = 109;
-            this.label1.Text = "Porcentaje Aplicado";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(823, 518);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 17);
+            this.label2.TabIndex = 112;
+            this.label2.Text = "Total";
             // 
-            // txtPorcentajeAplicado
+            // txtTotal
             // 
-            this.txtPorcentajeAplicado.Location = new System.Drawing.Point(281, 35);
-            this.txtPorcentajeAplicado.Name = "txtPorcentajeAplicado";
-            this.txtPorcentajeAplicado.Size = new System.Drawing.Size(58, 23);
-            this.txtPorcentajeAplicado.TabIndex = 111;
-            this.txtPorcentajeAplicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentajeAplicado_KeyPress);
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(871, 518);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(97, 23);
+            this.txtTotal.TabIndex = 113;
             // 
             // FrmVentaJoya
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 562);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.btnQuitar);
@@ -266,6 +288,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaVentas)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -292,5 +315,7 @@
         private System.Windows.Forms.TextBox txtCodPresupuesto;
         private System.Windows.Forms.TextBox txtPorcentajeAplicado;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTotal;
     }
 }

@@ -9,16 +9,17 @@ namespace SistemaFact.Clases
 {
     public  class cVentaJoya
     {
-        public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion,Int32? CodVendedor, DateTime Fecha, Int32 CodPresupuesto)
+        public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion,Int32? CodVendedor, DateTime Fecha, Int32 CodPresupuesto,Double Total)
         {
             cFunciones fun = new cFunciones();
-            string sql = "insert into Venta(CodVendedor,Fecha,CodPresupuesto)";
+            string sql = "insert into Venta(CodVendedor,Fecha,CodPresupuesto,Total)";
             if (CodVendedor != null)
                 sql = sql + " values(" + CodVendedor.ToString();
             else
                 sql = sql + " Values(null";
             sql = sql + "," + "'" + fun.FormatoFechaDMA(Fecha) + "'";
             sql = sql + "," + CodPresupuesto.ToString();
+            sql = sql + "," + Total.ToString().Replace(",", ".");
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
@@ -51,12 +52,27 @@ namespace SistemaFact.Clases
         public DataTable GetVentaxCodVenta(Int32 CodVenta)
         {
             string sql = " select *";
-
             sql = sql + " from Venta v,Vendedor ve, DetalleVenta dv,Joya j";
             sql = sql + " where v.CodVendedor=ve.CodVendedor";
             sql = sql + " and v.Codventa= dv.CodVenta";
             sql = sql + " and dv.CodJoya=j.CodJoya";
             sql = sql + " and v.CodVenta=" + CodVenta.ToString();
+            return cDb.GetDatatable(sql);
+        }
+
+        public DataTable GetResumenVentasxFecha(DateTime FechaDesde, DateTime FechaHasta, Int32? CodTipo)
+        {
+            string sql = " select t.nombre,sum(v.Total) as Total";
+            sql = sql + " from Venta v,Tipo t,DetalleVenta dv, Joya j";
+            sql = sql + " where v.CodVenta=dv.CodVenta";
+            sql = sql + " and dv.CodJoya=j.CodJoya";
+            sql = sql + " and j.CodTipo=t.CodTipo";
+            sql = sql + " and Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            if (CodTipo != null)
+                sql = sql + " and t.CodTipo=" + CodTipo.ToString();
+            sql = sql + " group by t.nombre";
+            sql = sql + " order by t.nombre";
             return cDb.GetDatatable(sql);
         }
 

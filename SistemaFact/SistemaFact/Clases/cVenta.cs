@@ -94,6 +94,8 @@ namespace SistemaFact.Clases
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
-
+        
+    
+        
     }
 }

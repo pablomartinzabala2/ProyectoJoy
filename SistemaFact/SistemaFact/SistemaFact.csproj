@@ -238,6 +238,12 @@
     <Compile Include="FrmConfigurarImpresora.Designer.cs">
       <DependentUpon>FrmConfigurarImpresora.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmConsultaVentaJoyas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConsultaVentaJoyas.Designer.cs">
+      <DependentUpon>FrmConsultaVentaJoyas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImportarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfigurarImpresora.resx">
       <DependentUpon>FrmConfigurarImpresora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConsultaVentaJoyas.resx">
+      <DependentUpon>FrmConsultaVentaJoyas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmImportarArticulo.resx">
       <DependentUpon>FrmImportarArticulo.cs</DependentUpon>

@@ -99,6 +99,13 @@ namespace SistemaFact
             GrillaVentas.DataSource = tbVenta;
             string Col = "0;0;15;40;15;15;15";
             fun.AnchoColumnas(GrillaVentas, Col);
+            CalcularTotal();
+        }
+
+        private void CalcularTotal()
+        {
+            Double Total = fun.TotalizarColumna(tbVenta, "Precio");
+            txtTotal.Text = Total.ToString();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -109,7 +116,8 @@ namespace SistemaFact
                 return;
             }
             string CodRegistro = GrillaVentas.CurrentRow.Cells[0].Value.ToString();
-            tbVenta = fun.EliminarFila(tbVenta, "Codregistro", CodRegistro); 
+            tbVenta = fun.EliminarFila(tbVenta, "Codregistro", CodRegistro);
+            CalcularTotal();
         }
 
         private void GetVendedor(Int32 CodPresupuesto)
@@ -138,6 +146,7 @@ namespace SistemaFact
             Double Comision = 0;
             Int32 CodRegistro = 0;
             Int32 CodPresupuesto = 0;
+            Double Total = 0;
             if (txtCodVendedor.Text !="")
             {
                 CodVendedor = Convert.ToInt32(txtCodVendedor.Text);
@@ -146,6 +155,9 @@ namespace SistemaFact
             {
                 CodPresupuesto = Convert.ToInt32(txtCodPresupuesto.Text);
             }
+            if (txtTotal.Text != "")
+                Total = fun.ToDouble(txtTotal.Text);
+
             SqlTransaction Transaccion;
             SqlConnection con = new SqlConnection(cConexion.GetConexion());
             con.Open();
@@ -153,7 +165,7 @@ namespace SistemaFact
            
             try
             {
-                CodVenta = venta.InsertarVenta (con, Transaccion, CodVendedor, Fecha,CodPresupuesto);
+                CodVenta = venta.InsertarVenta (con, Transaccion, CodVendedor, Fecha,CodPresupuesto,Total);
                 prep.ActualizarProcesado(con, Transaccion, CodPresupuesto);
                 for (int i = 0; i < tbVenta.Rows.Count ; i++)
                 {
