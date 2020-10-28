@@ -32,6 +32,7 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodPresupuesto = new System.Windows.Forms.TextBox();
             this.txtCodVendedor = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +48,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPorcentajeAplicado = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPresupuesto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -55,6 +58,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodPresupuesto);
             this.groupBox1.Controls.Add(this.txtCodVendedor);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label6);
@@ -69,6 +73,15 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Presupuesto";
+            // 
+            // txtCodPresupuesto
+            // 
+            this.txtCodPresupuesto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.txtCodPresupuesto.Location = new System.Drawing.Point(348, 21);
+            this.txtCodPresupuesto.Name = "txtCodPresupuesto";
+            this.txtCodPresupuesto.Size = new System.Drawing.Size(58, 23);
+            this.txtCodPresupuesto.TabIndex = 112;
+            this.txtCodPresupuesto.Visible = false;
             // 
             // txtCodVendedor
             // 
@@ -134,6 +147,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtPorcentajeAplicado);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.GrillaVentas);
@@ -211,6 +226,24 @@
             this.btnCancelar.TabIndex = 111;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(145, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.TabIndex = 109;
+            this.label1.Text = "Porcentaje Aplicado";
+            // 
+            // txtPorcentajeAplicado
+            // 
+            this.txtPorcentajeAplicado.Location = new System.Drawing.Point(281, 35);
+            this.txtPorcentajeAplicado.Name = "txtPorcentajeAplicado";
+            this.txtPorcentajeAplicado.Size = new System.Drawing.Size(58, 23);
+            this.txtPorcentajeAplicado.TabIndex = 111;
+            this.txtPorcentajeAplicado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentajeAplicado_KeyPress);
             // 
             // FrmVentaJoya
             // 
@@ -256,5 +289,8 @@
         private System.Windows.Forms.TextBox txtCodVendedor;
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtCodPresupuesto;
+        private System.Windows.Forms.TextBox txtPorcentajeAplicado;
+        private System.Windows.Forms.Label label1;
     }
 }

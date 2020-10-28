@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 namespace SistemaFact.Clases
 {
     public  class cJoya
@@ -78,5 +79,14 @@ namespace SistemaFact.Clases
             sql = sql + " where CodJoya=" + CodJoya.ToString();
             return cDb.GetDatatable(sql);
         }
+
+        public void ActualizarStock(SqlConnection con, SqlTransaction Transaccion,Int32 CodJoya,int Cantidad)
+        {
+            string sql = "Update Joya set Stock=Stock - " + Cantidad.ToString();
+            sql = sql + " where CodJoya=" + CodJoya.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+      
     }
 }

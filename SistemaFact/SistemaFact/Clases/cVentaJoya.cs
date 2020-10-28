@@ -9,28 +9,55 @@ namespace SistemaFact.Clases
 {
     public  class cVentaJoya
     {
-        public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion,Int32? CodVendedor, DateTime Fecha)
+        public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion,Int32? CodVendedor, DateTime Fecha, Int32 CodPresupuesto)
         {
             cFunciones fun = new cFunciones();
-            string sql = "insert into Venta(CodVendedor,Fecha)";
+            string sql = "insert into Venta(CodVendedor,Fecha,CodPresupuesto)";
             if (CodVendedor != null)
                 sql = sql + " values(" + CodVendedor.ToString();
             else
                 sql = sql + " Values(null";
             sql = sql + "," + "'" + fun.FormatoFechaDMA(Fecha) + "'";
+            sql = sql + "," + CodPresupuesto.ToString();
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
-        public void InsertarDetalleVenta(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta,Int32 CodJoya, double Cantidad, Double Precio)
+        public void InsertarDetalleVenta(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta,Int32 CodJoya, double Cantidad, Double Precio,Int32 CodRegistro,Double Comision)
         {
-            string sql = " insert into DetalleVenta(CodVenta,CodJoya,Cantidad,Precio)";
+            string sql = " insert into DetalleVenta(CodVenta,CodJoya,Cantidad,Precio,CodRegistro,Comision)";
             sql = sql + " values (" + CodVenta.ToString();
             sql = sql + "," + CodJoya.ToString();
             sql = sql + "," + Cantidad.ToString().Replace(",", ".");
             sql = sql + "," + Precio.ToString().Replace(",", ".");
+            sql = sql + "," + CodRegistro.ToString();
+            sql = sql + "," + Comision.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+        public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            string sql = "select v.CodVenta,v.Fecha";
+            sql = sql + ",(select ve.Apellido from Vendedor ve where ve.CodVendedor = v.CodVendedor) as Apellido";
+            sql = sql + ",(select ve.Nombre from Vendedor ve where ve.CodVendedor = v.CodVendedor) as Nombre";
+            sql = sql + " from Venta v ";
+            sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
+            sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " order by v.CodVenta desc";
+            return cDb.GetDatatable(sql);
+        }
+
+        public DataTable GetVentaxCodVenta(Int32 CodVenta)
+        {
+            string sql = " select *";
+
+            sql = sql + " from Venta v,Vendedor ve, DetalleVenta dv,Joya j";
+            sql = sql + " where v.CodVendedor=ve.CodVendedor";
+            sql = sql + " and v.Codventa= dv.CodVenta";
+            sql = sql + " and dv.CodJoya=j.CodJoya";
+            sql = sql + " and v.CodVenta=" + CodVenta.ToString();
+            return cDb.GetDatatable(sql);
         }
 
     }

@@ -70,5 +70,19 @@ namespace SistemaFact.Clases
             sql = sql + " order by p.CodPresupuesto desc";
             return cDb.GetDatatable(sql);
         }
+
+        public void ActualizarProcesado(SqlConnection con, SqlTransaction Transaccion, Int32 CodPresupuesto)
+        {
+            string sql = "Update Presupuesto set Procesado = 1 ";
+            sql = sql + " where CodPresupuesto=" + CodPresupuesto.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+        public DataTable GetPresupuestoxCodigo(Int32 CodPresupuesto)
+        {
+            string sql = "select * from Presupuesto ";
+            sql = sql + " where CodPresupuesto=" + CodPresupuesto.ToString();
+            return cDb.GetDatatable(sql);
+        }
     }
 }

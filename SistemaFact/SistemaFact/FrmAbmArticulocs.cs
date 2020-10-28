@@ -16,7 +16,7 @@ namespace SistemaFact
         public FrmAbmArticulocs()
         {
             InitializeComponent();
-            
+
         }
 
         private void FrmAbmArticulocs_Load(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace SistemaFact
             Grupo.Enabled = true;
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LimpiarGenerico(this);
-          
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -105,24 +105,25 @@ namespace SistemaFact
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-          
-            if (txt_Nombre.Text =="")
+
+            if (txt_Nombre.Text == "")
             {
                 Mensaje("Debe ingresar una descripción para continuar");
                 return;
             }
-
+           
+            txt_PrecioVenta.Text = txt_PrecioVenta.Text.Replace(".", "");
             if (txtCodigo.Text == "")
                 fun.GuardarNuevoGenerico(this, "Joya");
             else
             {
                 fun.ModificarGenerico(this, "Joya", "CodJoya", txtCodigo.Text);
             }
-                
+
             Mensaje("Datos grabados correctamente");
             Botonera(1);
             fun.LimpiarGenerico(this);
-            
+
             txtCodigo.Text = "";
             Grupo.Enabled = false;
         }
@@ -135,7 +136,7 @@ namespace SistemaFact
             Botonera(1);
             Grupo.Enabled = false;
             fun.LimpiarGenerico(this);
-           
+
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
@@ -174,26 +175,28 @@ namespace SistemaFact
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Principal.CampoIdSecundarioGenerado != "")
-            {  
+            {
                 Clases.cFunciones fun = new Clases.cFunciones();
                 switch (Principal.NombreTablaSecundario)
                 {
-                    case "Tipo":  
+                    case "Tipo":
                         fun.LlenarCombo(cmb_CodTipo, "Tipo", "Nombre", "CodTipo");
                         cmb_CodTipo.SelectedValue = Principal.CampoIdSecundarioGenerado;
                         break;
                 }
             }
-            if (Principal.CodigoPrincipalAbm !=null)
+            if (Principal.CodigoPrincipalAbm != null)
             {
                 Botonera(3);
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
                 cFunciones fun = new Clases.cFunciones();
-                fun.CargarControles(this, "Joya","CodJoya", txtCodigo.Text);
-                if (txt_PrecioVenta.Text !="")
+                fun.CargarControles(this, "Joya", "CodJoya", txtCodigo.Text);
+                if (txt_PrecioVenta.Text != "")
                 {
                     Double PrecioVenta = Convert.ToDouble(txt_PrecioVenta.Text.Replace(".", ","));
-                    txt_PrecioVenta.Text  = Math.Round(PrecioVenta, 0).ToString();
+                    txt_PrecioVenta.Text = Math.Round(PrecioVenta, 0).ToString();
+                    txt_PrecioVenta.Text = fun.SepararDecimales(txt_PrecioVenta.Text);
+                    txt_PrecioVenta.Text = fun.FormatoEnteroMiles(txt_PrecioVenta.Text);
                 }
 
             }
@@ -201,7 +204,7 @@ namespace SistemaFact
         }
 
         private void btnAgregarOrigen_Click(object sender, EventArgs e)
-        {    
+        {
             Principal.CampoIdSecundario = "CodOrigen";
             Principal.CampoNombreSecundario = "Nombre";
             Principal.NombreTablaSecundario = "Origen";
@@ -226,7 +229,7 @@ namespace SistemaFact
                     codigo = codigo + nro.ToString();
                 c++;
             }
-        
+
             BarcodeLib.Barcode CodBar = new BarcodeLib.Barcode();
             //panel1.BackgroundImage = codigo.Encode(BarcodeLib.TYPE.CODE128, "12345678988877744521", Color.Black, Color.White, 300, 300);
             //ImagenCodigo.Image = CodBar.Encode(BarcodeLib.TYPE.CODE128, codigo, Color.Black, Color.White, 300, 300);
@@ -234,12 +237,12 @@ namespace SistemaFact
 
         private void btnAbrirImagen_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnIGregarColor_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnAgregarColor_Click(object sender, EventArgs e)
@@ -258,11 +261,41 @@ namespace SistemaFact
 
         }
 
-     
+
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
-           
+            string Codigo = txt_Codigo.Text;
+            cJoya joya = new cJoya();
+            if (Codigo.Length > 2)
+            {
+                DataTable trdo = joya.GetJoyaxCodigo(Codigo);
+                if (trdo.Rows.Count > 0)
+                {
+                    txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                    txtCodigo.Text = trdo.Rows[0]["CodJoya"].ToString();
+                    txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                    txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                    txt_PrecioVenta.Text = trdo.Rows[0]["PrecioVenta"].ToString();
+                    if (trdo.Rows[0]["CodTipo"].ToString() != "")
+                    {
+                        {
+                            cmb_CodTipo.SelectedValue = trdo.Rows[0]["CodTipo"].ToString();
+                        }
+
+                        if (txt_PrecioVenta.Text != "")
+                        {
+                            cFunciones fun = new cFunciones();
+                            Double PrecioVenta = Convert.ToDouble(txt_PrecioVenta.Text.Replace(".", ","));
+                            txt_PrecioVenta.Text = Math.Round(PrecioVenta, 0).ToString();
+                            txt_PrecioVenta.Text = fun.SepararDecimales(txt_PrecioVenta.Text);
+                            txt_PrecioVenta.Text = fun.FormatoEnteroMiles(txt_PrecioVenta.Text);
+                        }
+
+
+                    }
+                }
+            }
         }
 
         private void txt_Stock_TextChanged(object sender, EventArgs e)
@@ -283,29 +316,29 @@ namespace SistemaFact
         private void btnAplicarEfectivo_Click(object sender, EventArgs e)
         {
             //CalcularEfectivo();
-           // txt_PrecioEfectivo.Text = (Math.Round(Efectivo, 0)).ToString();
+            // txt_PrecioEfectivo.Text = (Math.Round(Efectivo, 0)).ToString();
         }
 
-     
+
         private void btnAplicarTarjeta_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
-    
+
 
         private void txtPorEfectivo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
-               
+
             }
         }
 
         private void txtPorTarjeta_KeyPress(object sender, KeyPressEventArgs e)
         {
-          
+
         }
 
         private void button1_Click(object sender, EventArgs e)

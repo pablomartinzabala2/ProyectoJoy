@@ -262,6 +262,12 @@
     <Compile Include="FrmListadoCompra.Designer.cs">
       <DependentUpon>FrmListadoCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmListadoVentaJoya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoVentaJoya.Designer.cs">
+      <DependentUpon>FrmListadoVentaJoya.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoVentas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoCompra.resx">
       <DependentUpon>FrmListadoCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmListadoVentaJoya.resx">
+      <DependentUpon>FrmListadoVentaJoya.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoVentas.resx">
       <DependentUpon>FrmListadoVentas.cs</DependentUpon>
