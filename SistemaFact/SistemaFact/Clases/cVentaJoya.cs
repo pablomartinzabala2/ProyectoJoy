@@ -62,7 +62,7 @@ namespace SistemaFact.Clases
 
         public DataTable GetResumenVentasxFecha(DateTime FechaDesde, DateTime FechaHasta, Int32? CodTipo)
         {
-            string sql = " select t.nombre,sum(v.Total) as Total";
+            string sql = " select t.nombre,count(v.Total) as Cantidad,sum(dv.Precio) as Total";
             sql = sql + " from Venta v,Tipo t,DetalleVenta dv, Joya j";
             sql = sql + " where v.CodVenta=dv.CodVenta";
             sql = sql + " and dv.CodJoya=j.CodJoya";

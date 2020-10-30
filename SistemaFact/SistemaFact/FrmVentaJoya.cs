@@ -273,6 +273,8 @@ namespace SistemaFact
                 }
                 string Col = "0;0;15;40;15;15;15";
                 fun.AnchoColumnas(GrillaVentas, Col);
+                btnGrabar.Enabled = false;
+                btnCancelar.Enabled = false;
             }
         }
     }

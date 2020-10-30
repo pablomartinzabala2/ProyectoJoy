@@ -44,8 +44,16 @@ namespace SistemaFact
         {
             cVentaJoya venta = new Clases.cVentaJoya();
             DataTable trdo = venta.GetResumenVentasxFecha(FechaDesde, FechaHasta, CodTipo);
+            trdo = fun.TablaaMiles(trdo, "Total");
+            Double Total = fun.TotalizarColumna(trdo, "Total");
             Grilla.DataSource = trdo;
-            fun.AnchoColumnas(Grilla, "80;20");
+            fun.AnchoColumnas(Grilla, "60;20;20");
+            txtTotal.Text = Total.ToString();
+            if (txtTotal.Text !="")
+            {
+                txtTotal.Text = fun.SepararDecimales(txtTotal.Text);
+                txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
+            }
         }
     }
 }
