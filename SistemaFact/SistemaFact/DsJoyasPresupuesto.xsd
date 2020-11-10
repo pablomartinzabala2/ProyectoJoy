@@ -2,14 +2,15 @@
 <xs:schema id="DsJoyasPresupuesto" targetNamespace="http://tempuri.org/DsJoyasPresupuesto.xsd" xmlns:mstns="http://tempuri.org/DsJoyasPresupuesto.xsd" xmlns="http://tempuri.org/DsJoyasPresupuesto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JOYConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JOYConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SistemaFact.Properties.Settings.GlobalReference.Default.JOYConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ISAUIConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ISAUIConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SistemaFact.Properties.Settings.GlobalReference.Default.ISAUIConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JOYConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JOYConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SistemaFact.Properties.Settings.GlobalReference.Default.JOYConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JOYConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JOYConnectionString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select p.*,d.*,v.Apellido,v.Nombre as nom,v.NroDocumento, v.direccion,v.telefono ,j.Codigo,j.Nombre as NombreJoya,
@@ -33,6 +34,9 @@ and p.CodPresupuesto = @p</CommandText>
               <Mapping SourceColumn="Total" DataSetColumn="Total" />
               <Mapping SourceColumn="CodVendedor" DataSetColumn="CodVendedor" />
               <Mapping SourceColumn="NroPresupuesto" DataSetColumn="NroPresupuesto" />
+              <Mapping SourceColumn="FechaRendicionTexto" DataSetColumn="FechaRendicionTexto" />
+              <Mapping SourceColumn="FechaRendicion" DataSetColumn="FechaRendicion" />
+              <Mapping SourceColumn="Procesado" DataSetColumn="Procesado" />
               <Mapping SourceColumn="CodRegistro" DataSetColumn="CodRegistro" />
               <Mapping SourceColumn="CodPresupuesto1" DataSetColumn="CodPresupuesto1" />
               <Mapping SourceColumn="CodJoya" DataSetColumn="CodJoya" />
@@ -40,15 +44,13 @@ and p.CodPresupuesto = @p</CommandText>
               <Mapping SourceColumn="Precio" DataSetColumn="Precio" />
               <Mapping SourceColumn="Apellido" DataSetColumn="Apellido" />
               <Mapping SourceColumn="nom" DataSetColumn="nom" />
+              <Mapping SourceColumn="NroDocumento" DataSetColumn="NroDocumento" />
               <Mapping SourceColumn="direccion" DataSetColumn="direccion" />
               <Mapping SourceColumn="telefono" DataSetColumn="telefono" />
-              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
               <Mapping SourceColumn="Codigo" DataSetColumn="Codigo" />
               <Mapping SourceColumn="NombreJoya" DataSetColumn="NombreJoya" />
-              <Mapping SourceColumn="NroDocumento" DataSetColumn="NroDocumento" />
+              <Mapping SourceColumn="Tipo" DataSetColumn="Tipo" />
               <Mapping SourceColumn="DomicilioCompleto" DataSetColumn="DomicilioCompleto" />
-              <Mapping SourceColumn="FechaRendicion" DataSetColumn="FechaRendicion" />
-              <Mapping SourceColumn="FechaRendicionTexto" DataSetColumn="FechaRendicionTexto" />
               <Mapping SourceColumn="FechaRendicionTexto1" DataSetColumn="FechaRendicionTexto1" />
             </Mappings>
             <Sources />
@@ -61,7 +63,7 @@ and p.CodPresupuesto = @p</CommandText>
   <xs:element name="DsJoyasPresupuesto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsJoyasPresupuesto" msprop:Generator_UserDSName="DsJoyasPresupuesto">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CodPresupuesto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCodPresupuesto" msprop:Generator_ColumnPropNameInRow="CodPresupuesto" msprop:Generator_ColumnPropNameInTable="CodPresupuestoColumn" msprop:Generator_UserColumnName="CodPresupuesto" type="xs:int" />
@@ -75,6 +77,15 @@ and p.CodPresupuesto = @p</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="FechaRendicionTexto" msprop:Generator_ColumnVarNameInTable="columnFechaRendicionTexto" msprop:Generator_ColumnPropNameInRow="FechaRendicionTexto" msprop:Generator_ColumnPropNameInTable="FechaRendicionTextoColumn" msprop:Generator_UserColumnName="FechaRendicionTexto" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FechaRendicion" msprop:Generator_ColumnVarNameInTable="columnFechaRendicion" msprop:Generator_ColumnPropNameInRow="FechaRendicion" msprop:Generator_ColumnPropNameInTable="FechaRendicionColumn" msprop:Generator_UserColumnName="FechaRendicion" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Procesado" msprop:Generator_ColumnVarNameInTable="columnProcesado" msprop:Generator_ColumnPropNameInRow="Procesado" msprop:Generator_ColumnPropNameInTable="ProcesadoColumn" msprop:Generator_UserColumnName="Procesado" type="xs:int" minOccurs="0" />
               <xs:element name="CodRegistro" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCodRegistro" msprop:Generator_ColumnPropNameInRow="CodRegistro" msprop:Generator_ColumnPropNameInTable="CodRegistroColumn" msprop:Generator_UserColumnName="CodRegistro" type="xs:int" />
               <xs:element name="CodPresupuesto1" msprop:Generator_ColumnVarNameInTable="columnCodPresupuesto1" msprop:Generator_ColumnPropNameInRow="CodPresupuesto1" msprop:Generator_ColumnPropNameInTable="CodPresupuesto1Column" msprop:Generator_UserColumnName="CodPresupuesto1" type="xs:int" minOccurs="0" />
               <xs:element name="CodJoya" msprop:Generator_ColumnVarNameInTable="columnCodJoya" msprop:Generator_ColumnPropNameInRow="CodJoya" msprop:Generator_ColumnPropNameInTable="CodJoyaColumn" msprop:Generator_UserColumnName="CodJoya" type="xs:int" minOccurs="0" />
@@ -94,6 +105,13 @@ and p.CodPresupuesto = @p</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="NroDocumento" msprop:Generator_ColumnVarNameInTable="columnNroDocumento" msprop:Generator_ColumnPropNameInRow="NroDocumento" msprop:Generator_ColumnPropNameInTable="NroDocumentoColumn" msprop:Generator_UserColumnName="NroDocumento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="direccion" msprop:Generator_ColumnVarNameInTable="columndireccion" msprop:Generator_ColumnPropNameInRow="direccion" msprop:Generator_ColumnPropNameInTable="direccionColumn" msprop:Generator_UserColumnName="direccion" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -105,13 +123,6 @@ and p.CodPresupuesto = @p</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Tipo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="400" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -129,10 +140,10 @@ and p.CodPresupuesto = @p</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="NroDocumento" msprop:Generator_ColumnVarNameInTable="columnNroDocumento" msprop:Generator_ColumnPropNameInRow="NroDocumento" msprop:Generator_ColumnPropNameInTable="NroDocumentoColumn" msprop:Generator_UserColumnName="NroDocumento" minOccurs="0">
+              <xs:element name="Tipo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTipo" msprop:Generator_ColumnPropNameInRow="Tipo" msprop:Generator_ColumnPropNameInTable="TipoColumn" msprop:Generator_UserColumnName="Tipo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="400" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -140,14 +151,6 @@ and p.CodPresupuesto = @p</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="400" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="FechaRendicion" msprop:Generator_ColumnVarNameInTable="columnFechaRendicion" msprop:Generator_ColumnPropNameInRow="FechaRendicion" msprop:Generator_ColumnPropNameInTable="FechaRendicionColumn" msprop:Generator_UserColumnName="FechaRendicion" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="FechaRendicionTexto" msprop:Generator_ColumnVarNameInTable="columnFechaRendicionTexto" msprop:Generator_ColumnPropNameInRow="FechaRendicionTexto" msprop:Generator_ColumnPropNameInTable="FechaRendicionTextoColumn" msprop:Generator_UserColumnName="FechaRendicionTexto" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="15" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

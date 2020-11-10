@@ -29,6 +29,7 @@ namespace SistemaFact
             // TODO: This line of code loads data into the 'DsJoyasPresupuesto.DataTable1' table. You can move, or remove it, as needed.
             this.DataTable1TableAdapter.Fill(this.DsJoyasPresupuesto.DataTable1, Codigo);
             this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
     }
 }
