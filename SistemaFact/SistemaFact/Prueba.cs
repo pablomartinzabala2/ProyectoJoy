@@ -26,7 +26,9 @@ namespace SistemaFact
 
         private void Prueba_Load(object sender, EventArgs e)
         {
-
+            string xxx = SistemaFact.Properties.Settings.Default.JOYConnectionString1;
+            string yyyy = SistemaFact.Properties.Settings.Default.JOYConnectionString;
+            string zzz = SistemaFact.Properties.Settings.Default.ISAUIConnectionString;
         }
     }
 }
