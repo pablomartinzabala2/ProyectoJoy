@@ -23,5 +23,10 @@ namespace SistemaFact
             FrmVerReportePresupuesto frm = new FrmVerReportePresupuesto();
             frm.Show();
         }
+
+        private void Prueba_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace SistemaFact
 
         private void btnBuscarPresupuesto_Click(object sender, EventArgs e)
         {
+            Principal.CodigoSenia = "2";
             FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
             frm.Show();
             frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
@@ -41,7 +42,7 @@ namespace SistemaFact
         private void GetPresupuesto(Int32 CodPresupuesto)
         {
             cDetallePresupuesto det = new Clases.cDetallePresupuesto();
-            DataTable trdo = det.getJoyasxPresupuesto(CodPresupuesto);
+            DataTable trdo = det.getJoyasxPresupuestoxVenta(CodPresupuesto);
             GrillaPresupuesto.DataSource = trdo;
             string Col = "0;0;15;55;15;15";
             fun.AnchoColumnas(GrillaPresupuesto, Col);
@@ -78,21 +79,30 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un porcentaje a a aplicar");
                 return;
             }
+
+            if (txtCantidad.Text =="")
+            {
+                Mensaje("Debe ingresar una cantidad");
+                return;
+            }
+
             string Val = "";
             string CodRegistro = GrillaPresupuesto.CurrentRow.Cells[0].Value.ToString();
             string CodJoya = GrillaPresupuesto.CurrentRow.Cells[1].Value.ToString();
             string Codigo = GrillaPresupuesto.CurrentRow.Cells[2].Value.ToString();
             string Nombre = GrillaPresupuesto.CurrentRow.Cells[3].Value.ToString();
-            string Cantidad = GrillaPresupuesto.CurrentRow.Cells[4].Value.ToString();
+            // string Cantidad = GrillaPresupuesto.CurrentRow.Cells[4].Value.ToString();
+            string Cantidad = txtCantidad.Text;
             if (fun.Buscar (tbVenta ,"CodRegistro",CodRegistro)==true)
             {
                 Mensaje("Ya se ha ingresado el registro");
                 return;
             }
-            Double Precio =Convert.ToDouble (GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString());
+           // Double Precio =Convert.ToDouble (GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString());
+            Double Precio = Convert.ToDouble(txtPrecio.Text);
             Double Por = fun.ToDouble(txtPorcentajeAplicado.Text);
             Double Comision = 0;
-            Comision = Precio * Por  / 100;
+            Comision = Precio * Convert.ToInt32(Cantidad) * Por  / 100;
             Val = CodRegistro + ";" + CodJoya + ";" + Codigo;
             Val = Val + ";" + Nombre + ";" + Cantidad.ToString() + ";" + Precio.ToString() + ";" + Comision.ToString();
             tbVenta = fun.AgregarFilas(tbVenta, Val);
@@ -276,6 +286,17 @@ namespace SistemaFact
                 btnGrabar.Enabled = false;
                 btnCancelar.Enabled = false;
             }
+        }
+
+        private void GrillaPresupuesto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GrillaPresupuesto.CurrentRow ==null)
+            {
+                txtCantidad.Text = "";
+                return;
+            }
+            txtCantidad.Text =  GrillaPresupuesto.CurrentRow.Cells[4].Value.ToString();
+            txtPrecio.Text = GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString();
         }
     }
 }

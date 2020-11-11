@@ -26,13 +26,15 @@ namespace SistemaFact.Clases
 
         public void InsertarDetalleVenta(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta,Int32 CodJoya, double Cantidad, Double Precio,Int32 CodRegistro,Double Comision)
         {
-            string sql = " insert into DetalleVenta(CodVenta,CodJoya,Cantidad,Precio,CodRegistro,Comision)";
+            Double SubTotal = Precio * Cantidad;
+            string sql = " insert into DetalleVenta(CodVenta,CodJoya,Cantidad,Precio,CodRegistro,Comision,SubTotal)";
             sql = sql + " values (" + CodVenta.ToString();
             sql = sql + "," + CodJoya.ToString();
             sql = sql + "," + Cantidad.ToString().Replace(",", ".");
             sql = sql + "," + Precio.ToString().Replace(",", ".");
             sql = sql + "," + CodRegistro.ToString();
             sql = sql + "," + Comision.ToString().Replace(",", ".");
+            sql = sql + "," + SubTotal.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }

@@ -30,22 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscadorPresupuesto));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Grilla = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.Grilla = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnImprimir);
             this.Grupo.Controls.Add(this.txtApellido);
             this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.Grilla);
@@ -63,6 +65,32 @@
             this.Grupo.TabIndex = 21;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información de  ventas";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(359, 28);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(192, 23);
+            this.txtApellido.TabIndex = 84;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(295, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 17);
+            this.label3.TabIndex = 83;
+            this.label3.Text = "Apellido";
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(16, 92);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.ReadOnly = true;
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(691, 359);
+            this.Grilla.TabIndex = 82;
             // 
             // label2
             // 
@@ -111,6 +139,16 @@
             this.txtFechaDesde.TabIndex = 64;
             this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
             // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Image = global::SistemaFact.Properties.Resources.printer;
+            this.btnImprimir.Location = new System.Drawing.Point(641, 26);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(31, 26);
+            this.btnImprimir.TabIndex = 85;
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
@@ -130,32 +168,6 @@
             this.btnBuscar.TabIndex = 79;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(16, 92);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.ReadOnly = true;
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(691, 359);
-            this.Grilla.TabIndex = 82;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(295, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 17);
-            this.label3.TabIndex = 83;
-            this.label3.Text = "Apellido";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(359, 28);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(192, 23);
-            this.txtApellido.TabIndex = 84;
             // 
             // FrmBuscadorPresupuesto
             // 
@@ -186,5 +198,6 @@
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

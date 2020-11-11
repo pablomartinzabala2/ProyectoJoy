@@ -54,6 +54,23 @@ namespace SistemaFact
             }
             Principal.CodigoPrincipalAbm = Grilla.CurrentRow.Cells[0].Value.ToString();
             this.Close(); 
+            if (Principal.CodigoSenia=="1")
+            {
+                FrmPresupuesto frm = new SistemaFact.FrmPresupuesto();
+                frm.Show();
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow == null)
+            {
+                Mensaje("Debe seleccionar un registro");
+                return;
+            }
+            Principal.CodigoPrincipalAbm = Grilla.CurrentRow.Cells[0].Value.ToString();
+            FrmVerReportePresupuesto frm = new FrmVerReportePresupuesto();
+            frm.Show();
         }
     }
 }

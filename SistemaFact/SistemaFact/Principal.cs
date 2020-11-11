@@ -226,6 +226,7 @@ namespace SistemaFact
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Principal.CodigoPrincipalAbm = null;
             FrmPresupuesto frm = new SistemaFact.FrmPresupuesto();
             frm.Show();
         }
@@ -252,6 +253,13 @@ namespace SistemaFact
         private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmConsultaVentaJoyas frm = new FrmConsultaVentaJoyas();
+            frm.Show();
+        }
+
+        private void consultarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Principal.CodigoSenia = "1";
+            FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
             frm.Show();
         }
     }

@@ -12,8 +12,8 @@ namespace SistemaFact.Clases
         {
             //nueva cadena de conexion 
               string cadena = "Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=joy;Integrated Security=True";
-            //NTBK\SQLEXPRESS
-            //  string cadena = "Data Source=DESKTOP-I0OF5F9\\SQLEXPRESS;Initial Catalog=JOY;Integrated Security=True";
+            //DESKTOP-I0OF5F9\SQLEXPRESS
+           // string cadena = "Data Source=DESKTOP-I0OF5F9\\SQLEXPRESS;Initial Catalog=JOY;Integrated Security=True";
             return cadena;
         }
     }

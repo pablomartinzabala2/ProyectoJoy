@@ -9,13 +9,16 @@
               <Width>3.29375cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>9.75072cm</Width>
+              <Width>7.55058cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.42604cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -158,6 +161,40 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Sub Total</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>Orange</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -283,12 +320,43 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="SubTotal">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!SubTotal.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>SubTotal</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -309,7 +377,7 @@
         <Top>8.35237cm</Top>
         <Left>0.68298cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.97051cm</Width>
+        <Width>19.27037cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -533,7 +601,7 @@
         </Paragraphs>
         <rd:DefaultName>Apellido</rd:DefaultName>
         <Top>4.84956cm</Top>
-        <Left>11.96714cm</Left>
+        <Left>11.85426cm</Left>
         <Height>0.6cm</Height>
         <Width>7.15662cm</Width>
         <ZIndex>8</ZIndex>
@@ -563,7 +631,7 @@
         </Paragraphs>
         <rd:DefaultName>nom</rd:DefaultName>
         <Top>5.57304cm</Top>
-        <Left>12.00243cm</Left>
+        <Left>11.85426cm</Left>
         <Height>0.6cm</Height>
         <Width>7.12133cm</Width>
         <ZIndex>9</ZIndex>
@@ -593,7 +661,7 @@
         </Paragraphs>
         <rd:DefaultName>telefono</rd:DefaultName>
         <Top>6.19067cm</Top>
-        <Left>11.96714cm</Left>
+        <Left>11.85426cm</Left>
         <Height>0.6cm</Height>
         <Width>7.15662cm</Width>
         <ZIndex>10</ZIndex>
@@ -653,7 +721,7 @@
         </Paragraphs>
         <rd:DefaultName>DomicilioCompleto</rd:DefaultName>
         <Top>6.93178cm</Top>
-        <Left>12.00243cm</Left>
+        <Left>11.85426cm</Left>
         <Height>0.6cm</Height>
         <Width>6.78795cm</Width>
         <ZIndex>12</ZIndex>
@@ -752,7 +820,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Juan José Pazo, 328 Villa Dolores Córdoba</Value>
+                <Value>Juan José Paso, 328 Villa Dolores Córdoba</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1094,6 +1162,18 @@
           <DataField>NroPresupuesto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="FechaRendicionTexto">
+          <DataField>FechaRendicionTexto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FechaRendicion">
+          <DataField>FechaRendicion</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Procesado">
+          <DataField>Procesado</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="CodRegistro">
           <DataField>CodRegistro</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1122,16 +1202,16 @@
           <DataField>nom</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="NroDocumento">
+          <DataField>NroDocumento</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="direccion">
           <DataField>direccion</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="telefono">
           <DataField>telefono</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Tipo">
-          <DataField>Tipo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Codigo">
@@ -1142,30 +1222,30 @@
           <DataField>NombreJoya</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NroDocumento">
-          <DataField>NroDocumento</DataField>
+        <Field Name="Tipo">
+          <DataField>Tipo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="DomicilioCompleto">
           <DataField>DomicilioCompleto</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="FechaRendicion">
-          <DataField>FechaRendicion</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="FechaRendicionTexto">
-          <DataField>FechaRendicionTexto</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="FechaRendicionTexto1">
           <DataField>FechaRendicionTexto1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="SubTotal">
+          <DataField>SubTotal</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SubTotal1">
+          <DataField>SubTotal1</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DsJoyasPresupuesto</rd:DataSetName>
-        <rd:SchemaPath>D:\PROGRAMACION 2\JOY\ProyectoJoy\SistemaFact\SistemaFact\DsJoyasPresupuesto.xsd</rd:SchemaPath>
+        <rd:SchemaPath>F:\PROGRAMACION 2\JOY\ProyectoJoy\SistemaFact\SistemaFact\DsJoyasPresupuesto.xsd</rd:SchemaPath>
         <rd:TableName>DataTable1</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

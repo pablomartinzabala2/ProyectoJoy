@@ -98,25 +98,17 @@
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="Clases\cVentaJoya.cs" />
     <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="DataSet2.cs">
       <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
+      <SubType>code</SubType>
     </Compile>
     <Compile Include="DataSet3.cs">
       <DependentUpon>DataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet3.xsd</DependentUpon>
+      <SubType>code</SubType>
     </Compile>
     <Compile Include="DsJoyasPresupuesto.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -254,11 +246,11 @@
     <Compile Include="FrmImportarArticulo.Designer.cs">
       <DependentUpon>FrmImportarArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmIngreso.cs">
+    <Compile Include="FrmCrearPresupuesto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmIngreso.Designer.cs">
-      <DependentUpon>FrmIngreso.cs</DependentUpon>
+    <Compile Include="FrmCrearPresupuesto.Designer.cs">
+      <DependentUpon>FrmCrearPresupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmListadoArticulo.cs">
       <SubType>Form</SubType>
@@ -284,11 +276,11 @@
     <Compile Include="FrmListadoVentas.Designer.cs">
       <DependentUpon>FrmListadoVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="orubcuola.cs">
+    <Compile Include="FrmPresupuesto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="orubcuola.Designer.cs">
-      <DependentUpon>orubcuola.cs</DependentUpon>
+    <Compile Include="FrmPresupuesto.Designer.cs">
+      <DependentUpon>FrmPresupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReporte.cs">
       <SubType>Form</SubType>
@@ -397,8 +389,8 @@
     <EmbeddedResource Include="FrmImportarArticulo.resx">
       <DependentUpon>FrmImportarArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmIngreso.resx">
-      <DependentUpon>FrmIngreso.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCrearPresupuesto.resx">
+      <DependentUpon>FrmCrearPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoArticulo.resx">
       <DependentUpon>FrmListadoArticulo.cs</DependentUpon>
@@ -412,8 +404,8 @@
     <EmbeddedResource Include="FrmListadoVentas.resx">
       <DependentUpon>FrmListadoVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="orubcuola.resx">
-      <DependentUpon>orubcuola.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPresupuesto.resx">
+      <DependentUpon>FrmPresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReporte.resx">
       <DependentUpon>FrmReporte.cs</DependentUpon>
@@ -469,7 +461,6 @@
     <None Include="DataSet2.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataSet2.xss">
       <DependentUpon>DataSet2.xsd</DependentUpon>
@@ -480,7 +471,6 @@
     <None Include="DataSet3.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet3.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataSet3.xss">
       <DependentUpon>DataSet3.xsd</DependentUpon>
@@ -519,11 +509,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -558,6 +543,7 @@
     <None Include="Iconos\filenew.ico" />
     <Content Include="Iconos\Logo.jpg" />
     <Content Include="Iconos\Logo2.jpg" />
+    <None Include="Iconos\printer.ico" />
     <Content Include="Iconos\XXX.png" />
     <Content Include="Iconos\zoom.ico" />
     <None Include="Iconos\CodigoBarra.jpg" />

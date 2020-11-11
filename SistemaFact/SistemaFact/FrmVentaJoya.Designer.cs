@@ -52,6 +52,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPresupuesto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -146,6 +150,7 @@
             this.GrillaPresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrillaPresupuesto.Size = new System.Drawing.Size(415, 405);
             this.GrillaPresupuesto.TabIndex = 106;
+            this.GrillaPresupuesto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaPresupuesto_CellClick);
             // 
             // groupBox2
             // 
@@ -210,7 +215,7 @@
             // btnQuitar
             // 
             this.btnQuitar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnQuitar.Location = new System.Drawing.Point(477, 290);
+            this.btnQuitar.Location = new System.Drawing.Point(471, 277);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(40, 28);
             this.btnQuitar.TabIndex = 109;
@@ -220,7 +225,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::SistemaFact.Properties.Resources.add;
-            this.btnAgregar.Location = new System.Drawing.Point(477, 245);
+            this.btnAgregar.Location = new System.Drawing.Point(471, 232);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(40, 28);
             this.btnAgregar.TabIndex = 108;
@@ -265,11 +270,47 @@
             this.txtTotal.Size = new System.Drawing.Size(97, 23);
             this.txtTotal.TabIndex = 113;
             // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(463, 108);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(65, 20);
+            this.txtCantidad.TabIndex = 114;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(468, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 115;
+            this.label3.Text = "Cantidad";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(468, 140);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 116;
+            this.label4.Text = "Precio";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(463, 156);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(65, 20);
+            this.txtPrecio.TabIndex = 117;
+            // 
             // FrmVentaJoya
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 562);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
@@ -317,5 +358,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPrecio;
     }
 }
