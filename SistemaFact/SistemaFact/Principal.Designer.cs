@@ -38,6 +38,7 @@
             this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.consultarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -132,16 +133,24 @@
             // crearToolStripMenuItem
             // 
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             this.crearToolStripMenuItem.Click += new System.EventHandler(this.crearToolStripMenuItem_Click);
+            // 
+            // consultarToolStripMenuItem2
+            // 
+            this.consultarToolStripMenuItem2.Name = "consultarToolStripMenuItem2";
+            this.consultarToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem2.Text = "Consultar";
+            this.consultarToolStripMenuItem2.Click += new System.EventHandler(this.consultarToolStripMenuItem2_Click);
             // 
             // ventaToolStripMenuItem
             // 
             this.ventaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarToolStripMenuItem,
             this.consultarToolStripMenuItem,
-            this.consultarToolStripMenuItem1});
+            this.consultarToolStripMenuItem1,
+            this.resumenToolStripMenuItem});
             this.ventaToolStripMenuItem.Name = "ventaToolStripMenuItem";
             this.ventaToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.ventaToolStripMenuItem.Text = "venta";
@@ -149,21 +158,21 @@
             // registrarToolStripMenuItem
             // 
             this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
-            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.registrarToolStripMenuItem.Text = "Registrar";
             this.registrarToolStripMenuItem.Click += new System.EventHandler(this.registrarToolStripMenuItem_Click_1);
             // 
             // consultarToolStripMenuItem
             // 
             this.consultarToolStripMenuItem.Name = "consultarToolStripMenuItem";
-            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.consultarToolStripMenuItem.Text = "Listado";
             this.consultarToolStripMenuItem.Click += new System.EventHandler(this.consultarToolStripMenuItem_Click_1);
             // 
             // consultarToolStripMenuItem1
             // 
             this.consultarToolStripMenuItem1.Name = "consultarToolStripMenuItem1";
-            this.consultarToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
+            this.consultarToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.consultarToolStripMenuItem1.Text = "Consultar";
             this.consultarToolStripMenuItem1.Click += new System.EventHandler(this.consultarToolStripMenuItem1_Click);
             // 
@@ -172,6 +181,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // toolStrip
             // 
@@ -276,12 +286,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // consultarToolStripMenuItem2
+            // resumenToolStripMenuItem
             // 
-            this.consultarToolStripMenuItem2.Name = "consultarToolStripMenuItem2";
-            this.consultarToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.consultarToolStripMenuItem2.Text = "Consultar";
-            this.consultarToolStripMenuItem2.Click += new System.EventHandler(this.consultarToolStripMenuItem2_Click);
+            this.resumenToolStripMenuItem.Name = "resumenToolStripMenuItem";
+            this.resumenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.resumenToolStripMenuItem.Text = "Resumen";
+            this.resumenToolStripMenuItem.Click += new System.EventHandler(this.resumenToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -336,6 +346,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
     }
 }
 

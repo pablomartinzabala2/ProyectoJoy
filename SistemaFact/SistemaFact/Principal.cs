@@ -262,5 +262,16 @@ namespace SistemaFact
             FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
             frm.Show();
         }
+
+        private void resumenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmResumenVentas frm = new SistemaFact.FrmResumenVentas();
+            frm.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

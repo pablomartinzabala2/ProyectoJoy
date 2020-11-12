@@ -95,6 +95,17 @@ namespace SistemaFact.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
         
+        public DataTable GetResumenVentas(DateTime FechaDesde, DateTime FechaHasta)
+        {
+            cFunciones fun = new cFunciones();
+            string sql = " SELECT MONTH(FECHA) as Mes, YEAR(FECHA) as Anio,SUM(TOTAL) as Total, ";
+            sql = sql + " sum(totalcomision) as TotalComision, sum(TotalVentaComision) as TotalRendido";
+            sql = sql + " FROM VENTA ";
+            sql = sql +  " where fecha>=" + "'" + fun.FormatoFechaDMA(FechaDesde) + "'";
+            sql = sql + " and fecha<=" + "'" + fun.FormatoFechaDMA(FechaHasta) + "'";
+            sql = sql + " GROUP BY MONTH(FECHA), YEAR(FECHA)";
+            return cDb.GetDatatable(sql);
+        }
     
         
     }

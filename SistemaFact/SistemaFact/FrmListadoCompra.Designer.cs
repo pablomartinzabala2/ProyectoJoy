@@ -32,11 +32,11 @@
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.txtFechaHasta = new System.Windows.Forms.MaskedTextBox();
             this.txtFechaDesde = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +56,9 @@
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.Color.MediumPurple;
+            this.label3.BackColor = System.Drawing.Color.Silver;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(6, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(826, 25);
@@ -80,6 +80,25 @@
             this.Grupo.Size = new System.Drawing.Size(838, 443);
             this.Grupo.TabIndex = 21;
             this.Grupo.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(334, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 28);
+            this.button1.TabIndex = 67;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(174, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(72, 13);
+            this.label1.TabIndex = 66;
+            this.label1.Text = "Desde: Hasta";
             // 
             // lblFecha
             // 
@@ -107,25 +126,6 @@
             this.txtFechaDesde.Size = new System.Drawing.Size(76, 20);
             this.txtFechaDesde.TabIndex = 63;
             this.txtFechaDesde.ValidatingType = typeof(System.DateTime);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(174, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 66;
-            this.label1.Text = "Desde: Hasta";
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(334, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 28);
-            this.button1.TabIndex = 67;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmListadoCompra
             // 
