@@ -23,7 +23,7 @@ namespace SistemaFact.Clases
         public DataTable getJoyasxPresupuestoxVenta(Int32 CodPresupuesto)
         {
             string sql = " select d.CodRegistro,j.CodJoya,j.Codigo,j.Nombre";
-            sql = sql + ",d.Cantidad,d.Precio";
+            sql = sql + ",d.Cantidad,d.Precio,d.SubTotal";
             sql = sql + " from detallepresupuesto d, Joya j";
             sql = sql + " where d.CodJoya=j.CodJoya";
             sql = sql + " and d.CodPresupuesto =" + CodPresupuesto.ToString();
