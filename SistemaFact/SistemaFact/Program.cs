@@ -19,8 +19,8 @@ namespace SistemaFact
             // Application.Run(new FrmIngreso());
              //  Application.Run(new FrmVentaJoya());
               //       Application.Run(new Prueba());
-             Application.Run(new Principal ());
-            //  Application.Run(new FrmVerReporte());
+            // Application.Run(new Principal ());
+              Application.Run(new FrmLogin());
 
         }
     }

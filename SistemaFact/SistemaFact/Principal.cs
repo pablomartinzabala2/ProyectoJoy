@@ -180,7 +180,7 @@ namespace SistemaFact
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
-            FrmBackUp frm = new SistemaFact.FrmBackUp();
+            FrmCopia frm = new SistemaFact.FrmCopia();
             frm.Show();
         }
 
@@ -209,7 +209,9 @@ namespace SistemaFact
 
         private void printPreviewToolStripButton_Click(object sender, EventArgs e)
         {
-
+            Principal.CodigoSenia = "1";
+            FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
+            frm.Show();
         }
 
         private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -272,6 +274,13 @@ namespace SistemaFact
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void printToolStripButton_Click(object sender, EventArgs e)
+        {
+            Principal.CodigoSenia = "1";
+            FrmBuscadorPresupuesto fr = new FrmBuscadorPresupuesto();
+            fr.Show();
         }
     }
 }

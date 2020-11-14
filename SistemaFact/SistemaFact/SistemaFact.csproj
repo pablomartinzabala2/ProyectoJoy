@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\cAccesos.cs" />
     <Compile Include="Clases\cArticulo.cs" />
     <Compile Include="Clases\cCiudad.cs" />
     <Compile Include="Clases\cCliente.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Clases\cRuta.cs" />
     <Compile Include="Clases\cTipo.cs" />
     <Compile Include="Clases\cTipoOperacion.cs" />
+    <Compile Include="Clases\cUsuario.cs" />
     <Compile Include="Clases\cVendedor.cs" />
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="Clases\cVentaJoya.cs" />
@@ -240,6 +242,12 @@
     <Compile Include="FrmConsultaVentaJoyas.Designer.cs">
       <DependentUpon>FrmConsultaVentaJoyas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCopia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCopia.Designer.cs">
+      <DependentUpon>FrmCopia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmImportarArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +283,12 @@
     </Compile>
     <Compile Include="FrmListadoVentas.Designer.cs">
       <DependentUpon>FrmListadoVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPresupuesto.cs">
       <SubType>Form</SubType>
@@ -386,6 +400,9 @@
     <EmbeddedResource Include="FrmConsultaVentaJoyas.resx">
       <DependentUpon>FrmConsultaVentaJoyas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCopia.resx">
+      <DependentUpon>FrmCopia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmImportarArticulo.resx">
       <DependentUpon>FrmImportarArticulo.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,6 +420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoVentas.resx">
       <DependentUpon>FrmListadoVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPresupuesto.resx">
       <DependentUpon>FrmPresupuesto.cs</DependentUpon>

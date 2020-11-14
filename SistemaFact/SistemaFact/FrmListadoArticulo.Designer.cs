@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListadoArticulo));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.Grilla = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Grilla = new System.Windows.Forms.DataGridView();
+            this.label3 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.Grilla);
             this.Grupo.Controls.Add(this.btnBuscar);
             this.Grupo.Controls.Add(this.txtCodigo);
             this.Grupo.Controls.Add(this.label4);
-            this.Grupo.Controls.Add(this.label3);
             this.Grupo.Controls.Add(this.txtDescripcion);
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -57,6 +57,16 @@
             this.Grupo.TabIndex = 20;
             this.Grupo.TabStop = false;
             this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
+            // 
+            // Grilla
+            // 
+            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Location = new System.Drawing.Point(0, 69);
+            this.Grilla.Name = "Grilla";
+            this.Grilla.ReadOnly = true;
+            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grilla.Size = new System.Drawing.Size(1071, 439);
+            this.Grilla.TabIndex = 106;
             // 
             // btnBuscar
             // 
@@ -86,18 +96,6 @@
             this.label4.TabIndex = 60;
             this.label4.Text = "Código";
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.MediumPurple;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1071, 25);
-            this.label3.TabIndex = 59;
-            this.label3.Text = "Listado de Joyas";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // txtDescripcion
             // 
             this.txtDescripcion.CausesValidation = false;
@@ -118,15 +116,17 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Descripción";
             // 
-            // Grilla
+            // label3
             // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(0, 69);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.ReadOnly = true;
-            this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(1071, 439);
-            this.Grilla.TabIndex = 106;
+            this.label3.BackColor = System.Drawing.Color.Silver;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(0, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1071, 25);
+            this.label3.TabIndex = 107;
+            this.label3.Text = "Listado de Artículos";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FrmListadoArticulo
             // 
@@ -151,10 +151,10 @@
         private System.Windows.Forms.GroupBox Grupo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.Label label3;
     }
 }
