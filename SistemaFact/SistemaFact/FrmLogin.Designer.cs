@@ -55,7 +55,7 @@
             // btnBuscarApe
             // 
             this.btnBuscarApe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarApe.Location = new System.Drawing.Point(211, 103);
+            this.btnBuscarApe.Location = new System.Drawing.Point(211, 114);
             this.btnBuscarApe.Name = "btnBuscarApe";
             this.btnBuscarApe.Size = new System.Drawing.Size(97, 35);
             this.btnBuscarApe.TabIndex = 17;
@@ -104,10 +104,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 167);
+            this.ClientSize = new System.Drawing.Size(340, 182);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.Text = "Ingreso al sistema";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

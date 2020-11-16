@@ -50,16 +50,17 @@
             this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Controls.Add(this.txtCodigo);
+            this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 59);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(353, 131);
+            this.Grupo.Size = new System.Drawing.Size(368, 131);
             this.Grupo.TabIndex = 20;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Tipos de Color";
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(89, 38);
+            this.txt_Nombre.Location = new System.Drawing.Point(99, 38);
             this.txt_Nombre.Multiline = true;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(252, 20);
@@ -70,7 +71,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Descripción ";
             // 
@@ -96,7 +97,7 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(651, 39);
+            this.BarraBotones.Size = new System.Drawing.Size(392, 39);
             this.BarraBotones.TabIndex = 21;
             this.BarraBotones.Text = "toolStrip1";
             // 
@@ -129,7 +130,7 @@
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(36, 36);
             this.btnAceptar.Text = "Grabar";
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // btnCancelar
             // 
@@ -172,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 195);
+            this.ClientSize = new System.Drawing.Size(392, 195);
             this.Controls.Add(this.BarraBotones);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmAbmColores";

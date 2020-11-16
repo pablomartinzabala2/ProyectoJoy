@@ -282,5 +282,11 @@ namespace SistemaFact
             FrmBuscadorPresupuesto fr = new FrmBuscadorPresupuesto();
             fr.Show();
         }
+
+        private void ciudadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmCiudad frm = new FrmAbmCiudad();
+            frm.Show();
+        }
     }
 }

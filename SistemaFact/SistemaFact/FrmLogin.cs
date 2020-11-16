@@ -47,6 +47,13 @@ namespace SistemaFact
                 MessageBox.Show("Usuario incorrecto", "Información");
                 return;
             }
+           
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            fun.EstiloBotones(btnBuscarApe);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SistemaFact
 {
-    partial class FrmAbmMarca
+    partial class FrmAbmCiudad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmMarca));
-            this.Grupo = new System.Windows.Forms.GroupBox();
-            this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmCiudad));
             this.BarraBotones = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -42,51 +38,15 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.txt_Clave = new System.Windows.Forms.TextBox();
+            this.Grupo = new System.Windows.Forms.GroupBox();
+            this.cmb_CodProvincia = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Grupo.SuspendLayout();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.BarraBotones.SuspendLayout();
+            this.Grupo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Grupo
-            // 
-            this.Grupo.Controls.Add(this.label2);
-            this.Grupo.Controls.Add(this.txt_Clave);
-            this.Grupo.Controls.Add(this.txt_Nombre);
-            this.Grupo.Controls.Add(this.label1);
-            this.Grupo.Controls.Add(this.txtCodigo);
-            this.Grupo.Location = new System.Drawing.Point(12, 59);
-            this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(379, 131);
-            this.Grupo.TabIndex = 21;
-            this.Grupo.TabStop = false;
-            this.Grupo.Text = "Marca";
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.Location = new System.Drawing.Point(67, 35);
-            this.txt_Nombre.Multiline = true;
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(252, 20);
-            this.txt_Nombre.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(201, 9);
-            this.txtCodigo.Multiline = true;
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(63, 20);
-            this.txtCodigo.TabIndex = 0;
-            this.txtCodigo.Visible = false;
             // 
             // BarraBotones
             // 
@@ -102,7 +62,7 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(451, 39);
+            this.BarraBotones.Size = new System.Drawing.Size(424, 39);
             this.BarraBotones.TabIndex = 18;
             this.BarraBotones.Text = "toolStrip1";
             // 
@@ -137,7 +97,6 @@
             this.btnEliminar.Size = new System.Drawing.Size(36, 36);
             this.btnEliminar.Text = "toolStripButton3";
             this.btnEliminar.ToolTipText = "Eliminar";
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAceptar
             // 
@@ -157,7 +116,6 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(36, 36);
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAbrir
             // 
@@ -187,38 +145,81 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(36, 36);
             this.btnSalir.Text = "Salir";
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // txt_Clave
+            // Grupo
             // 
-            this.txt_Clave.Location = new System.Drawing.Point(67, 61);
-            this.txt_Clave.Multiline = true;
-            this.txt_Clave.Name = "txt_Clave";
-            this.txt_Clave.Size = new System.Drawing.Size(252, 20);
-            this.txt_Clave.TabIndex = 3;
+            this.Grupo.Controls.Add(this.cmb_CodProvincia);
+            this.Grupo.Controls.Add(this.label2);
+            this.Grupo.Controls.Add(this.txt_Nombre);
+            this.Grupo.Controls.Add(this.label1);
+            this.Grupo.Controls.Add(this.txtCodigo);
+            this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Grupo.Location = new System.Drawing.Point(12, 55);
+            this.Grupo.Name = "Grupo";
+            this.Grupo.Size = new System.Drawing.Size(404, 143);
+            this.Grupo.TabIndex = 21;
+            this.Grupo.TabStop = false;
+            this.Grupo.Text = "Formulario de abm Ciudad";
+            // 
+            // cmb_CodProvincia
+            // 
+            this.cmb_CodProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_CodProvincia.FormattingEnabled = true;
+            this.cmb_CodProvincia.Location = new System.Drawing.Point(89, 70);
+            this.cmb_CodProvincia.Name = "cmb_CodProvincia";
+            this.cmb_CodProvincia.Size = new System.Drawing.Size(297, 24);
+            this.cmb_CodProvincia.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 61);
+            this.label2.Location = new System.Drawing.Point(17, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Clave";
+            this.label2.Size = new System.Drawing.Size(66, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Provincia";
             // 
-            // FrmAbmMarca
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(89, 38);
+            this.txt_Nombre.Multiline = true;
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(297, 20);
+            this.txt_Nombre.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Nombre";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(271, 12);
+            this.txtCodigo.Multiline = true;
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(77, 20);
+            this.txtCodigo.TabIndex = 0;
+            this.txtCodigo.Visible = false;
+            // 
+            // FrmAbmCiudad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 249);
+            this.ClientSize = new System.Drawing.Size(424, 219);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
-            this.Name = "FrmAbmMarca";
-            this.Text = "Formularios de Marcas";
-            this.Load += new System.EventHandler(this.FrmAbmMarca_Load);
-            this.Grupo.ResumeLayout(false);
-            this.Grupo.PerformLayout();
+            this.Name = "FrmAbmCiudad";
+            this.Text = "FrmAbmCiudad";
+            this.Load += new System.EventHandler(this.FrmAbmCiudad_Load);
             this.BarraBotones.ResumeLayout(false);
             this.BarraBotones.PerformLayout();
+            this.Grupo.ResumeLayout(false);
+            this.Grupo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,10 +237,10 @@
         private System.Windows.Forms.ToolStripButton btnIGregarColor;
         private System.Windows.Forms.ToolStripButton btnSalir;
         private System.Windows.Forms.GroupBox Grupo;
+        private System.Windows.Forms.ComboBox cmb_CodProvincia;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_Clave;
     }
 }

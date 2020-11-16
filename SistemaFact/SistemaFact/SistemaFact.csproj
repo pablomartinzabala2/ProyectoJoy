@@ -140,6 +140,12 @@
     <Compile Include="FrmAbmArticulocs.Designer.cs">
       <DependentUpon>FrmAbmArticulocs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmCiudad.Designer.cs">
+      <DependentUpon>FrmAbmCiudad.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmColores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmArticulocs.resx">
       <DependentUpon>FrmAbmArticulocs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmCiudad.resx">
+      <DependentUpon>FrmAbmCiudad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmColores.resx">
       <DependentUpon>FrmAbmColores.cs</DependentUpon>
