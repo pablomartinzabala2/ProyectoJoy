@@ -170,6 +170,12 @@
     <Compile Include="FrmAbmTarjeta.Designer.cs">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmTipoJoya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmTipoJoya.Designer.cs">
+      <DependentUpon>FrmAbmTipoJoya.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmTipoPrenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,9 @@
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmTipoJoya.resx">
+      <DependentUpon>FrmAbmTipoJoya.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTipoPrenda.resx">
       <DependentUpon>FrmAbmTipoPrenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -473,7 +482,9 @@
     <EmbeddedResource Include="ReportePresupuesto.rdlc" />
     <EmbeddedResource Include="ReportePresupuestoJoyas.rdlc" />
     <EmbeddedResource Include="ReportPrueba.rdlc" />
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>

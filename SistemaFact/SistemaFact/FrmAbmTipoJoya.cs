@@ -10,17 +10,40 @@ using System.Windows.Forms;
 using SistemaFact.Clases;
 namespace SistemaFact
 {
-    public partial class FrmAbmTarjeta : FormBase 
+    public partial class FrmAbmTipoJoya : FormBase 
     {
-        public FrmAbmTarjeta()
+        cFunciones fun;
+        public FrmAbmTipoJoya()
         {
             InitializeComponent();
         }
 
-        private void FrmAbmTarjeta_Load(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
-            Botonera(1);
-            Grupo.Enabled = false;
+            string msj = "Confirma eliminar la categoría ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                cFunciones fun = new cFunciones();
+                fun.EliminarGenerico("Tipo", "CodTipo", txtCodigo.Text);
+                fun.LimpiarGenerico(this);
+                Botonera(1);
+                MessageBox.Show("Datos borrados correctamente");
+                Grupo.Enabled = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se puede eliminar el producto, debe tener asociado ventas");
+                return;
+            }
         }
 
         private void Botonera(int Jugada)
@@ -55,43 +78,36 @@ namespace SistemaFact
 
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void FrmAbmTipoJoya_Load(object sender, EventArgs e)
         {
-            Botonera(2);
-            Grupo.Enabled = true;
-            Clases.cFunciones fun = new Clases.cFunciones();
-            fun.LimpiarGenerico(this);
+            Botonera(1);
+            Grupo.Enabled = false;
+            fun = new Clases.cFunciones();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Clases.cFunciones fun = new Clases.cFunciones();
-            if (txt_Nombre.Text =="")
+            if (txt_Nombre.Text == "")
             {
-                Mensaje("Debe ingresar una tarjeta");
+                Mensaje("Debe ingresar una descripción");
                 return;
             }
+            Clases.cFunciones fun = new Clases.cFunciones();
             if (txtCodigo.Text == "")
-                fun.GuardarNuevoGenerico(this, "Tarjeta");
+                fun.GuardarNuevoGenerico(this, "Tipo");
             else
-            {
-                // if (txt_Ruta.Text != "")
-                //   txt_Ruta.Text = txt_Ruta.Text.Replace("\\", "\\\\");
-                fun.ModificarGenerico(this, "Tarjeta", "CodTarjeta", txtCodigo.Text);
-
-            }
+                fun.ModificarGenerico(this, "Tipo", "CodTipo", txtCodigo.Text);
             Mensaje("Datos grabados correctamente");
-            Botonera(1);
-            fun.LimpiarGenerico(this);
             txtCodigo.Text = "";
+            txt_Nombre.Text = "";
             Grupo.Enabled = false;
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             Principal.OpcionesdeBusqueda = "Nombre";
-            Principal.TablaPrincipal = "Tarjeta";
-            Principal.OpcionesColumnasGrilla = "CodTarjeta;Nombre";
+            Principal.TablaPrincipal = "Tipo";
+            Principal.OpcionesColumnasGrilla = "CodTipo;Nombre";
             Principal.ColumnasVisibles = "0;1";
             Principal.ColumnasAncho = "0;580";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
@@ -106,7 +122,7 @@ namespace SistemaFact
                 Botonera(3);
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
                 cFunciones fun = new Clases.cFunciones();
-                fun.CargarControles(this, "Tarjeta", "CodTarjeta", txtCodigo.Text);
+                fun.CargarControles(this, "Tipo", "CodTipo", txtCodigo.Text);
             }
 
         }
@@ -117,24 +133,25 @@ namespace SistemaFact
             Grupo.Enabled = true;
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            cFunciones fun = new Clases.cFunciones();
             txtCodigo.Text = "";
             txt_Nombre.Text = "";
             Botonera(1);
             Grupo.Enabled = false;
             fun.LimpiarGenerico(this);
+            Botonera(1);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Botonera(2);
+            Grupo.Enabled = true;
         }
     }
 }

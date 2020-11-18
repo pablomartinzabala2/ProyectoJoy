@@ -1,6 +1,6 @@
 ﻿namespace SistemaFact
 {
-    partial class FrmAbmMarca
+    partial class FrmAbmTipoJoya
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmMarca));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmTipoJoya));
             this.Grupo = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_Clave = new System.Windows.Forms.TextBox();
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -50,39 +48,20 @@
             // 
             // Grupo
             // 
-            this.Grupo.Controls.Add(this.label2);
-            this.Grupo.Controls.Add(this.txt_Clave);
             this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Controls.Add(this.txtCodigo);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(12, 59);
+            this.Grupo.Location = new System.Drawing.Point(12, 57);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(379, 131);
-            this.Grupo.TabIndex = 21;
+            this.Grupo.Size = new System.Drawing.Size(379, 175);
+            this.Grupo.TabIndex = 20;
             this.Grupo.TabStop = false;
-            this.Grupo.Text = "Marca";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Clave";
-            // 
-            // txt_Clave
-            // 
-            this.txt_Clave.Location = new System.Drawing.Point(67, 61);
-            this.txt_Clave.Multiline = true;
-            this.txt_Clave.Name = "txt_Clave";
-            this.txt_Clave.Size = new System.Drawing.Size(252, 20);
-            this.txt_Clave.TabIndex = 3;
+            this.Grupo.Text = "Categoria";
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(67, 35);
+            this.txt_Nombre.Location = new System.Drawing.Point(109, 38);
             this.txt_Nombre.Multiline = true;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(252, 20);
@@ -91,18 +70,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 35);
+            this.label1.Location = new System.Drawing.Point(17, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 17);
+            this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre";
+            this.label1.Text = "Descripción ";
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(201, 9);
+            this.txtCodigo.Location = new System.Drawing.Point(109, 82);
             this.txtCodigo.Multiline = true;
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(63, 20);
+            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.Visible = false;
             // 
@@ -120,8 +99,8 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(451, 39);
-            this.BarraBotones.TabIndex = 18;
+            this.BarraBotones.Size = new System.Drawing.Size(403, 39);
+            this.BarraBotones.TabIndex = 19;
             this.BarraBotones.Text = "toolStrip1";
             // 
             // btnNuevo
@@ -131,7 +110,7 @@
             this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(36, 36);
-            this.btnNuevo.Text = "nuevo";
+            this.btnNuevo.Text = "toolStripButton1";
             this.btnNuevo.ToolTipText = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -205,17 +184,18 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(36, 36);
             this.btnSalir.Text = "Salir";
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // FrmAbmMarca
+            // FrmAbmTipoJoya
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 249);
+            this.ClientSize = new System.Drawing.Size(403, 244);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
-            this.Name = "FrmAbmMarca";
-            this.Text = "Formularios de Marcas";
-            this.Load += new System.EventHandler(this.FrmAbmMarca_Load);
+            this.Name = "FrmAbmTipoJoya";
+            this.Text = "Formulario de Categoria";
+            this.Load += new System.EventHandler(this.FrmAbmTipoJoya_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
             this.BarraBotones.ResumeLayout(false);
@@ -240,7 +220,5 @@
         private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_Clave;
     }
 }

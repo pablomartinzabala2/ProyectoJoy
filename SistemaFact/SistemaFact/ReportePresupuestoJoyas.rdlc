@@ -15,7 +15,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.42604cm</Width>
+              <Width>2.92982cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -377,7 +377,7 @@
         <Top>8.35237cm</Top>
         <Left>0.68298cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.27037cm</Width>
+        <Width>18.77415cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1027,7 +1027,7 @@
     <Height>13.51833cm</Height>
     <Style />
   </Body>
-  <Width>20.34297cm</Width>
+  <Width>19.84026cm</Width>
   <Page>
     <PageFooter>
       <Height>1.74625cm</Height>
@@ -1051,7 +1051,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Total</rd:DefaultName>
-          <Top>0.97cm</Top>
+          <Top>0.49375cm</Top>
           <Left>17.28522cm</Left>
           <Height>0.6cm</Height>
           <Width>1.83854cm</Width>
@@ -1082,7 +1082,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox13</rd:DefaultName>
-          <Top>0.97cm</Top>
+          <Top>0.49375cm</Top>
           <Left>15.48491cm</Left>
           <Height>0.6cm</Height>
           <Width>1.47222cm</Width>
@@ -1098,10 +1098,10 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>0.60724cm</Top>
+          <Top>0.17639cm</Top>
           <Left>0.45828cm</Left>
           <Height>0cm</Height>
-          <Width>19.19521cm</Width>
+          <Width>18.99885cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>

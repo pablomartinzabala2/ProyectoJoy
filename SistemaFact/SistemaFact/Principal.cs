@@ -288,5 +288,11 @@ namespace SistemaFact
             FrmAbmCiudad frm = new FrmAbmCiudad();
             frm.Show();
         }
+
+        private void categoriaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmAbmTipoJoya frm = new SistemaFact.FrmAbmTipoJoya();
+            frm.Show();
+        }
     }
 }

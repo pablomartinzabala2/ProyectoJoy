@@ -191,6 +191,7 @@ namespace SistemaFact
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
                 cFunciones fun = new Clases.cFunciones();
                 fun.CargarControles(this, "Joya", "CodJoya", txtCodigo.Text);
+                /*
                 if (txt_PrecioVenta.Text != "")
                 {
                     Double PrecioVenta = Convert.ToDouble(txt_PrecioVenta.Text.Replace(".", ","));
@@ -198,7 +199,7 @@ namespace SistemaFact
                     txt_PrecioVenta.Text = fun.SepararDecimales(txt_PrecioVenta.Text);
                     txt_PrecioVenta.Text = fun.FormatoEnteroMiles(txt_PrecioVenta.Text);
                 }
-
+                */
             }
 
         }

@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 669);
+            this.ClientSize = new System.Drawing.Size(798, 638);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmVerReportePresupuesto";
             this.Text = "FrmVerReportePresupuesto";

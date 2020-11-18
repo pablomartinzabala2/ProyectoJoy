@@ -129,7 +129,7 @@ namespace SistemaFact
             string ancho = "30;10;20;20;20";
             fun.AnchoColumnas(Grilla, ancho);
             Grilla.Columns[3].HeaderText = "Total Comisión";
-            Grilla.Columns[3].HeaderText = "Total Rendido";
+            Grilla.Columns[4].HeaderText = "Total Rendido";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

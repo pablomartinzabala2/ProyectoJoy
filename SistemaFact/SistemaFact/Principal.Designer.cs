@@ -36,6 +36,7 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ciudadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.crearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.ciudadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -83,7 +84,8 @@
             this.openToolStripMenuItem,
             this.categoriaToolStripMenuItem,
             this.vendedoresToolStripMenuItem,
-            this.ciudadToolStripMenuItem});
+            this.ciudadToolStripMenuItem,
+            this.categoriaToolStripMenuItem1});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(60, 20);
@@ -122,6 +124,13 @@
             this.vendedoresToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.vendedoresToolStripMenuItem.Text = "Vendedores";
             this.vendedoresToolStripMenuItem.Click += new System.EventHandler(this.vendedoresToolStripMenuItem_Click);
+            // 
+            // ciudadToolStripMenuItem
+            // 
+            this.ciudadToolStripMenuItem.Name = "ciudadToolStripMenuItem";
+            this.ciudadToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.ciudadToolStripMenuItem.Text = "Ciudad";
+            this.ciudadToolStripMenuItem.Click += new System.EventHandler(this.ciudadToolStripMenuItem_Click);
             // 
             // presupuestoToolStripMenuItem
             // 
@@ -296,12 +305,12 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // ciudadToolStripMenuItem
+            // categoriaToolStripMenuItem1
             // 
-            this.ciudadToolStripMenuItem.Name = "ciudadToolStripMenuItem";
-            this.ciudadToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.ciudadToolStripMenuItem.Text = "Ciudad";
-            this.ciudadToolStripMenuItem.Click += new System.EventHandler(this.ciudadToolStripMenuItem_Click);
+            this.categoriaToolStripMenuItem1.Name = "categoriaToolStripMenuItem1";
+            this.categoriaToolStripMenuItem1.Size = new System.Drawing.Size(190, 22);
+            this.categoriaToolStripMenuItem1.Text = "Categoria";
+            this.categoriaToolStripMenuItem1.Click += new System.EventHandler(this.categoriaToolStripMenuItem1_Click);
             // 
             // Principal
             // 
@@ -358,6 +367,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem resumenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ciudadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriaToolStripMenuItem1;
     }
 }
 

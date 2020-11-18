@@ -128,5 +128,10 @@ namespace SistemaFact
             Grupo.Enabled = false;
             fun.LimpiarGenerico(this);
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
