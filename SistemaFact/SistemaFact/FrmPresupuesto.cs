@@ -275,6 +275,7 @@ namespace SistemaFact
                 FechaRendicion = Convert.ToDateTime(txtFechaRendicion.Text);
             }
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            int Orden = 1;
             cPresupuesto pre = new cPresupuesto();
             try
             {
@@ -302,8 +303,8 @@ namespace SistemaFact
                     Precio = Convert.ToDouble(tbDetalle.Rows[i]["Precio"].ToString());
                     Cantidad = Convert.ToInt32(tbDetalle.Rows[i]["Cantidad"].ToString());
                     SubTotal = Convert.ToDouble(tbDetalle.Rows[i]["SubTotal"].ToString());
-                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodJoya,SubTotal);
-
+                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodJoya,SubTotal,Orden);
+                    Orden++; 
                 }
                 Transaccion.Commit();
                 con.Close();
