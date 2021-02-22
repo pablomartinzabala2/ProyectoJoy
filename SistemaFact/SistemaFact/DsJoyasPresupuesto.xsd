@@ -15,7 +15,7 @@
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select p.*,d.*,v.Apellido,v.Nombre as nom,v.NroDocumento, v.direccion,v.telefono ,j.Codigo,j.Nombre as NombreJoya,
 (select tip.Nombre from Tipo tip where tip.CodTipo =j.CodTipo)  as Tipo,
-v.DomicilioCompleto, p.FechaRendicionTexto,d.SubTotal
+v.DomicilioCompleto, p.FechaRendicionTexto,d.SubTotal,d.Orden
 from presupuesto p, detallepresupuesto d, vendedor v, joya j
 where p.CodPresupuesto = d.codpresupuesto 
 and p.CodVendedor = v.CodVendedor
@@ -54,6 +54,8 @@ and p.CodPresupuesto = @p</CommandText>
               <Mapping SourceColumn="FechaRendicionTexto1" DataSetColumn="FechaRendicionTexto1" />
               <Mapping SourceColumn="SubTotal" DataSetColumn="SubTotal" />
               <Mapping SourceColumn="SubTotal1" DataSetColumn="SubTotal1" />
+              <Mapping SourceColumn="Orden" DataSetColumn="Orden" />
+              <Mapping SourceColumn="Orden1" DataSetColumn="Orden1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -65,7 +67,7 @@ and p.CodPresupuesto = @p</CommandText>
   <xs:element name="DsJoyasPresupuesto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DsJoyasPresupuesto" msprop:Generator_UserDSName="DsJoyasPresupuesto">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CodPresupuesto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCodPresupuesto" msprop:Generator_ColumnPropNameInRow="CodPresupuesto" msprop:Generator_ColumnPropNameInTable="CodPresupuestoColumn" msprop:Generator_UserColumnName="CodPresupuesto" type="xs:int" />
@@ -165,6 +167,8 @@ and p.CodPresupuesto = @p</CommandText>
               </xs:element>
               <xs:element name="SubTotal" msprop:Generator_ColumnVarNameInTable="columnSubTotal" msprop:Generator_ColumnPropNameInRow="SubTotal" msprop:Generator_ColumnPropNameInTable="SubTotalColumn" msprop:Generator_UserColumnName="SubTotal" type="xs:decimal" minOccurs="0" />
               <xs:element name="SubTotal1" msprop:Generator_ColumnVarNameInTable="columnSubTotal1" msprop:Generator_ColumnPropNameInRow="SubTotal1" msprop:Generator_ColumnPropNameInTable="SubTotal1Column" msprop:Generator_UserColumnName="SubTotal1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Orden" msprop:Generator_ColumnVarNameInTable="columnOrden" msprop:Generator_ColumnPropNameInRow="Orden" msprop:Generator_ColumnPropNameInTable="OrdenColumn" msprop:Generator_UserColumnName="Orden" type="xs:int" minOccurs="0" />
+              <xs:element name="Orden1" msprop:Generator_ColumnVarNameInTable="columnOrden1" msprop:Generator_ColumnPropNameInRow="Orden1" msprop:Generator_ColumnPropNameInTable="Orden1Column" msprop:Generator_UserColumnName="Orden1" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

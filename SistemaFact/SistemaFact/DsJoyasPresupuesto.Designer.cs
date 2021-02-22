@@ -325,6 +325,14 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnFechaRendicionTexto1;
             
+            private global::System.Data.DataColumn columnSubTotal;
+            
+            private global::System.Data.DataColumn columnSubTotal1;
+            
+            private global::System.Data.DataColumn columnOrden;
+            
+            private global::System.Data.DataColumn columnOrden1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -544,6 +552,38 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubTotalColumn {
+                get {
+                    return this.columnSubTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubTotal1Column {
+                get {
+                    return this.columnSubTotal1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrdenColumn {
+                get {
+                    return this.columnOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Orden1Column {
+                get {
+                    return this.columnOrden1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -600,7 +640,11 @@ namespace SistemaFact {
                         string NombreJoya, 
                         string Tipo, 
                         string DomicilioCompleto, 
-                        string FechaRendicionTexto1) {
+                        string FechaRendicionTexto1, 
+                        decimal SubTotal, 
+                        decimal SubTotal1, 
+                        int Orden, 
+                        int Orden1) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -625,7 +669,11 @@ namespace SistemaFact {
                         NombreJoya,
                         Tipo,
                         DomicilioCompleto,
-                        FechaRendicionTexto1};
+                        FechaRendicionTexto1,
+                        SubTotal,
+                        SubTotal1,
+                        Orden,
+                        Orden1};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -671,6 +719,10 @@ namespace SistemaFact {
                 this.columnTipo = base.Columns["Tipo"];
                 this.columnDomicilioCompleto = base.Columns["DomicilioCompleto"];
                 this.columnFechaRendicionTexto1 = base.Columns["FechaRendicionTexto1"];
+                this.columnSubTotal = base.Columns["SubTotal"];
+                this.columnSubTotal1 = base.Columns["SubTotal1"];
+                this.columnOrden = base.Columns["Orden"];
+                this.columnOrden1 = base.Columns["Orden1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -722,6 +774,14 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnDomicilioCompleto);
                 this.columnFechaRendicionTexto1 = new global::System.Data.DataColumn("FechaRendicionTexto1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaRendicionTexto1);
+                this.columnSubTotal = new global::System.Data.DataColumn("SubTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubTotal);
+                this.columnSubTotal1 = new global::System.Data.DataColumn("SubTotal1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubTotal1);
+                this.columnOrden = new global::System.Data.DataColumn("Orden", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden);
+                this.columnOrden1 = new global::System.Data.DataColumn("Orden1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden1);
                 this.columnCodPresupuesto.AutoIncrement = true;
                 this.columnCodPresupuesto.AutoIncrementSeed = -1;
                 this.columnCodPresupuesto.AutoIncrementStep = -1;
@@ -1241,6 +1301,70 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SubTotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.SubTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.SubTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SubTotal1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.SubTotal1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.SubTotal1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Orden {
+                get {
+                    try {
+                        return ((int)(this[this.tableDataTable1.OrdenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Orden\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.OrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Orden1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableDataTable1.Orden1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Orden1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.Orden1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalNull() {
                 return this.IsNull(this.tableDataTable1.TotalColumn);
             }
@@ -1478,6 +1602,54 @@ namespace SistemaFact {
             public void SetFechaRendicionTexto1Null() {
                 this[this.tableDataTable1.FechaRendicionTexto1Column] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubTotalNull() {
+                return this.IsNull(this.tableDataTable1.SubTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubTotalNull() {
+                this[this.tableDataTable1.SubTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubTotal1Null() {
+                return this.IsNull(this.tableDataTable1.SubTotal1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubTotal1Null() {
+                this[this.tableDataTable1.SubTotal1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrdenNull() {
+                return this.IsNull(this.tableDataTable1.OrdenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrdenNull() {
+                this[this.tableDataTable1.OrdenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrden1Null() {
+                return this.IsNull(this.tableDataTable1.Orden1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrden1Null() {
+                this[this.tableDataTable1.Orden1Column] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1662,6 +1834,10 @@ namespace SistemaFact.DsJoyasPresupuestoTableAdapters {
             tableMapping.ColumnMappings.Add("Tipo", "Tipo");
             tableMapping.ColumnMappings.Add("DomicilioCompleto", "DomicilioCompleto");
             tableMapping.ColumnMappings.Add("FechaRendicionTexto1", "FechaRendicionTexto1");
+            tableMapping.ColumnMappings.Add("SubTotal", "SubTotal");
+            tableMapping.ColumnMappings.Add("SubTotal1", "SubTotal1");
+            tableMapping.ColumnMappings.Add("Orden", "Orden");
+            tableMapping.ColumnMappings.Add("Orden1", "Orden1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1680,7 +1856,7 @@ namespace SistemaFact.DsJoyasPresupuestoTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"select p.*,d.*,v.Apellido,v.Nombre as nom,v.NroDocumento, v.direccion,v.telefono ,j.Codigo,j.Nombre as NombreJoya,
 (select tip.Nombre from Tipo tip where tip.CodTipo =j.CodTipo)  as Tipo,
-v.DomicilioCompleto, p.FechaRendicionTexto
+v.DomicilioCompleto, p.FechaRendicionTexto,d.SubTotal,d.Orden
 from presupuesto p, detallepresupuesto d, vendedor v, joya j
 where p.CodPresupuesto = d.codpresupuesto 
 and p.CodVendedor = v.CodVendedor
