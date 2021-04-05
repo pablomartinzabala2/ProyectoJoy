@@ -10,19 +10,20 @@ using System.Windows.Forms;
 using SistemaFact.Clases;
 namespace SistemaFact
 {
-    public partial class FrmAbmTarjeta : FormBase 
+    public partial class FrmAbmCiudad : FormBase
     {
-        public FrmAbmTarjeta()
+        cFunciones fun;
+        public FrmAbmCiudad()
         {
             InitializeComponent();
         }
 
-        private void FrmAbmTarjeta_Load(object sender, EventArgs e)
+        private void FrmAbmCiudad_Load(object sender, EventArgs e)
         {
-            Botonera(1);
             Grupo.Enabled = false;
+            fun = new cFunciones();
+            fun.LlenarCombo(cmb_CodProvincia, "Provincia", "Nombre", "CodProvincia");
         }
-
         private void Botonera(int Jugada)
         {
             switch (Jugada)
@@ -55,43 +56,37 @@ namespace SistemaFact
 
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            Botonera(2);
-            Grupo.Enabled = true;
-            Clases.cFunciones fun = new Clases.cFunciones();
-            fun.LimpiarGenerico(this);
-        }
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Clases.cFunciones fun = new Clases.cFunciones();
-            if (txt_Nombre.Text =="")
+            if (txt_Nombre.Text == "")
             {
-                Mensaje("Debe ingresar una tarjeta");
+                Mensaje("Debe ingresar una descripción");
                 return;
             }
-            if (txtCodigo.Text == "")
-                fun.GuardarNuevoGenerico(this, "Tarjeta");
-            else
-            {
-                // if (txt_Ruta.Text != "")
-                //   txt_Ruta.Text = txt_Ruta.Text.Replace("\\", "\\\\");
-                fun.ModificarGenerico(this, "Tarjeta", "CodTarjeta", txtCodigo.Text);
 
+            if (cmb_CodProvincia.SelectedIndex<0)
+            {
+                Mensaje("Debe ingresar una provincia");
+                return;
             }
+
+            Clases.cFunciones fun = new Clases.cFunciones();
+            if (txtCodigo.Text == "")
+                fun.GuardarNuevoGenerico(this, "Ciudad");
+            else
+                fun.ModificarGenerico(this, "Ciudad", "CodCiudad", txtCodigo.Text);
             Mensaje("Datos grabados correctamente");
-            Botonera(1);
-            fun.LimpiarGenerico(this);
             txtCodigo.Text = "";
+            txt_Nombre.Text = "";
+            Botonera(1);
             Grupo.Enabled = false;
         }
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
             Principal.OpcionesdeBusqueda = "Nombre";
-            Principal.TablaPrincipal = "Tarjeta";
-            Principal.OpcionesColumnasGrilla = "CodTarjeta;Nombre";
+            Principal.TablaPrincipal = "Ciudad";
+            Principal.OpcionesColumnasGrilla = "CodCiudad;Nombre";
             Principal.ColumnasVisibles = "0;1";
             Principal.ColumnasAncho = "0;580";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
@@ -101,14 +96,21 @@ namespace SistemaFact
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
+           
             if (Principal.CodigoPrincipalAbm != null)
             {
                 Botonera(3);
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
                 cFunciones fun = new Clases.cFunciones();
-                fun.CargarControles(this, "Tarjeta", "CodTarjeta", txtCodigo.Text);
+                fun.CargarControles(this, "Ciudad", "CodCiudad", txtCodigo.Text);
             }
 
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Botonera(2);
+            Grupo.Enabled = true;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -120,21 +122,6 @@ namespace SistemaFact
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            cFunciones fun = new Clases.cFunciones();
-            txtCodigo.Text = "";
-            txt_Nombre.Text = "";
-            Botonera(1);
-            Grupo.Enabled = false;
-            fun.LimpiarGenerico(this);
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

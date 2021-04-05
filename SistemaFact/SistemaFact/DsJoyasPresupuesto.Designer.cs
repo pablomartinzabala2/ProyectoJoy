@@ -289,6 +289,12 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnNroPresupuesto;
             
+            private global::System.Data.DataColumn columnFechaRendicionTexto;
+            
+            private global::System.Data.DataColumn columnFechaRendicion;
+            
+            private global::System.Data.DataColumn columnProcesado;
+            
             private global::System.Data.DataColumn columnCodRegistro;
             
             private global::System.Data.DataColumn columnCodPresupuesto1;
@@ -303,25 +309,29 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnnom;
             
+            private global::System.Data.DataColumn columnNroDocumento;
+            
             private global::System.Data.DataColumn columndireccion;
             
             private global::System.Data.DataColumn columntelefono;
-            
-            private global::System.Data.DataColumn columnTipo;
             
             private global::System.Data.DataColumn columnCodigo;
             
             private global::System.Data.DataColumn columnNombreJoya;
             
-            private global::System.Data.DataColumn columnNroDocumento;
+            private global::System.Data.DataColumn columnTipo;
             
             private global::System.Data.DataColumn columnDomicilioCompleto;
             
-            private global::System.Data.DataColumn columnFechaRendicion;
-            
-            private global::System.Data.DataColumn columnFechaRendicionTexto;
-            
             private global::System.Data.DataColumn columnFechaRendicionTexto1;
+            
+            private global::System.Data.DataColumn columnSubTotal;
+            
+            private global::System.Data.DataColumn columnSubTotal1;
+            
+            private global::System.Data.DataColumn columnOrden;
+            
+            private global::System.Data.DataColumn columnOrden1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -398,6 +408,30 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FechaRendicionTextoColumn {
+                get {
+                    return this.columnFechaRendicionTexto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FechaRendicionColumn {
+                get {
+                    return this.columnFechaRendicion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProcesadoColumn {
+                get {
+                    return this.columnProcesado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn CodRegistroColumn {
                 get {
                     return this.columnCodRegistro;
@@ -454,6 +488,14 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NroDocumentoColumn {
+                get {
+                    return this.columnNroDocumento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn direccionColumn {
                 get {
                     return this.columndireccion;
@@ -465,14 +507,6 @@ namespace SistemaFact {
             public global::System.Data.DataColumn telefonoColumn {
                 get {
                     return this.columntelefono;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TipoColumn {
-                get {
-                    return this.columnTipo;
                 }
             }
             
@@ -494,9 +528,9 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NroDocumentoColumn {
+            public global::System.Data.DataColumn TipoColumn {
                 get {
-                    return this.columnNroDocumento;
+                    return this.columnTipo;
                 }
             }
             
@@ -510,25 +544,41 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FechaRendicionColumn {
-                get {
-                    return this.columnFechaRendicion;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FechaRendicionTextoColumn {
-                get {
-                    return this.columnFechaRendicionTexto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn FechaRendicionTexto1Column {
                 get {
                     return this.columnFechaRendicionTexto1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubTotalColumn {
+                get {
+                    return this.columnSubTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubTotal1Column {
+                get {
+                    return this.columnSubTotal1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrdenColumn {
+                get {
+                    return this.columnOrden;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Orden1Column {
+                get {
+                    return this.columnOrden1;
                 }
             }
             
@@ -574,22 +624,27 @@ namespace SistemaFact {
                         decimal Total, 
                         int CodVendedor, 
                         string NroPresupuesto, 
+                        string FechaRendicionTexto, 
+                        System.DateTime FechaRendicion, 
+                        int Procesado, 
                         int CodPresupuesto1, 
                         int CodJoya, 
                         int Cantidad, 
                         int Precio, 
                         string Apellido, 
                         string nom, 
+                        string NroDocumento, 
                         string direccion, 
                         string telefono, 
-                        string Tipo, 
                         string Codigo, 
                         string NombreJoya, 
-                        string NroDocumento, 
+                        string Tipo, 
                         string DomicilioCompleto, 
-                        System.DateTime FechaRendicion, 
-                        string FechaRendicionTexto, 
-                        string FechaRendicionTexto1) {
+                        string FechaRendicionTexto1, 
+                        decimal SubTotal, 
+                        decimal SubTotal1, 
+                        int Orden, 
+                        int Orden1) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -597,6 +652,9 @@ namespace SistemaFact {
                         Total,
                         CodVendedor,
                         NroPresupuesto,
+                        FechaRendicionTexto,
+                        FechaRendicion,
+                        Procesado,
                         null,
                         CodPresupuesto1,
                         CodJoya,
@@ -604,16 +662,18 @@ namespace SistemaFact {
                         Precio,
                         Apellido,
                         nom,
+                        NroDocumento,
                         direccion,
                         telefono,
-                        Tipo,
                         Codigo,
                         NombreJoya,
-                        NroDocumento,
+                        Tipo,
                         DomicilioCompleto,
-                        FechaRendicion,
-                        FechaRendicionTexto,
-                        FechaRendicionTexto1};
+                        FechaRendicionTexto1,
+                        SubTotal,
+                        SubTotal1,
+                        Orden,
+                        Orden1};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -641,6 +701,9 @@ namespace SistemaFact {
                 this.columnTotal = base.Columns["Total"];
                 this.columnCodVendedor = base.Columns["CodVendedor"];
                 this.columnNroPresupuesto = base.Columns["NroPresupuesto"];
+                this.columnFechaRendicionTexto = base.Columns["FechaRendicionTexto"];
+                this.columnFechaRendicion = base.Columns["FechaRendicion"];
+                this.columnProcesado = base.Columns["Procesado"];
                 this.columnCodRegistro = base.Columns["CodRegistro"];
                 this.columnCodPresupuesto1 = base.Columns["CodPresupuesto1"];
                 this.columnCodJoya = base.Columns["CodJoya"];
@@ -648,16 +711,18 @@ namespace SistemaFact {
                 this.columnPrecio = base.Columns["Precio"];
                 this.columnApellido = base.Columns["Apellido"];
                 this.columnnom = base.Columns["nom"];
+                this.columnNroDocumento = base.Columns["NroDocumento"];
                 this.columndireccion = base.Columns["direccion"];
                 this.columntelefono = base.Columns["telefono"];
-                this.columnTipo = base.Columns["Tipo"];
                 this.columnCodigo = base.Columns["Codigo"];
                 this.columnNombreJoya = base.Columns["NombreJoya"];
-                this.columnNroDocumento = base.Columns["NroDocumento"];
+                this.columnTipo = base.Columns["Tipo"];
                 this.columnDomicilioCompleto = base.Columns["DomicilioCompleto"];
-                this.columnFechaRendicion = base.Columns["FechaRendicion"];
-                this.columnFechaRendicionTexto = base.Columns["FechaRendicionTexto"];
                 this.columnFechaRendicionTexto1 = base.Columns["FechaRendicionTexto1"];
+                this.columnSubTotal = base.Columns["SubTotal"];
+                this.columnSubTotal1 = base.Columns["SubTotal1"];
+                this.columnOrden = base.Columns["Orden"];
+                this.columnOrden1 = base.Columns["Orden1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -673,6 +738,12 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnCodVendedor);
                 this.columnNroPresupuesto = new global::System.Data.DataColumn("NroPresupuesto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNroPresupuesto);
+                this.columnFechaRendicionTexto = new global::System.Data.DataColumn("FechaRendicionTexto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFechaRendicionTexto);
+                this.columnFechaRendicion = new global::System.Data.DataColumn("FechaRendicion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFechaRendicion);
+                this.columnProcesado = new global::System.Data.DataColumn("Procesado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProcesado);
                 this.columnCodRegistro = new global::System.Data.DataColumn("CodRegistro", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodRegistro);
                 this.columnCodPresupuesto1 = new global::System.Data.DataColumn("CodPresupuesto1", typeof(int), null, global::System.Data.MappingType.Element);
@@ -687,26 +758,30 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnApellido);
                 this.columnnom = new global::System.Data.DataColumn("nom", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnom);
+                this.columnNroDocumento = new global::System.Data.DataColumn("NroDocumento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNroDocumento);
                 this.columndireccion = new global::System.Data.DataColumn("direccion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndireccion);
                 this.columntelefono = new global::System.Data.DataColumn("telefono", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntelefono);
-                this.columnTipo = new global::System.Data.DataColumn("Tipo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTipo);
                 this.columnCodigo = new global::System.Data.DataColumn("Codigo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCodigo);
                 this.columnNombreJoya = new global::System.Data.DataColumn("NombreJoya", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombreJoya);
-                this.columnNroDocumento = new global::System.Data.DataColumn("NroDocumento", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNroDocumento);
+                this.columnTipo = new global::System.Data.DataColumn("Tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTipo);
                 this.columnDomicilioCompleto = new global::System.Data.DataColumn("DomicilioCompleto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDomicilioCompleto);
-                this.columnFechaRendicion = new global::System.Data.DataColumn("FechaRendicion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFechaRendicion);
-                this.columnFechaRendicionTexto = new global::System.Data.DataColumn("FechaRendicionTexto", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFechaRendicionTexto);
                 this.columnFechaRendicionTexto1 = new global::System.Data.DataColumn("FechaRendicionTexto1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaRendicionTexto1);
+                this.columnSubTotal = new global::System.Data.DataColumn("SubTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubTotal);
+                this.columnSubTotal1 = new global::System.Data.DataColumn("SubTotal1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubTotal1);
+                this.columnOrden = new global::System.Data.DataColumn("Orden", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden);
+                this.columnOrden1 = new global::System.Data.DataColumn("Orden1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrden1);
                 this.columnCodPresupuesto.AutoIncrement = true;
                 this.columnCodPresupuesto.AutoIncrementSeed = -1;
                 this.columnCodPresupuesto.AutoIncrementStep = -1;
@@ -714,6 +789,7 @@ namespace SistemaFact {
                 this.columnCodPresupuesto.ReadOnly = true;
                 this.columnFecha.AllowDBNull = false;
                 this.columnNroPresupuesto.MaxLength = 10;
+                this.columnFechaRendicionTexto.MaxLength = 15;
                 this.columnCodRegistro.AutoIncrement = true;
                 this.columnCodRegistro.AutoIncrementSeed = -1;
                 this.columnCodRegistro.AutoIncrementStep = -1;
@@ -721,15 +797,14 @@ namespace SistemaFact {
                 this.columnCodRegistro.ReadOnly = true;
                 this.columnApellido.MaxLength = 300;
                 this.columnnom.MaxLength = 300;
+                this.columnNroDocumento.MaxLength = 50;
                 this.columndireccion.MaxLength = 530;
                 this.columntelefono.MaxLength = 30;
-                this.columnTipo.ReadOnly = true;
-                this.columnTipo.MaxLength = 400;
                 this.columnCodigo.MaxLength = 50;
                 this.columnNombreJoya.MaxLength = 500;
-                this.columnNroDocumento.MaxLength = 50;
+                this.columnTipo.ReadOnly = true;
+                this.columnTipo.MaxLength = 400;
                 this.columnDomicilioCompleto.MaxLength = 400;
-                this.columnFechaRendicionTexto.MaxLength = 15;
                 this.columnFechaRendicionTexto1.MaxLength = 15;
             }
             
@@ -943,6 +1018,54 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FechaRendicionTexto {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.FechaRendicionTextoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FechaRendicionTexto\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.FechaRendicionTextoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FechaRendicion {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableDataTable1.FechaRendicionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FechaRendicion\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.FechaRendicionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Procesado {
+                get {
+                    try {
+                        return ((int)(this[this.tableDataTable1.ProcesadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Procesado\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.ProcesadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int CodRegistro {
                 get {
                     return ((int)(this[this.tableDataTable1.CodRegistroColumn]));
@@ -1050,6 +1173,22 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NroDocumento {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.NroDocumentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NroDocumento\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.NroDocumentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string direccion {
                 get {
                     try {
@@ -1077,22 +1216,6 @@ namespace SistemaFact {
                 }
                 set {
                     this[this.tableDataTable1.telefonoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Tipo {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.TipoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Tipo\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.TipoColumn] = value;
                 }
             }
             
@@ -1130,17 +1253,17 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string NroDocumento {
+            public string Tipo {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.NroDocumentoColumn]));
+                        return ((string)(this[this.tableDataTable1.TipoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NroDocumento\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tipo\' in table \'DataTable1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.NroDocumentoColumn] = value;
+                    this[this.tableDataTable1.TipoColumn] = value;
                 }
             }
             
@@ -1162,38 +1285,6 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FechaRendicion {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.FechaRendicionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FechaRendicion\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.FechaRendicionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FechaRendicionTexto {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.FechaRendicionTextoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FechaRendicionTexto\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.FechaRendicionTextoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string FechaRendicionTexto1 {
                 get {
                     try {
@@ -1205,6 +1296,70 @@ namespace SistemaFact {
                 }
                 set {
                     this[this.tableDataTable1.FechaRendicionTexto1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SubTotal {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.SubTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.SubTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal SubTotal1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.SubTotal1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SubTotal1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.SubTotal1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Orden {
+                get {
+                    try {
+                        return ((int)(this[this.tableDataTable1.OrdenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Orden\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.OrdenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Orden1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableDataTable1.Orden1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Orden1\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.Orden1Column] = value;
                 }
             }
             
@@ -1242,6 +1397,42 @@ namespace SistemaFact {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNroPresupuestoNull() {
                 this[this.tableDataTable1.NroPresupuestoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFechaRendicionTextoNull() {
+                return this.IsNull(this.tableDataTable1.FechaRendicionTextoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFechaRendicionTextoNull() {
+                this[this.tableDataTable1.FechaRendicionTextoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFechaRendicionNull() {
+                return this.IsNull(this.tableDataTable1.FechaRendicionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFechaRendicionNull() {
+                this[this.tableDataTable1.FechaRendicionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProcesadoNull() {
+                return this.IsNull(this.tableDataTable1.ProcesadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProcesadoNull() {
+                this[this.tableDataTable1.ProcesadoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1318,6 +1509,18 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNroDocumentoNull() {
+                return this.IsNull(this.tableDataTable1.NroDocumentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNroDocumentoNull() {
+                this[this.tableDataTable1.NroDocumentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsdireccionNull() {
                 return this.IsNull(this.tableDataTable1.direccionColumn);
             }
@@ -1338,18 +1541,6 @@ namespace SistemaFact {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SettelefonoNull() {
                 this[this.tableDataTable1.telefonoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTipoNull() {
-                return this.IsNull(this.tableDataTable1.TipoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTipoNull() {
-                this[this.tableDataTable1.TipoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1378,14 +1569,14 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNroDocumentoNull() {
-                return this.IsNull(this.tableDataTable1.NroDocumentoColumn);
+            public bool IsTipoNull() {
+                return this.IsNull(this.tableDataTable1.TipoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNroDocumentoNull() {
-                this[this.tableDataTable1.NroDocumentoColumn] = global::System.Convert.DBNull;
+            public void SetTipoNull() {
+                this[this.tableDataTable1.TipoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1402,30 +1593,6 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFechaRendicionNull() {
-                return this.IsNull(this.tableDataTable1.FechaRendicionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFechaRendicionNull() {
-                this[this.tableDataTable1.FechaRendicionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFechaRendicionTextoNull() {
-                return this.IsNull(this.tableDataTable1.FechaRendicionTextoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFechaRendicionTextoNull() {
-                this[this.tableDataTable1.FechaRendicionTextoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsFechaRendicionTexto1Null() {
                 return this.IsNull(this.tableDataTable1.FechaRendicionTexto1Column);
             }
@@ -1434,6 +1601,54 @@ namespace SistemaFact {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetFechaRendicionTexto1Null() {
                 this[this.tableDataTable1.FechaRendicionTexto1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubTotalNull() {
+                return this.IsNull(this.tableDataTable1.SubTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubTotalNull() {
+                this[this.tableDataTable1.SubTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubTotal1Null() {
+                return this.IsNull(this.tableDataTable1.SubTotal1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubTotal1Null() {
+                this[this.tableDataTable1.SubTotal1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrdenNull() {
+                return this.IsNull(this.tableDataTable1.OrdenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrdenNull() {
+                this[this.tableDataTable1.OrdenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrden1Null() {
+                return this.IsNull(this.tableDataTable1.Orden1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrden1Null() {
+                this[this.tableDataTable1.Orden1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -1601,6 +1816,9 @@ namespace SistemaFact.DsJoyasPresupuestoTableAdapters {
             tableMapping.ColumnMappings.Add("Total", "Total");
             tableMapping.ColumnMappings.Add("CodVendedor", "CodVendedor");
             tableMapping.ColumnMappings.Add("NroPresupuesto", "NroPresupuesto");
+            tableMapping.ColumnMappings.Add("FechaRendicionTexto", "FechaRendicionTexto");
+            tableMapping.ColumnMappings.Add("FechaRendicion", "FechaRendicion");
+            tableMapping.ColumnMappings.Add("Procesado", "Procesado");
             tableMapping.ColumnMappings.Add("CodRegistro", "CodRegistro");
             tableMapping.ColumnMappings.Add("CodPresupuesto1", "CodPresupuesto1");
             tableMapping.ColumnMappings.Add("CodJoya", "CodJoya");
@@ -1608,16 +1826,18 @@ namespace SistemaFact.DsJoyasPresupuestoTableAdapters {
             tableMapping.ColumnMappings.Add("Precio", "Precio");
             tableMapping.ColumnMappings.Add("Apellido", "Apellido");
             tableMapping.ColumnMappings.Add("nom", "nom");
+            tableMapping.ColumnMappings.Add("NroDocumento", "NroDocumento");
             tableMapping.ColumnMappings.Add("direccion", "direccion");
             tableMapping.ColumnMappings.Add("telefono", "telefono");
-            tableMapping.ColumnMappings.Add("Tipo", "Tipo");
             tableMapping.ColumnMappings.Add("Codigo", "Codigo");
             tableMapping.ColumnMappings.Add("NombreJoya", "NombreJoya");
-            tableMapping.ColumnMappings.Add("NroDocumento", "NroDocumento");
+            tableMapping.ColumnMappings.Add("Tipo", "Tipo");
             tableMapping.ColumnMappings.Add("DomicilioCompleto", "DomicilioCompleto");
-            tableMapping.ColumnMappings.Add("FechaRendicion", "FechaRendicion");
-            tableMapping.ColumnMappings.Add("FechaRendicionTexto", "FechaRendicionTexto");
             tableMapping.ColumnMappings.Add("FechaRendicionTexto1", "FechaRendicionTexto1");
+            tableMapping.ColumnMappings.Add("SubTotal", "SubTotal");
+            tableMapping.ColumnMappings.Add("SubTotal1", "SubTotal1");
+            tableMapping.ColumnMappings.Add("Orden", "Orden");
+            tableMapping.ColumnMappings.Add("Orden1", "Orden1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1625,7 +1845,7 @@ namespace SistemaFact.DsJoyasPresupuestoTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SistemaFact.Properties.Settings.Default.JOYConnectionString;
+            this._connection.ConnectionString = global::SistemaFact.Properties.Settings.Default.JOYConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1636,7 +1856,7 @@ namespace SistemaFact.DsJoyasPresupuestoTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"select p.*,d.*,v.Apellido,v.Nombre as nom,v.NroDocumento, v.direccion,v.telefono ,j.Codigo,j.Nombre as NombreJoya,
 (select tip.Nombre from Tipo tip where tip.CodTipo =j.CodTipo)  as Tipo,
-v.DomicilioCompleto, p.FechaRendicionTexto
+v.DomicilioCompleto, p.FechaRendicionTexto,d.SubTotal,d.Orden
 from presupuesto p, detallepresupuesto d, vendedor v, joya j
 where p.CodPresupuesto = d.codpresupuesto 
 and p.CodVendedor = v.CodVendedor

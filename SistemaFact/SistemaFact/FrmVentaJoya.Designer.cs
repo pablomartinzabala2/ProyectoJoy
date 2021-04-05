@@ -52,6 +52,16 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtSubtotal = new System.Windows.Forms.TextBox();
+            this.txtTotalComision = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtTotalConComision = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaPresupuesto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -71,7 +81,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 509);
+            this.groupBox1.Size = new System.Drawing.Size(450, 480);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Presupuesto";
@@ -146,6 +156,7 @@
             this.GrillaPresupuesto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GrillaPresupuesto.Size = new System.Drawing.Size(415, 405);
             this.GrillaPresupuesto.TabIndex = 106;
+            this.GrillaPresupuesto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GrillaPresupuesto_CellClick);
             // 
             // groupBox2
             // 
@@ -157,7 +168,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(534, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 497);
+            this.groupBox2.Size = new System.Drawing.Size(506, 480);
             this.groupBox2.TabIndex = 107;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Venta";
@@ -204,13 +215,13 @@
             this.GrillaVentas.Name = "GrillaVentas";
             this.GrillaVentas.ReadOnly = true;
             this.GrillaVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GrillaVentas.Size = new System.Drawing.Size(415, 405);
+            this.GrillaVentas.Size = new System.Drawing.Size(481, 405);
             this.GrillaVentas.TabIndex = 106;
             // 
             // btnQuitar
             // 
             this.btnQuitar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnQuitar.Location = new System.Drawing.Point(477, 290);
+            this.btnQuitar.Location = new System.Drawing.Point(471, 318);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(40, 28);
             this.btnQuitar.TabIndex = 109;
@@ -220,7 +231,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Image = global::SistemaFact.Properties.Resources.add;
-            this.btnAgregar.Location = new System.Drawing.Point(477, 245);
+            this.btnAgregar.Location = new System.Drawing.Point(471, 273);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(40, 28);
             this.btnAgregar.TabIndex = 108;
@@ -251,25 +262,120 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(823, 518);
+            this.label2.Location = new System.Drawing.Point(576, 523);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 17);
+            this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 112;
-            this.label2.Text = "Total";
+            this.label2.Text = "Sub Total";
             // 
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(871, 518);
+            this.txtTotal.Location = new System.Drawing.Point(651, 517);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(97, 23);
+            this.txtTotal.Size = new System.Drawing.Size(83, 23);
             this.txtTotal.TabIndex = 113;
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.Location = new System.Drawing.Point(463, 97);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(65, 20);
+            this.txtCantidad.TabIndex = 114;
+            this.txtCantidad.Leave += new System.EventHandler(this.txtCantidad_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(460, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 115;
+            this.label3.Text = "Cantidad";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(468, 134);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 116;
+            this.label4.Text = "Precio";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(463, 150);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(65, 20);
+            this.txtPrecio.TabIndex = 117;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(468, 196);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 118;
+            this.label5.Text = "SubTotal";
+            // 
+            // txtSubtotal
+            // 
+            this.txtSubtotal.Location = new System.Drawing.Point(463, 222);
+            this.txtSubtotal.Name = "txtSubtotal";
+            this.txtSubtotal.Size = new System.Drawing.Size(65, 20);
+            this.txtSubtotal.TabIndex = 119;
+            // 
+            // txtTotalComision
+            // 
+            this.txtTotalComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalComision.Location = new System.Drawing.Point(815, 517);
+            this.txtTotalComision.Name = "txtTotalComision";
+            this.txtTotalComision.Size = new System.Drawing.Size(87, 23);
+            this.txtTotalComision.TabIndex = 121;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(748, 523);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 17);
+            this.label7.TabIndex = 120;
+            this.label7.Text = "Comision";
+            // 
+            // txtTotalConComision
+            // 
+            this.txtTotalConComision.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalConComision.Location = new System.Drawing.Point(958, 517);
+            this.txtTotalConComision.Name = "txtTotalConComision";
+            this.txtTotalConComision.Size = new System.Drawing.Size(82, 23);
+            this.txtTotalConComision.TabIndex = 123;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(912, 523);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 17);
+            this.label9.TabIndex = 122;
+            this.label9.Text = "Total";
             // 
             // FrmVentaJoya
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 562);
+            this.ClientSize = new System.Drawing.Size(1052, 573);
+            this.Controls.Add(this.txtTotalConComision);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtTotalComision);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtSubtotal);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtPrecio);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCancelar);
@@ -317,5 +423,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSubtotal;
+        private System.Windows.Forms.TextBox txtTotalComision;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtTotalConComision;
+        private System.Windows.Forms.Label label9;
     }
 }

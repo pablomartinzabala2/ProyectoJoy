@@ -26,16 +26,6 @@ namespace SistemaFact.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QKECIIE;Initial Catalog=FACTURACION;Integrated Security=True")]
-        public string FACTURACIONConnectionString {
-            get {
-                return ((string)(this["FACTURACIONConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NTBK\\SQLEXPRESS;Initial Catalog=LIBRERIA;Integrated Security=True")]
         public string LIBRERIAConnectionString {
             get {
@@ -50,6 +40,38 @@ namespace SistemaFact.Properties {
         public string JOYConnectionString {
             get {
                 return ((string)(this["JOYConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QKECIIE;Initial Catalog=JOY;Integrated Security=True")]
+        public string FACTURACIONConnectionString {
+            get {
+                return ((string)(this["FACTURACIONConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=JOY;Integrated Security=Tr" +
+            "ue")]
+        public string JOYConnectionString1 {
+            get {
+                return ((string)(this["JOYConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=ISAUI;Integrated Security=" +
+            "True")]
+        public string ISAUIConnectionString {
+            get {
+                return ((string)(this["ISAUIConnectionString"]));
             }
         }
     }

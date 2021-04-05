@@ -23,6 +23,7 @@ namespace SistemaFact
 
         private void btnBuscarPresupuesto_Click(object sender, EventArgs e)
         {
+            Principal.CodigoSenia = "2";
             FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
             frm.Show();
             frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
@@ -41,9 +42,11 @@ namespace SistemaFact
         private void GetPresupuesto(Int32 CodPresupuesto)
         {
             cDetallePresupuesto det = new Clases.cDetallePresupuesto();
-            DataTable trdo = det.getJoyasxPresupuesto(CodPresupuesto);
+            DataTable trdo = det.getJoyasxPresupuestoxVenta(CodPresupuesto);
+            trdo = fun.TablaaMiles(trdo, "Precio");
+            trdo = fun.TablaaMiles(trdo, "SubTotal");
             GrillaPresupuesto.DataSource = trdo;
-            string Col = "0;0;15;55;15;15";
+            string Col = "0;0;15;40;15;15;15";
             fun.AnchoColumnas(GrillaPresupuesto, Col);
             GetVendedor(CodPresupuesto);
             txtCodPresupuesto.Text = CodPresupuesto.ToString();
@@ -52,7 +55,7 @@ namespace SistemaFact
         private void FrmVentaJoya_Load(object sender, EventArgs e)
         {
             fun = new Clases.cFunciones();
-            string Col = "CodRegistro;CodJoya;Codigo;Nombre;Cantidad;Precio;Comision";
+            string Col = "CodRegistro;CodJoya;Codigo;Nombre;Cantidad;Precio;Comision;SubTotal";
             tbVenta = fun.CrearTabla(Col);
             DateTime Fecha = DateTime.Now;
             txtFecha.Text = Fecha.ToShortDateString();
@@ -78,34 +81,54 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un porcentaje a a aplicar");
                 return;
             }
+
+            if (txtCantidad.Text =="")
+            {
+                Mensaje("Debe ingresar una cantidad");
+                return;
+            }
+
             string Val = "";
             string CodRegistro = GrillaPresupuesto.CurrentRow.Cells[0].Value.ToString();
             string CodJoya = GrillaPresupuesto.CurrentRow.Cells[1].Value.ToString();
             string Codigo = GrillaPresupuesto.CurrentRow.Cells[2].Value.ToString();
             string Nombre = GrillaPresupuesto.CurrentRow.Cells[3].Value.ToString();
-            string Cantidad = GrillaPresupuesto.CurrentRow.Cells[4].Value.ToString();
+            // string Cantidad = GrillaPresupuesto.CurrentRow.Cells[4].Value.ToString();
+            string Cantidad = txtCantidad.Text;
             if (fun.Buscar (tbVenta ,"CodRegistro",CodRegistro)==true)
             {
                 Mensaje("Ya se ha ingresado el registro");
                 return;
             }
-            Double Precio =Convert.ToDouble (GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString());
+           // Double Precio =Convert.ToDouble (GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString());
+            Double Precio = Convert.ToDouble(txtPrecio.Text);
             Double Por = fun.ToDouble(txtPorcentajeAplicado.Text);
             Double Comision = 0;
-            Comision = Precio * Por  / 100;
+            Double SubTotal = 0;
+            if (txtSubtotal.Text != "")
+                SubTotal = Convert.ToDouble(txtSubtotal.Text);
+
+            Comision = Precio * Convert.ToInt32(Cantidad) * Por  / 100;
             Val = CodRegistro + ";" + CodJoya + ";" + Codigo;
-            Val = Val + ";" + Nombre + ";" + Cantidad.ToString() + ";" + Precio.ToString() + ";" + Comision.ToString();
+            Val = Val + ";" + Nombre + ";" + Cantidad.ToString() + ";" + Precio.ToString() + ";" + Comision.ToString() + ";" + SubTotal;
             tbVenta = fun.AgregarFilas(tbVenta, Val);
             GrillaVentas.DataSource = tbVenta;
-            string Col = "0;0;15;40;15;15;15";
+            string Col = "0;0;15;25;15;15;15;15";
             fun.AnchoColumnas(GrillaVentas, Col);
             CalcularTotal();
+            txtSubtotal.Text = "";
+            txtPrecio.Text = "";
+            txtCantidad.Text = "";
         }
 
         private void CalcularTotal()
         {
-            Double Total = fun.TotalizarColumna(tbVenta, "Precio");
+            Double Total = fun.TotalizarColumna(tbVenta, "SubTotal");
             txtTotal.Text = Total.ToString();
+            Double Comision = fun.TotalizarColumna(tbVenta,"Comision");
+            txtTotalComision.Text = Comision.ToString();
+            Double TotalConComision = Total - Comision;
+            txtTotalConComision.Text = TotalConComision.ToString();
         }
 
         private void btnQuitar_Click(object sender, EventArgs e)
@@ -147,6 +170,8 @@ namespace SistemaFact
             Int32 CodRegistro = 0;
             Int32 CodPresupuesto = 0;
             Double Total = 0;
+            Double TotalComision = 0;
+            Double TotalVentaComision = 0;
             if (txtCodVendedor.Text !="")
             {
                 CodVendedor = Convert.ToInt32(txtCodVendedor.Text);
@@ -158,6 +183,12 @@ namespace SistemaFact
             if (txtTotal.Text != "")
                 Total = fun.ToDouble(txtTotal.Text);
 
+            if (txtTotalComision.Text !="")
+                TotalComision = fun.ToDouble(txtTotalComision.Text);
+
+            if (txtTotalConComision.Text != "")
+                TotalVentaComision = fun.ToDouble(txtTotalConComision.Text);
+
             SqlTransaction Transaccion;
             SqlConnection con = new SqlConnection(cConexion.GetConexion());
             con.Open();
@@ -165,7 +196,7 @@ namespace SistemaFact
            
             try
             {
-                CodVenta = venta.InsertarVenta (con, Transaccion, CodVendedor, Fecha,CodPresupuesto,Total);
+                CodVenta = venta.InsertarVenta(con, Transaccion, CodVendedor, Fecha, CodPresupuesto, Total, TotalComision, TotalVentaComision);
                 prep.ActualizarProcesado(con, Transaccion, CodPresupuesto);
                 for (int i = 0; i < tbVenta.Rows.Count ; i++)
                 {
@@ -265,16 +296,47 @@ namespace SistemaFact
                     string Precio = trdo.Rows[i]["Precio"].ToString();
                     string Cantidad = trdo.Rows[i]["Cantidad"].ToString();
                     string Comision = trdo.Rows[i]["Comision"].ToString();
+                    string SubTotal = trdo.Rows[i]["SubTotal"].ToString();
                     Val = CodRegistro + ";" + CodJoya + ";" + Codigo;
-                    Val = Val + ";" + Nombre + ";" + Cantidad + ";" + Precio + ";" + Comision;
+                    Val = Val + ";" + Nombre + ";" + Cantidad + ";" + Precio + ";" + Comision + ";" + SubTotal;
                     tbVenta = fun.AgregarFilas(tbVenta, Val);
-                    GrillaVentas.DataSource = tbVenta;
-                   
+                    
                 }
-                string Col = "0;0;15;40;15;15;15";
+                tbVenta = fun.TablaaMiles(tbVenta, "SubTotal");
+                tbVenta = fun.TablaaMiles(tbVenta, "Precio");
+                tbVenta = fun.TablaaMiles(tbVenta, "Comision");
+                GrillaVentas.DataSource = tbVenta;
+                string Col = "0;0;15;25;15;15;15;15";
                 fun.AnchoColumnas(GrillaVentas, Col);
                 btnGrabar.Enabled = false;
                 btnCancelar.Enabled = false;
+                CalcularTotal();
+            }
+        }
+
+        private void GrillaPresupuesto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GrillaPresupuesto.CurrentRow ==null)
+            {
+                txtCantidad.Text = "";
+                return;
+            }
+            txtCantidad.Text =  GrillaPresupuesto.CurrentRow.Cells[4].Value.ToString();
+            txtPrecio.Text = GrillaPresupuesto.CurrentRow.Cells[5].Value.ToString();
+
+            if (txtCantidad.Text !="" && txtPrecio.Text !="")
+            {
+                Double SubTotal = Convert.ToDouble(txtCantidad.Text) * Convert.ToDouble(txtPrecio.Text);
+                txtSubtotal.Text = SubTotal.ToString();
+            }
+        }
+
+        private void txtCantidad_Leave(object sender, EventArgs e)
+        {
+            if (txtCantidad.Text != "" && txtPrecio.Text != "")
+            {
+                Double SubTotal = Convert.ToDouble(txtCantidad.Text) * Convert.ToDouble(txtPrecio.Text);
+                txtSubtotal.Text = SubTotal.ToString();
             }
         }
     }

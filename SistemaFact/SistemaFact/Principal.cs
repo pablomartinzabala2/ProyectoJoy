@@ -180,7 +180,7 @@ namespace SistemaFact
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
-            FrmBackUp frm = new SistemaFact.FrmBackUp();
+            FrmCopia frm = new SistemaFact.FrmCopia();
             frm.Show();
         }
 
@@ -209,7 +209,9 @@ namespace SistemaFact
 
         private void printPreviewToolStripButton_Click(object sender, EventArgs e)
         {
-
+            Principal.CodigoSenia = "1";
+            FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
+            frm.Show();
         }
 
         private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +228,7 @@ namespace SistemaFact
 
         private void crearToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Principal.CodigoPrincipalAbm = null;
             FrmPresupuesto frm = new SistemaFact.FrmPresupuesto();
             frm.Show();
         }
@@ -252,6 +255,43 @@ namespace SistemaFact
         private void consultarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmConsultaVentaJoyas frm = new FrmConsultaVentaJoyas();
+            frm.Show();
+        }
+
+        private void consultarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Principal.CodigoSenia = "1";
+            FrmBuscadorPresupuesto frm = new FrmBuscadorPresupuesto();
+            frm.Show();
+        }
+
+        private void resumenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmResumenVentas frm = new SistemaFact.FrmResumenVentas();
+            frm.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void printToolStripButton_Click(object sender, EventArgs e)
+        {
+            Principal.CodigoSenia = "1";
+            FrmBuscadorPresupuesto fr = new FrmBuscadorPresupuesto();
+            fr.Show();
+        }
+
+        private void ciudadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmCiudad frm = new FrmAbmCiudad();
+            frm.Show();
+        }
+
+        private void categoriaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmAbmTipoJoya frm = new SistemaFact.FrmAbmTipoJoya();
             frm.Show();
         }
     }

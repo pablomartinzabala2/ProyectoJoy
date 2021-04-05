@@ -9,10 +9,11 @@ namespace SistemaFact.Clases
 {
     public  class cVentaJoya
     {
-        public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion,Int32? CodVendedor, DateTime Fecha, Int32 CodPresupuesto,Double Total)
+        public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion,Int32? CodVendedor, DateTime Fecha, 
+            Int32 CodPresupuesto,Double Total,Double TotalComision,Double TotalVentaComision)
         {
             cFunciones fun = new cFunciones();
-            string sql = "insert into Venta(CodVendedor,Fecha,CodPresupuesto,Total)";
+            string sql = "insert into Venta(CodVendedor,Fecha,CodPresupuesto,Total,TotalComision,TotalVentaComision)";
             if (CodVendedor != null)
                 sql = sql + " values(" + CodVendedor.ToString();
             else
@@ -20,19 +21,23 @@ namespace SistemaFact.Clases
             sql = sql + "," + "'" + fun.FormatoFechaDMA(Fecha) + "'";
             sql = sql + "," + CodPresupuesto.ToString();
             sql = sql + "," + Total.ToString().Replace(",", ".");
+            sql = sql + "," + TotalComision.ToString().Replace(",", ".");
+            sql = sql + "," + TotalVentaComision.ToString().Replace(",", ".");
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
         public void InsertarDetalleVenta(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta,Int32 CodJoya, double Cantidad, Double Precio,Int32 CodRegistro,Double Comision)
         {
-            string sql = " insert into DetalleVenta(CodVenta,CodJoya,Cantidad,Precio,CodRegistro,Comision)";
+            Double SubTotal = Precio * Cantidad;
+            string sql = " insert into DetalleVenta(CodVenta,CodJoya,Cantidad,Precio,CodRegistro,Comision,SubTotal)";
             sql = sql + " values (" + CodVenta.ToString();
             sql = sql + "," + CodJoya.ToString();
             sql = sql + "," + Cantidad.ToString().Replace(",", ".");
             sql = sql + "," + Precio.ToString().Replace(",", ".");
             sql = sql + "," + CodRegistro.ToString();
             sql = sql + "," + Comision.ToString().Replace(",", ".");
+            sql = sql + "," + SubTotal.ToString().Replace(",", ".");
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }

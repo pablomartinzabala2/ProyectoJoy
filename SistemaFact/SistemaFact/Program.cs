@@ -18,9 +18,9 @@ namespace SistemaFact
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new FrmIngreso());
              //  Application.Run(new FrmVentaJoya());
-            //         Application.Run(new FrmCompra());
-             Application.Run(new Principal ());
-            //  Application.Run(new FrmVerReporte());
+              //       Application.Run(new Prueba());
+            // Application.Run(new Principal ());
+              Application.Run(new FrmLogin());
 
         }
     }

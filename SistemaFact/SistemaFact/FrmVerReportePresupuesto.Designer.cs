@@ -32,8 +32,8 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DsJoyasPresupuesto = new SistemaFact.DsJoyasPresupuesto();
-            this.DataTable1TableAdapter = new SistemaFact.DsJoyasPresupuestoTableAdapters.DataTable1TableAdapter();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.DataTable1TableAdapter = new SistemaFact.DsJoyasPresupuestoTableAdapters.DataTable1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DsJoyasPresupuesto)).BeginInit();
             this.SuspendLayout();
@@ -48,27 +48,26 @@
             this.DsJoyasPresupuesto.DataSetName = "DsJoyasPresupuesto";
             this.DsJoyasPresupuesto.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // DataTable1TableAdapter
-            // 
-            this.DataTable1TableAdapter.ClearBeforeFill = true;
-            // 
             // reportViewer1
             // 
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFact.ReportePresupuestoJoyas.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(9, -1);
-            this.reportViewer1.Margin = new System.Windows.Forms.Padding(0);
+            this.reportViewer1.Location = new System.Drawing.Point(1, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(842, 576);
+            this.reportViewer1.Size = new System.Drawing.Size(821, 643);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // DataTable1TableAdapter
+            // 
+            this.DataTable1TableAdapter.ClearBeforeFill = true;
             // 
             // FrmVerReportePresupuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 584);
+            this.ClientSize = new System.Drawing.Size(822, 649);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmVerReportePresupuesto";
             this.Text = "FrmVerReportePresupuesto";
@@ -80,10 +79,9 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource DataTable1BindingSource;
         private DsJoyasPresupuesto DsJoyasPresupuesto;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private DsJoyasPresupuestoTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
     }
 }

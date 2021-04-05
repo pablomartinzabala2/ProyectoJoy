@@ -30,10 +30,19 @@ namespace SistemaFact
             fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbProvincia, "Provincia","Nombre","CodProvincia");
             fun.LlenarCombo(cmbTipo ,"Tipo","Nombre","CodTipo");
-            string Col = "CodPresupuesto;CodJoya;Nombre;Tipo;Cantidad;Precio";
+            string Col = "CodPresupuesto;CodJoya;Nombre;Tipo;Cantidad;Precio;SubTotal";
             tbDetalle = fun.CrearTabla(Col);
             fun.EstiloBotones(btnGrabar);
             txtFecha.Text = DateTime.Now.ToShortDateString();
+            if (Principal.CodigoPrincipalAbm !=null)
+            {
+                if (Principal.CodigoPrincipalAbm != null)
+                {
+                    Int32 CodPresupuesto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                    BuscarPresupuesto (CodPresupuesto);
+                }
+            }
+               
         }
 
         private void cmbProvincia_RightToLeftChanged(object sender, EventArgs e)
@@ -172,19 +181,31 @@ namespace SistemaFact
             string CodPresupuesto = "0";
             Int32 CodJoya = Convert.ToInt32(txtCodJoya.Text);
             string Nombre = txtNombreJoya.Text;
-            string Precio = txtPrecio.Text;
+            string Precio = "0";
             string Tipo = cmbTipo.Text;
             string Cantidad = "1";
+            Double SubTotal = 0;
+            if (txtCantidad.Text !="")
+            {
+                Cantidad = txtCantidad.Text;
+            }
+            if (txtPrecio.Text !="")
+            {
+                Precio = txtPrecio.Text;
+            }
+            SubTotal = Convert.ToDouble(Cantidad) * Convert.ToDouble(Precio);
             string val = CodPresupuesto + ";" + CodJoya + ";" + Nombre + ";" + Tipo;
             val = val + ";" + Cantidad + ";" + Precio;
+            val = val + ";" + SubTotal.ToString();
             tbDetalle = fun.AgregarFilas(tbDetalle, val);
             Grilla.DataSource = tbDetalle;
-            fun.AnchoColumnas(Grilla, "0;0;40;30;15;15");
-            Double Total = fun.TotalizarColumna(tbDetalle, "Precio");
+            fun.AnchoColumnas(Grilla, "0;0;30;25;15;15;15");
+            Double Total = fun.TotalizarColumna(tbDetalle, "SubTotal");
             txtTotal.Text = Total.ToString();
             txtCodigo.Text = "";
             txtCodJoya.Text = "";
             txtPrecio.Text = "";
+            txtCantidad.Text = "";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -245,7 +266,7 @@ namespace SistemaFact
             Double Precio = 0;
             Int32 Cantidad = 0;
             DateTime? FechaRendicion = null;
-           
+            Double SubTotal = 0;
             Double Total = 0;
             if (txtTotal.Text != "")
                 Total = Convert.ToDouble(txtTotal.Text);
@@ -254,6 +275,7 @@ namespace SistemaFact
                 FechaRendicion = Convert.ToDateTime(txtFechaRendicion.Text);
             }
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            int Orden = 1;
             cPresupuesto pre = new cPresupuesto();
             try
             {
@@ -280,8 +302,9 @@ namespace SistemaFact
                     CodJoya = Convert.ToInt32(tbDetalle.Rows[i]["CodJoya"].ToString());
                     Precio = Convert.ToDouble(tbDetalle.Rows[i]["Precio"].ToString());
                     Cantidad = Convert.ToInt32(tbDetalle.Rows[i]["Cantidad"].ToString());
-                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodJoya);
-
+                    SubTotal = Convert.ToDouble(tbDetalle.Rows[i]["SubTotal"].ToString());
+                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodJoya,SubTotal,Orden);
+                    Orden++; 
                 }
                 Transaccion.Commit();
                 con.Close();
@@ -532,6 +555,61 @@ namespace SistemaFact
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 txtDireccion.Focus();
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Agregar();
+                txtCodigo.Focus();
+            }
+        }
+
+        private void BuscarPresupuesto(Int32 CodPresupuesto)
+        {
+            cDetallePresupuesto det = new Clases.cDetallePresupuesto();
+            DataTable trdo = det.getJoyasxPresupuesto(CodPresupuesto);
+            string CodJoya = "";
+            string Nombre = "";
+            string Tipo = "";
+            string Cantidad = "";
+            string Precio = "";
+            string SubTotal = "";
+            string val = "";
+            for (int i = 0; i < trdo.Rows.Count; i++)
+            {
+                CodJoya = trdo.Rows[i]["CodJoya"].ToString();
+                Nombre = trdo.Rows[i]["Nombre"].ToString();
+                Tipo = trdo.Rows[i]["Tipo"].ToString();
+                Cantidad = trdo.Rows[i]["Cantidad"].ToString();
+                Precio = trdo.Rows[i]["Precio"].ToString();
+                SubTotal = trdo.Rows[i]["SubTotal"].ToString();
+                val = CodPresupuesto.ToString() + ";" + CodJoya + ";" + Nombre + ";" + Tipo;
+                val = val + ";" + Cantidad + ";" + Precio;
+                val = val + ";" + SubTotal.ToString();
+                tbDetalle = fun.AgregarFilas(tbDetalle, val);
+            }
+            Grilla.DataSource = tbDetalle;
+            fun.AnchoColumnas(Grilla, "0;0;30;25;15;15;15");
+            Double Total = fun.TotalizarColumna(tbDetalle, "SubTotal");
+            txtTotal.Text = Total.ToString();
+            GetVendedor(CodPresupuesto);        
+        }
+
+        private void GetVendedor(Int32 CodPresupuesto)
+        {
+            cVendedor ven = new Clases.cVendedor();
+            DataTable trdo = ven.GetVendedorxCodPresupuesto(CodPresupuesto);
+            if (trdo.Rows.Count > 0)
+            {
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
+                txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
+                txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
+                txtNroDocumento.Text = trdo.Rows[0]["NroDocumento"].ToString();
             }
         }
     }
