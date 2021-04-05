@@ -244,12 +244,6 @@
     <Compile Include="FrmConsultaVentaJoyas.Designer.cs">
       <DependentUpon>FrmConsultaVentaJoyas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmImportarArticulo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmImportarArticulo.Designer.cs">
-      <DependentUpon>FrmImportarArticulo.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmIngreso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,9 +377,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsultaVentaJoyas.resx">
       <DependentUpon>FrmConsultaVentaJoyas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmImportarArticulo.resx">
-      <DependentUpon>FrmImportarArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIngreso.resx">
       <DependentUpon>FrmIngreso.cs</DependentUpon>
