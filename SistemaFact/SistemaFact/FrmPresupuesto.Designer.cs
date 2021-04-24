@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresupuesto));
             this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.txtFechaRendicion = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
@@ -90,6 +92,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCodigoBarra);
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtFechaRendicion);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.Grilla);
@@ -123,6 +127,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
             // 
+            // txtCodigoBarra
+            // 
+            this.txtCodigoBarra.Location = new System.Drawing.Point(364, 36);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.Size = new System.Drawing.Size(187, 23);
+            this.txtCodigoBarra.TabIndex = 109;
+            this.txtCodigoBarra.TextAlignChanged += new System.EventHandler(this.txtCodigoBarra_TextAlignChanged);
+            this.txtCodigoBarra.TabStopChanged += new System.EventHandler(this.txtCodigoBarra_TabStopChanged);
+            this.txtCodigoBarra.TextChanged += new System.EventHandler(this.txtCodigoBarra_TextChanged);
+            this.txtCodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarra_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(267, 36);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 17);
+            this.label13.TabIndex = 108;
+            this.label13.Text = "Codigo Barra";
+            // 
             // txtFechaRendicion
             // 
             this.txtFechaRendicion.Location = new System.Drawing.Point(638, 97);
@@ -154,7 +178,7 @@
             // btnBuscarJoya
             // 
             this.btnBuscarJoya.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarJoya.Image")));
-            this.btnBuscarJoya.Location = new System.Drawing.Point(495, 30);
+            this.btnBuscarJoya.Location = new System.Drawing.Point(571, 25);
             this.btnBuscarJoya.Name = "btnBuscarJoya";
             this.btnBuscarJoya.Size = new System.Drawing.Size(40, 25);
             this.btnBuscarJoya.TabIndex = 104;
@@ -184,14 +208,14 @@
             // 
             this.txtNombreJoya.Location = new System.Drawing.Point(92, 65);
             this.txtNombreJoya.Name = "txtNombreJoya";
-            this.txtNombreJoya.Size = new System.Drawing.Size(405, 23);
+            this.txtNombreJoya.Size = new System.Drawing.Size(197, 23);
             this.txtNombreJoya.TabIndex = 101;
             // 
             // cmbTipo
             // 
             this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(305, 33);
+            this.cmbTipo.Location = new System.Drawing.Point(367, 65);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(184, 24);
             this.cmbTipo.TabIndex = 100;
@@ -199,7 +223,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(234, 36);
+            this.label15.Location = new System.Drawing.Point(295, 62);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(69, 17);
             this.label15.TabIndex = 99;
@@ -207,7 +231,7 @@
             // 
             // txtCodJoya
             // 
-            this.txtCodJoya.Location = new System.Drawing.Point(613, 30);
+            this.txtCodJoya.Location = new System.Drawing.Point(692, 0);
             this.txtCodJoya.Name = "txtCodJoya";
             this.txtCodJoya.Size = new System.Drawing.Size(44, 23);
             this.txtCodJoya.TabIndex = 98;
@@ -216,7 +240,7 @@
             // btnLimpiarArticulo
             // 
             this.btnLimpiarArticulo.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnLimpiarArticulo.Location = new System.Drawing.Point(541, 27);
+            this.btnLimpiarArticulo.Location = new System.Drawing.Point(617, 27);
             this.btnLimpiarArticulo.Name = "btnLimpiarArticulo";
             this.btnLimpiarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnLimpiarArticulo.TabIndex = 97;
@@ -241,7 +265,7 @@
             // btnBuscarArticulo
             // 
             this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(654, 27);
+            this.btnBuscarArticulo.Location = new System.Drawing.Point(671, 25);
             this.btnBuscarArticulo.Name = "btnBuscarArticulo";
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
@@ -583,5 +607,7 @@
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.MaskedTextBox txtFechaRendicion;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCodigoBarra;
+        private System.Windows.Forms.Label label13;
     }
 }

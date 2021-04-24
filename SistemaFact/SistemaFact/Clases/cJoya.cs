@@ -87,6 +87,15 @@ namespace SistemaFact.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-      
+        public DataTable GetJoyaxCodigoBarra(string CodigoBarra)
+        {
+            string sql = "select j.*";
+            sql = sql + ",(select t.Nombre from Tipo t where t.CodTipo = j.CodTipo) as Tipo ";
+            sql = sql + " from Joya j";
+            sql = sql + " where CodigoBarra=" + "'" + CodigoBarra + "'";
+            return cDb.GetDatatable(sql);
+        }
+
+
     }
 }

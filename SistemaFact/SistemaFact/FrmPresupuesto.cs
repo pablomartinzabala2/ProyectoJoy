@@ -15,6 +15,8 @@ namespace SistemaFact
     {
         cFunciones fun;
         DataTable tbDetalle;
+        Boolean AgregaCodigoBarra;
+        Boolean AgregaCodigoBarra2;
         public FrmPresupuesto()
         {
             InitializeComponent();
@@ -42,7 +44,10 @@ namespace SistemaFact
                     BuscarPresupuesto (CodPresupuesto);
                 }
             }
-               
+            AgregaCodigoBarra = false;
+            AgregaCodigoBarra2 = false;
+
+
         }
 
         private void cmbProvincia_RightToLeftChanged(object sender, EventArgs e)
@@ -146,6 +151,7 @@ namespace SistemaFact
                             txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
                             txtPrecio.Text = fun.FormatoEnteroMiles(txtPrecio.Text);
                         }
+                        txtCodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
 
                     }
                 }
@@ -206,6 +212,9 @@ namespace SistemaFact
             txtCodJoya.Text = "";
             txtPrecio.Text = "";
             txtCantidad.Text = "";
+            txtCodigoBarra.Text = "";
+            AgregaCodigoBarra = false;
+            AgregaCodigoBarra2 = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -611,6 +620,114 @@ namespace SistemaFact
                 txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
                 txtNroDocumento.Text = trdo.Rows[0]["NroDocumento"].ToString();
             }
+        }
+
+        private void txtCodigoBarra_TextAlignChanged(object sender, EventArgs e)
+        {
+            string Codigo = txtCodigoBarra.Text;
+            int b = 0;
+            if (Codigo.Length > 8)
+            {
+                cJoya joya = new cJoya();
+                DataTable trdo = joya.GetJoyaxCodigoBarra(Codigo);
+                if (trdo.Rows.Count > 0)
+                {
+                    if (trdo.Rows[0]["CodJoya"].ToString() != "")
+                    {
+                        b = 1;
+                        txtCodJoya.Text = trdo.Rows[0]["CodJoya"].ToString();
+                        txtNombreJoya.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txtStock.Text = trdo.Rows[0]["Stock"].ToString();
+                        txtPrecio.Text = trdo.Rows[0]["PrecioVenta"].ToString();
+                        if (trdo.Rows[0]["CodTipo"].ToString() != "")
+                        {
+                            cmbTipo.SelectedValue = trdo.Rows[0]["CodTipo"].ToString();
+                        }
+                        if (txtPrecio.Text != "")
+                        {
+                            txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
+                            txtPrecio.Text = fun.FormatoEnteroMiles(txtPrecio.Text);
+                        }
+
+                    }
+                }
+            }
+            if (b == 0)
+            {
+                txtCodJoya.Text = "";
+                txtNombreJoya.Text = "";
+                txtStock.Text = "";
+                txtCodigoBarra.Text = "";
+                if (cmbTipo.Items.Count > 0)
+                    cmbTipo.SelectedIndex = 0;
+            }
+        }
+
+        private void txtCodigoBarra_TabStopChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
+        {
+            string Codigo = txtCodigoBarra.Text;
+            int b = 0;
+            if (Codigo.Length > 8)
+            {
+                cJoya joya = new cJoya();
+                DataTable trdo = joya.GetJoyaxCodigoBarra(Codigo);
+                if (trdo.Rows.Count > 0)
+                {
+                    if (trdo.Rows[0]["CodJoya"].ToString() != "")
+                    {
+                        b = 1;
+                        txtCodJoya.Text = trdo.Rows[0]["CodJoya"].ToString();
+                        txtNombreJoya.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txtStock.Text = trdo.Rows[0]["Stock"].ToString();
+                        txtPrecio.Text = trdo.Rows[0]["PrecioVenta"].ToString();
+                        if (trdo.Rows[0]["CodTipo"].ToString() != "")
+                        {
+                            cmbTipo.SelectedValue = trdo.Rows[0]["CodTipo"].ToString();
+                        }
+                        if (txtPrecio.Text != "")
+                        {
+                            txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
+                            txtPrecio.Text = fun.FormatoEnteroMiles(txtPrecio.Text);
+                        }
+                        AgregaCodigoBarra = true;
+                    }
+                }
+            }
+            if (b == 0)
+            {
+                txtCodJoya.Text = "";
+                txtNombreJoya.Text = "";
+                txtStock.Text = "";
+                if (cmbTipo.Items.Count > 0)
+                    cmbTipo.SelectedIndex = 0;
+            }
+        }
+
+        private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (AgregaCodigoBarra == true)
+            {
+                if (AgregaCodigoBarra2 == true)
+                {
+                    if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                    {
+                        Agregar();
+                        txtCodigo.Focus();
+                    }
+                }
+                else
+                {
+                    AgregaCodigoBarra2 = true;
+                }
+               
+            }
+            
+           
         }
     }
 }
