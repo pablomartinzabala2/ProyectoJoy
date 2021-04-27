@@ -56,7 +56,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFact.ReportePresupuestoJoyas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(1, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(821, 643);
+            this.reportViewer1.Size = new System.Drawing.Size(795, 654);
             this.reportViewer1.TabIndex = 0;
             // 
             // DataTable1TableAdapter
@@ -67,7 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 649);
+            this.ClientSize = new System.Drawing.Size(798, 638);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmVerReportePresupuesto";
             this.Text = "FrmVerReportePresupuesto";
