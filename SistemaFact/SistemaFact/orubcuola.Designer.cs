@@ -31,8 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPresupuesto));
             this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtFechaRendicion = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
@@ -92,8 +90,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtCodigoBarra);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtFechaRendicion);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.Grilla);
@@ -126,24 +122,6 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
-            // 
-            // txtCodigoBarra
-            // 
-            this.txtCodigoBarra.Location = new System.Drawing.Point(344, 36);
-            this.txtCodigoBarra.Name = "txtCodigoBarra";
-            this.txtCodigoBarra.Size = new System.Drawing.Size(145, 23);
-            this.txtCodigoBarra.TabIndex = 109;
-            this.txtCodigoBarra.TextChanged += new System.EventHandler(this.txtCodigoBarra_TextChanged);
-            this.txtCodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoBarra_KeyPress);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(247, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 17);
-            this.label13.TabIndex = 108;
-            this.label13.Text = "Código Barra";
             // 
             // txtFechaRendicion
             // 
@@ -206,14 +184,14 @@
             // 
             this.txtNombreJoya.Location = new System.Drawing.Point(92, 65);
             this.txtNombreJoya.Name = "txtNombreJoya";
-            this.txtNombreJoya.Size = new System.Drawing.Size(205, 23);
+            this.txtNombreJoya.Size = new System.Drawing.Size(405, 23);
             this.txtNombreJoya.TabIndex = 101;
             // 
             // cmbTipo
             // 
             this.cmbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(378, 64);
+            this.cmbTipo.Location = new System.Drawing.Point(305, 33);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(184, 24);
             this.cmbTipo.TabIndex = 100;
@@ -221,7 +199,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(303, 65);
+            this.label15.Location = new System.Drawing.Point(234, 36);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(69, 17);
             this.label15.TabIndex = 99;
@@ -303,7 +281,6 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label4
             // 
@@ -605,7 +582,5 @@
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.MaskedTextBox txtFechaRendicion;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCodigoBarra;
-        private System.Windows.Forms.Label label13;
     }
 }

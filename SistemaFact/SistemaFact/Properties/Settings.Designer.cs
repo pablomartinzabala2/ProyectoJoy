@@ -56,7 +56,18 @@ namespace SistemaFact.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=JOY;Integrated Security=Tr" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=ISAUI;Integrated Security=" +
+            "True")]
+        public string ISAUIConnectionString {
+            get {
+                return ((string)(this["ISAUIConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-I0OF5F9\\SQLEXPRESS;Initial Catalog=JOY;Integrated Security=Tr" +
             "ue")]
         public string JOYConnectionString1 {
             get {
@@ -67,11 +78,11 @@ namespace SistemaFact.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=ISAUI;Integrated Security=" +
-            "True")]
-        public string ISAUIConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=JOY;Integrated Security=Tr" +
+            "ue")]
+        public string JOYConnectionString2 {
             get {
-                return ((string)(this["ISAUIConnectionString"]));
+                return ((string)(this["JOYConnectionString2"]));
             }
         }
     }

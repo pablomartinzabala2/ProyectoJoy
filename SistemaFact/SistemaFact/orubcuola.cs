@@ -15,8 +15,6 @@ namespace SistemaFact
     {
         cFunciones fun;
         DataTable tbDetalle;
-        Boolean PuedeAgregarCodigoBarra;
-        Boolean PuedeAgregarCodigoBarra2;
         public FrmPresupuesto()
         {
             InitializeComponent();
@@ -32,20 +30,10 @@ namespace SistemaFact
             fun = new Clases.cFunciones();
             fun.LlenarCombo(cmbProvincia, "Provincia","Nombre","CodProvincia");
             fun.LlenarCombo(cmbTipo ,"Tipo","Nombre","CodTipo");
-            string Col = "CodPresupuesto;CodJoya;Nombre;Tipo;Cantidad;Precio;SubTotal";
+            string Col = "CodPresupuesto;CodJoya;Nombre;Tipo;Cantidad;Precio";
             tbDetalle = fun.CrearTabla(Col);
             fun.EstiloBotones(btnGrabar);
             txtFecha.Text = DateTime.Now.ToShortDateString();
-            if (Principal.CodigoPrincipalAbm !=null)
-            {
-                if (Principal.CodigoPrincipalAbm != null)
-                {
-                    Int32 CodPresupuesto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
-                    BuscarPresupuesto (CodPresupuesto);
-                }
-            }
-            PuedeAgregarCodigoBarra = false;
-            PuedeAgregarCodigoBarra2 = false;  
         }
 
         private void cmbProvincia_RightToLeftChanged(object sender, EventArgs e)
@@ -160,7 +148,6 @@ namespace SistemaFact
                 txtStock.Text = "";
                 if (cmbTipo.Items.Count >0)
                     cmbTipo.SelectedIndex = 0;
-                txtCodigoBarra.Text = "";
             }
         }
 
@@ -185,34 +172,19 @@ namespace SistemaFact
             string CodPresupuesto = "0";
             Int32 CodJoya = Convert.ToInt32(txtCodJoya.Text);
             string Nombre = txtNombreJoya.Text;
-            string Precio = "0";
+            string Precio = txtPrecio.Text;
             string Tipo = cmbTipo.Text;
             string Cantidad = "1";
-            Double SubTotal = 0;
-            if (txtCantidad.Text !="")
-            {
-                Cantidad = txtCantidad.Text;
-            }
-            if (txtPrecio.Text !="")
-            {
-                Precio = txtPrecio.Text;
-            }
-            SubTotal = Convert.ToDouble(Cantidad) * Convert.ToDouble(Precio);
             string val = CodPresupuesto + ";" + CodJoya + ";" + Nombre + ";" + Tipo;
             val = val + ";" + Cantidad + ";" + Precio;
-            val = val + ";" + SubTotal.ToString();
             tbDetalle = fun.AgregarFilas(tbDetalle, val);
             Grilla.DataSource = tbDetalle;
-            fun.AnchoColumnas(Grilla, "0;0;30;25;15;15;15");
-            Double Total = fun.TotalizarColumna(tbDetalle, "SubTotal");
+            fun.AnchoColumnas(Grilla, "0;0;40;30;15;15");
+            Double Total = fun.TotalizarColumna(tbDetalle, "Precio");
             txtTotal.Text = Total.ToString();
             txtCodigo.Text = "";
             txtCodJoya.Text = "";
             txtPrecio.Text = "";
-            txtCantidad.Text = "";
-            txtCodigoBarra.Text = "";
-            PuedeAgregarCodigoBarra = false;
-            PuedeAgregarCodigoBarra2 = false;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -273,7 +245,7 @@ namespace SistemaFact
             Double Precio = 0;
             Int32 Cantidad = 0;
             DateTime? FechaRendicion = null;
-            Double SubTotal = 0;
+           
             Double Total = 0;
             if (txtTotal.Text != "")
                 Total = Convert.ToDouble(txtTotal.Text);
@@ -282,7 +254,6 @@ namespace SistemaFact
                 FechaRendicion = Convert.ToDateTime(txtFechaRendicion.Text);
             }
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
-            int Orden = 1;
             cPresupuesto pre = new cPresupuesto();
             try
             {
@@ -309,9 +280,8 @@ namespace SistemaFact
                     CodJoya = Convert.ToInt32(tbDetalle.Rows[i]["CodJoya"].ToString());
                     Precio = Convert.ToDouble(tbDetalle.Rows[i]["Precio"].ToString());
                     Cantidad = Convert.ToInt32(tbDetalle.Rows[i]["Cantidad"].ToString());
-                    SubTotal = Convert.ToDouble(tbDetalle.Rows[i]["SubTotal"].ToString());
-                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodJoya,SubTotal,Orden);
-                    Orden++; 
+                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodJoya);
+
                 }
                 Transaccion.Commit();
                 con.Close();
@@ -562,122 +532,6 @@ namespace SistemaFact
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 txtDireccion.Focus();
-            }
-        }
-
-        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                Agregar();
-                txtCodigo.Focus();
-            }
-        }
-
-        private void BuscarPresupuesto(Int32 CodPresupuesto)
-        {
-            cDetallePresupuesto det = new Clases.cDetallePresupuesto();
-            DataTable trdo = det.getJoyasxPresupuesto(CodPresupuesto);
-            string CodJoya = "";
-            string Nombre = "";
-            string Tipo = "";
-            string Cantidad = "";
-            string Precio = "";
-            string SubTotal = "";
-            string val = "";
-            for (int i = 0; i < trdo.Rows.Count; i++)
-            {
-                CodJoya = trdo.Rows[i]["CodJoya"].ToString();
-                Nombre = trdo.Rows[i]["Nombre"].ToString();
-                Tipo = trdo.Rows[i]["Tipo"].ToString();
-                Cantidad = trdo.Rows[i]["Cantidad"].ToString();
-                Precio = trdo.Rows[i]["Precio"].ToString();
-                SubTotal = trdo.Rows[i]["SubTotal"].ToString();
-                val = CodPresupuesto.ToString() + ";" + CodJoya + ";" + Nombre + ";" + Tipo;
-                val = val + ";" + Cantidad + ";" + Precio;
-                val = val + ";" + SubTotal.ToString();
-                tbDetalle = fun.AgregarFilas(tbDetalle, val);
-            }
-            Grilla.DataSource = tbDetalle;
-            fun.AnchoColumnas(Grilla, "0;0;30;25;15;15;15");
-            Double Total = fun.TotalizarColumna(tbDetalle, "SubTotal");
-            txtTotal.Text = Total.ToString();
-            GetVendedor(CodPresupuesto);        
-        }
-
-        private void GetVendedor(Int32 CodPresupuesto)
-        {
-            cVendedor ven = new Clases.cVendedor();
-            DataTable trdo = ven.GetVendedorxCodPresupuesto(CodPresupuesto);
-            if (trdo.Rows.Count > 0)
-            {
-                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
-                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                txtCodVendedor.Text = trdo.Rows[0]["CodVendedor"].ToString();
-                txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-                txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
-                txtNroDocumento.Text = trdo.Rows[0]["NroDocumento"].ToString();
-            }
-        }
-
-        private void txtCodigoBarra_TextChanged(object sender, EventArgs e)
-        {
-            string Codigo = txtCodigoBarra.Text;
-            int b = 0;
-            if (Codigo.Length > 3)
-            {
-                cJoya joya = new cJoya();
-                DataTable trdo = joya.GetJoyaxCodigoBarra(Codigo);
-                if (trdo.Rows.Count > 0)
-                {
-                    if (trdo.Rows[0]["CodJoya"].ToString() != "")
-                    {
-                        b = 1;
-                        txtCodJoya.Text = trdo.Rows[0]["CodJoya"].ToString();
-                        txtCodigo.Text = trdo.Rows[0]["Codigo"].ToString();
-                        txtNombreJoya.Text = trdo.Rows[0]["Nombre"].ToString();
-                        txtStock.Text = trdo.Rows[0]["Stock"].ToString();
-                        txtPrecio.Text = trdo.Rows[0]["PrecioVenta"].ToString();
-                        if (trdo.Rows[0]["CodTipo"].ToString() != "")
-                        {
-                            cmbTipo.SelectedValue = trdo.Rows[0]["CodTipo"].ToString();
-                        }
-                        if (txtPrecio.Text != "")
-                        {
-                            txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
-                            txtPrecio.Text = fun.FormatoEnteroMiles(txtPrecio.Text);
-                        }
-                        PuedeAgregarCodigoBarra = true;
-                    }
-                }
-            }
-            if (b == 0)
-            {
-                txtCodJoya.Text = "";
-                txtNombreJoya.Text = "";
-                txtStock.Text = "";
-                if (cmbTipo.Items.Count > 0)
-                    cmbTipo.SelectedIndex = 0;
-            }
-        }
-
-        private void txtCodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                if (PuedeAgregarCodigoBarra ==true)
-                {
-                    if (PuedeAgregarCodigoBarra2==true)
-                    {
-                        Agregar();
-                    }
-                    else
-                    {
-                        PuedeAgregarCodigoBarra2 = true;
-                    }
-                }
-               
-                txtCodigo.Focus();
             }
         }
     }

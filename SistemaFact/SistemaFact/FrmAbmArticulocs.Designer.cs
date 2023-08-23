@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmArticulocs));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_CodTipo = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.txt_CodigoBarra = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
@@ -81,6 +81,15 @@
             this.Grupo.TabIndex = 18;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 17);
+            this.label5.TabIndex = 32;
+            this.label5.Text = "Codigo Barra";
             // 
             // label3
             // 
@@ -144,7 +153,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(334, 83);
+            this.txtCodigo.Location = new System.Drawing.Point(448, 78);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(41, 23);
             this.txtCodigo.TabIndex = 23;
@@ -286,21 +295,12 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 188);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 17);
-            this.label5.TabIndex = 31;
-            this.label5.Text = "Codigo Barra";
-            // 
             // txt_CodigoBarra
             // 
-            this.txt_CodigoBarra.Location = new System.Drawing.Point(114, 188);
+            this.txt_CodigoBarra.Location = new System.Drawing.Point(120, 183);
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
-            this.txt_CodigoBarra.Size = new System.Drawing.Size(236, 23);
-            this.txt_CodigoBarra.TabIndex = 32;
+            this.txt_CodigoBarra.Size = new System.Drawing.Size(230, 23);
+            this.txt_CodigoBarra.TabIndex = 33;
             // 
             // FrmAbmArticulocs
             // 
@@ -345,7 +345,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmb_CodTipo;
-        private System.Windows.Forms.TextBox txt_CodigoBarra;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_CodigoBarra;
     }
 }
